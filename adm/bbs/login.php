@@ -1,5 +1,5 @@
 <?php
-    include_once('../head.php');
+    include_once('../head.php'); 
 ?>
     <link rel="stylesheet" type="text/css" href="../css/login.css" rel="stylesheet" />
 

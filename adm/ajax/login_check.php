@@ -18,6 +18,7 @@ $is_admin = 1;
 
 while($list_row=$login_stt->fetch()){
     if($login_id == $list_row['login_id'] && password_verify( $password , $list_row['password'] )){
+        echo "ASDFASDF";
         $_SESSION['manager_id'] = $list_row['login_id'];
         ?>
         <meta http-equiv="refresh" content="0;url=../apply_list.php" />
