@@ -21,7 +21,7 @@ while($list_row=$login_stt->fetch()){
         echo "ASDFASDF";
         $_SESSION['manager_id'] = $list_row['login_id'];
         ?>
-        <meta http-equiv="refresh" content="0;url=../apply_list.php" />
+        <meta http-equiv="refresh" content="0;url=../home.php" />
         <?php
     }else{
         echo "<script type='text/javascript'>";
