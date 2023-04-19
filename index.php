@@ -1,19 +1,20 @@
 <?php
 include_once('head.php');
 
-function get_client_ip() {
+function get_client_ip()
+{
     $ipaddress = '';
     if (getenv('HTTP_CLIENT_IP'))
         $ipaddress = getenv('HTTP_CLIENT_IP');
-    else if(getenv('HTTP_X_FORWARDED_FOR'))
+    else if (getenv('HTTP_X_FORWARDED_FOR'))
         $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
-    else if(getenv('HTTP_X_FORWARDED'))
+    else if (getenv('HTTP_X_FORWARDED'))
         $ipaddress = getenv('HTTP_X_FORWARDED');
-    else if(getenv('HTTP_FORWARDED_FOR'))
+    else if (getenv('HTTP_FORWARDED_FOR'))
         $ipaddress = getenv('HTTP_FORWARDED_FOR');
-    else if(getenv('HTTP_FORWARDED'))
+    else if (getenv('HTTP_FORWARDED'))
         $ipaddress = getenv('HTTP_FORWARDED');
-    else if(getenv('REMOTE_ADDR'))
+    else if (getenv('REMOTE_ADDR'))
         $ipaddress = getenv('REMOTE_ADDR');
     else
         $ipaddress = 'UNKNOWN';
@@ -23,44 +24,126 @@ function get_client_ip() {
 
 
 //팝업 출력하기 위한 sql문
-$popup_sql = "select * from popup_tbl order by id";
-$popup_stt=$db_conn->prepare($popup_sql);
+$popup_sql = "select * from popup_tbl where `end_date` > NOW() order by id ";
+$popup_stt = $db_conn->prepare($popup_sql);
 $popup_stt->execute();
 
 $today = date("Y-m-d H:i:s");
-var_dump($today);
 $view_sql = "insert into view_log_tbl
                               (view_cnt,  reg_date)
                          value
                               (? ,?)";
 
-
 $db_conn->prepare($view_sql)->execute(
-    [1, $today]);
-
-
+    [1, $today]
+);
 ?>
+
 <link rel="stylesheet" type="text/css" href="css/index.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="css/reset.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 <script src='https://www.google.com/recaptcha/api.js'></script>
-
-
 
 
 <!-- layer popup -->
 <?
-while($popup=$popup_stt->fetch()){
+$arr = array();
+$left_count = 0;
+$top = 10;
+$top2 = 10;
+$z_index = 9999;
+while ($popup = $popup_stt->fetch()) {
+    $arr[] = $popup['id'];
     ?>
-    <div class="layer-popup popup<?= $popup['id'] ?>" id="popup<?= $popup['id'] ?>" style="display: block; width: <?= $popup['width'] ?>px; height: <?= $popup['height'] ?>px;">
-        <button type="button" class="close-popup" onclick="hidePopup('<?= $popup['id'] ?>');"><i class="fas fa-times"></i></button>
-        <img src="/data/popup/<?= $popup['file_name'] ?>" style="height:calc(<?= $popup['height'] ?>px - 36px);" alt="<?= $popup['popup_name'] ?>">
-        <div class="show-chk-wrap">
-            <input class="pid" value="<?= $popup['id'] ?>" type="hidden">
-            <span class="modal-today-close">24시간동안 보지않기</span>
+    <div class="layer-popup pc"
+        style="display: block; width: 80%; max-width: <?= $popup['width'] ?>px; height: <?= $popup['height'] ?>px; top: 10%; left: 5%; z-index: <?= $z_index ?>;">
+        <div id="agreePopup<?= $popup['id'] ?>" class="agree-popup-frame">
+            <img src="data/popup/<?= $popup['file_name'] ?>" style=" height:calc(<?= $popup['height'] ?>px - 36px);"
+                alt="<?= $popup['popup_name'] ?>">
+            <div class="show-chk-wrap">
+                <a href="javascript:todayClose('agreePopup<?= $popup['id'] ?>', 1);" class="today-x-btn">오늘하루닫기</a>
+                <a class="close-popup x-btn">닫기</a>
+            </div>
         </div>
     </div>
-<? } ?>
+
+    <div class="layer-popup mobile"
+        style="display: block; width: 80%; max-width: <?= $popup['width2'] ?>px; height: <?= $popup['height2'] ?>px; top: 10%; left: 10%; z-index: <?= $z_index ?>;">
+        <div id="agreePopup_mo<?= $popup['id'] ?>" class="agree-popup-frame">
+            <img src="data/popup/<?= $popup['file_name2'] ?>" style=" height:calc(<?= $popup['height'] ?>px - 36px);"
+                alt="<?= $popup['popup_name'] ?>">
+            <div class="show-chk-wrap">
+                <a href="javascript:todayClose('agreePopup_mo<?= $popup['id'] ?>', 1);" class="today-x-btn">오늘하루닫기</a>
+                <a class="close-popup x-btn">닫기</a>
+            </div>
+        </div>
+    </div>
+    <?
+    $z_index -= 1;
+    $top += 10;
+    $top2 += 15;
+}
+?>
+
+<script>
+    // * today popup close
+    $(document).ready(function () {
+        <?
+        for ($i = 0; $i < count($arr); $i++) {
+            ?>
+            todayOpen('agreePopup<?= $arr[$i] ?>');
+            todayOpen('agreePopup_mo<?= $arr[$i] ?>');
+        <? } ?>
+        $(".close-popup").click(function () {
+            $(this).parent().parent().hide();
+        });
+    });
+
+    // 창열기
+    function todayOpen(winName) {
+        var blnCookie = getCookie(winName);
+        var obj = eval("window." + winName);
+        console.log(blnCookie);
+        if (blnCookie != "expire") {
+            $('#' + winName).show();
+        } else {
+            $('#' + winName).hide();
+        }
+    }
+    // 창닫기
+    function todayClose(winName, expiredays) {
+        setCookie(winName, "expire", expiredays);
+        var obj = eval("window." + winName);
+        $('#' + winName).hide();
+    }
+
+    // 쿠키 가져오기
+    function getCookie(name) {
+        var nameOfCookie = name + "=";
+        var x = 0;
+        while (x <= document.cookie.length) {
+            var y = (x + nameOfCookie.length);
+            if (document.cookie.substring(x, y) == nameOfCookie) {
+                if ((endOfCookie = document.cookie.indexOf(";", y)) == -1)
+                    endOfCookie = document.cookie.length;
+                return unescape(document.cookie.substring(y, endOfCookie));
+            }
+            x = document.cookie.indexOf(" ", x) + 1;
+            if (x == 0)
+                break;
+        }
+        return "";
+    }
+
+    // 24시간 기준 쿠키 설정하기
+    // 만료 후 클릭한 시간까지 쿠키 설정
+    function setCookie(name, value, expiredays) {
+        var todayDate = new Date();
+        todayDate.setDate(todayDate.getDate() + expiredays);
+        document.cookie = name + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+    }
+</script>
 
 <audio id="audio" autoplay type="audio/mp3">
     <source src="bgm.mp3">
@@ -104,13 +187,13 @@ while($popup=$popup_stt->fetch()){
 
 
 <script>
-    $(document).ready(function(){
-        $('.menu-open').click(function (){
+    $(document).ready(function () {
+        $('.menu-open').click(function () {
             $(".sidebar-wrap").animate({
                 width: 500
             });
         });
-        $('.menu-close').click(function (){
+        $('.menu-close').click(function () {
             $(".sidebar-wrap").animate({
                 width: 0
             });
@@ -128,53 +211,53 @@ while($popup=$popup_stt->fetch()){
     <img class="right" src="img/page1-right.png">
 </div>
 <div class="content page1-1"">
-<img class="bg" src="img/veg-bg.png">
-<img class="tit" src="img/page1-1-tit.png">
-<div class="content-wrap">
-    <img class="content-tit" src="img/page1-1-tit1.png">
-    <div class="kit-wrap">
-        <img class="" src="img/kit01.png">
-        <img class="" src="img/kit02.png">
-        <img class="" src="img/kit03.png">
-        <img class="" src="img/kit04.png">
-        <img class="" src="img/kit05.png">
-        <img class="" src="img/kit06.png">
-        <img class="" src="img/kit07.png">
-        <img class="" src="img/kit08.png">
-    </div>
-</div>
-<div class="content-wrap">
-    <img class="content-tit" src="img/page1-1-tit2.png">
-</div>
-<div class="banchan-slide-wrap">
-    <div class="banchan-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="img/banchan1.png"></div>
-            <div class="swiper-slide"><img src="img/banchan2.png"></div>
-            <div class="swiper-slide"><img src="img/banchan3.png"></div>
-            <div class="swiper-slide"><img src="img/banchan4.png"></div>
-            <div class="swiper-slide"><img src="img/banchan5.png"></div>
-            <div class="swiper-slide"><img src="img/banchan6.png"></div>
-            <div class="swiper-slide"><img src="img/banchan7.png"></div>
-            <div class="swiper-slide"><img src="img/banchan9.png"></div>
-            <div class="swiper-slide"><img src="img/banchan10.png"></div>
-            <div class="swiper-slide"><img src="img/banchan11.png"></div>
+<img class=" bg" src="img/veg-bg.png">
+    <img class="tit" src="img/page1-1-tit.png">
+    <div class="content-wrap">
+        <img class="content-tit" src="img/page1-1-tit1.png">
+        <div class="kit-wrap">
+            <img class="" src="img/kit01.png">
+            <img class="" src="img/kit02.png">
+            <img class="" src="img/kit03.png">
+            <img class="" src="img/kit04.png">
+            <img class="" src="img/kit05.png">
+            <img class="" src="img/kit06.png">
+            <img class="" src="img/kit07.png">
+            <img class="" src="img/kit08.png">
         </div>
     </div>
-</div>
-
-<img class="sub-tit" src="img/page1-1-sub-tit.png">
-
-<div class="content-wrap">
-    <img class="content-tit" src="img/page1-1-tit3.png">
-    <div class="cafe-wrap">
-        <img class="" src="img/page1-1-cafe1.png">
-        <img class="" src="img/page1-1-cafe2.png">
-        <img class="" src="img/page1-1-cafe3.png">
-        <img class="" src="img/page1-1-cafe4.png">
+    <div class="content-wrap">
+        <img class="content-tit" src="img/page1-1-tit2.png">
     </div>
-</div>
-<img class="bottom" src="img/page1-1-bottom-tit.png">
+    <div class="banchan-slide-wrap">
+        <div class="banchan-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="img/banchan1.png"></div>
+                <div class="swiper-slide"><img src="img/banchan2.png"></div>
+                <div class="swiper-slide"><img src="img/banchan3.png"></div>
+                <div class="swiper-slide"><img src="img/banchan4.png"></div>
+                <div class="swiper-slide"><img src="img/banchan5.png"></div>
+                <div class="swiper-slide"><img src="img/banchan6.png"></div>
+                <div class="swiper-slide"><img src="img/banchan7.png"></div>
+                <div class="swiper-slide"><img src="img/banchan9.png"></div>
+                <div class="swiper-slide"><img src="img/banchan10.png"></div>
+                <div class="swiper-slide"><img src="img/banchan11.png"></div>
+            </div>
+        </div>
+    </div>
+
+    <img class="sub-tit" src="img/page1-1-sub-tit.png">
+
+    <div class="content-wrap">
+        <img class="content-tit" src="img/page1-1-tit3.png">
+        <div class="cafe-wrap">
+            <img class="" src="img/page1-1-cafe1.png">
+            <img class="" src="img/page1-1-cafe2.png">
+            <img class="" src="img/page1-1-cafe3.png">
+            <img class="" src="img/page1-1-cafe4.png">
+        </div>
+    </div>
+    <img class="bottom" src="img/page1-1-bottom-tit.png">
 </div>
 <div class="content page2" id="menu2">
     <div class="receipt-slide-wrap">
@@ -212,7 +295,10 @@ while($popup=$popup_stt->fetch()){
     </div>
     <div class="video-container">
         <div class="video-wrap">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/jIb_Lz8K6gU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/jIb_Lz8K6gU"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
         </div>
     </div>
     <img class="cb-icon" src="img/page3-cb.png">
@@ -265,23 +351,23 @@ while($popup=$popup_stt->fetch()){
         <img src="img/page6-map5.png">
     </div>
     <img class="tit" src="img/page6-tit.png">
-    <img class="pic" src="img/page6-pic.png"/>
+    <img class="pic" src="img/page6-pic.png" />
 </div>
 <div class="content page7" id="menu4">
-    <img class="tit" src="img/page7-tit.png"/>
-    <img class="content-img" src="img/page7-img1.png"/>
-    <img class="content-img" src="img/page7-img2.png"/>
-    <img class="content-img" src="img/page7-img3.png"/>
-    <img class="content-img" src="img/page7-img4.png"/>
-    <img class="content-img" src="img/page7-img5.png"/>
+    <img class="tit" src="img/page7-tit.png" />
+    <img class="content-img" src="img/page7-img1.png" />
+    <img class="content-img" src="img/page7-img2.png" />
+    <img class="content-img" src="img/page7-img3.png" />
+    <img class="content-img" src="img/page7-img4.png" />
+    <img class="content-img" src="img/page7-img5.png" />
 </div>
 <div class="content page8">
-    <img class="tit" src="img/page8-tit.png"/>
-    <img class="table" src="img/page8-table.png"/>
-    <img class="chart" src="img/page8-chart.png"/>
+    <img class="tit" src="img/page8-tit.png" />
+    <img class="table" src="img/page8-table.png" />
+    <img class="chart" src="img/page8-chart.png" />
 </div>
 <div class="content page9">
-    <img class="tit" src="img/page9-img.png"/>
+    <img class="tit" src="img/page9-img.png" />
 </div>
 
 <form name="contact_form" id="contact_form" method="post" action="contact_write.php" onsubmit="return FormSubmit();">
@@ -349,8 +435,8 @@ while($popup=$popup_stt->fetch()){
                     개인 정보 취급 방침에 동의
                 </label>
             </div>
-            <input type="submit" value="창업 문의하기" onclick="sendTo();"/>
-<!--            <div class="g-recaptcha" style="margin-top: 10px" data-sitekey="6LcsckgfAAAAANUAAKdtrsI1S-AaLZbhoPJLN41k"></div>-->
+            <input type="submit" value="창업 문의하기" onclick="sendTo();" />
+            <!--            <div class="g-recaptcha" style="margin-top: 10px" data-sitekey="6LcsckgfAAAAANUAAKdtrsI1S-AaLZbhoPJLN41k"></div>-->
         </div>
     </div>
 </form>
@@ -359,7 +445,8 @@ while($popup=$popup_stt->fetch()){
 <div class="floating-container">
     <div class="floating-wrap">
         <div class="right-wrap item">
-            <div class="item-wrap" id="call" onclick="location.href='tel:031-932-2030'" onMouseDown="javascript:_PL('http://www.yevans.com/call.php');">
+            <div class="item-wrap" id="call" onclick="location.href='tel:031-932-2030'"
+                onMouseDown="javascript:_PL('http://www.yevans.com/call.php');">
                 <div class="icon-wrap">
                     <i class="fas fa-phone-alt"></i>
                 </div>
@@ -389,7 +476,10 @@ while($popup=$popup_stt->fetch()){
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" width="100%" height="315" src="https://www.youtube.com/embed/XcYxluLQwxE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="embed-responsive-item" width="100%" height="315"
+                            src="https://www.youtube.com/embed/XcYxluLQwxE" title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -398,7 +488,8 @@ while($popup=$popup_stt->fetch()){
 </div>
 
 <div class="modal-container">
-    <div class="modal fade" id="agreeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="agreeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -424,13 +515,13 @@ while($popup=$popup_stt->fetch()){
 
 
 
-    $(document).ready(function(){
+    $(document).ready(function () {
 
         var $w = $(window),
             footerHei = $('.contact-wrap').outerHeight(),
             $floating = $('.floating-container');
 
-        $w.on('scroll', function() {
+        $w.on('scroll', function () {
 
             var sT = $w.scrollTop();
             var val = $(document).height() - $w.height() - footerHei;
@@ -444,14 +535,14 @@ while($popup=$popup_stt->fetch()){
 
         // popup //
         var noticeCookie = getCookie("name");  // 쿠키 가져오기
-        if (noticeCookie == "value"){
+        if (noticeCookie == "value") {
             // 팝업창 띄우기
 
         }
 
 
     });
-    $(function(){
+    $(function () {
 
         var banchan = new Swiper(".banchan-container", {
             slidesPerView: 3,
@@ -461,15 +552,15 @@ while($popup=$popup_stt->fetch()){
                 disableOnInteraction: false,
             },
             breakpoints: {
-                0:{
+                0: {
                     slidesPerView: 3,
                     spaceBetween: 10
                 },
-                768:{
+                768: {
                     slidesPerView: 5,
                     spaceBetween: 20
                 },
-                1024:{
+                1024: {
                     slidesPerView: 6,
                     spaceBetween: 20
                 },
@@ -484,15 +575,15 @@ while($popup=$popup_stt->fetch()){
                 disableOnInteraction: false,
             },
             breakpoints: {
-                0:{
+                0: {
                     slidesPerView: 2.8,
                     spaceBetween: 10
                 },
-                768:{
+                768: {
                     slidesPerView: 3.8,
                     spaceBetween: 20
                 },
-                1024:{
+                1024: {
                     slidesPerView: 5.8,
                     spaceBetween: 20
                 },
@@ -507,15 +598,15 @@ while($popup=$popup_stt->fetch()){
                 disableOnInteraction: false,
             },
             breakpoints: {
-                0:{
+                0: {
                     slidesPerView: 1.7,
                     spaceBetween: 10
                 },
-                768:{
+                768: {
                     slidesPerView: 2.7,
                     spaceBetween: 20
                 },
-                1024:{
+                1024: {
                     slidesPerView: 3.7,
                     spaceBetween: 20
                 },
@@ -529,15 +620,15 @@ while($popup=$popup_stt->fetch()){
                 disableOnInteraction: false,
             },
             breakpoints: {
-                0:{
+                0: {
                     slidesPerView: 2.7,
                     spaceBetween: 10
                 },
-                768:{
+                768: {
                     slidesPerView: 4.7,
                     spaceBetween: 20
                 },
-                1024:{
+                1024: {
                     slidesPerView: 5.7,
                     spaceBetween: 20
                 },
@@ -560,7 +651,7 @@ while($popup=$popup_stt->fetch()){
 
 
     //popup
-    function setCookie(name, value, expiredays){
+    function setCookie(name, value, expiredays) {
         var today = new Date();
         today.setDate(today.getDate() + expiredays);
         document.cookie = name + '=' + escape(value) + '; expires=' + today.toGMTString();
@@ -570,7 +661,7 @@ while($popup=$popup_stt->fetch()){
         var cookie = document.cookie;
         if (document.cookie != "") {
             var cookie_array = cookie.split("; ");
-            for ( var index in cookie_array) {
+            for (var index in cookie_array) {
                 var cookie_name = cookie_array[index].split("=");
                 if (cookie_name[0] == "mycookie") {
                     return cookie_name[1];
@@ -579,9 +670,9 @@ while($popup=$popup_stt->fetch()){
         }
         return;
     }
-    $(".modal-today-close").click(function() {
+    $(".modal-today-close").click(function () {
         var popupId = $(this).siblings('.pid').val();
-        $(".popup"+popupId).modal("hide");
+        $(".popup" + popupId).modal("hide");
         setCookie("mycookie", 'popupEnd', 1);
     });
 
@@ -593,49 +684,49 @@ while($popup=$popup_stt->fetch()){
     function hidePopup(popupType) {
         var showChk = $('#show-chk-' + popupType).is(':checked');
         if (showChk) {
-            setCookie('popup'+popupType, 'Y' , 1 );
+            setCookie('popup' + popupType, 'Y', 1);
         }
         $('.popup' + popupType).fadeOut();
     }
 
     //유튜브 팝업
-    $('.video').click(function(){
+    $('.video').click(function () {
         $('#videoModal').modal('show');
     });
 
     //상담 내역 팝업
-    $('.open-agree').click(function(){
+    $('.open-agree').click(function () {
         $('#agreeModal').modal('show');
     });
 
 </script>
 
 <!--문자 알림-->
-<script type = "text/javascript">
-    function setPhoneNumber(val){
+<script type="text/javascript">
+    function setPhoneNumber(val) {
         var numList = val.split("-");
-        document.smsForm.sphone1.value=numList[0];
-        document.smsForm.sphone2.value=numList[1];
-        if(numList[2] != undefined){
-            document.smsForm.sphone3.value=numList[2];
+        document.smsForm.sphone1.value = numList[0];
+        document.smsForm.sphone2.value = numList[1];
+        if (numList[2] != undefined) {
+            document.smsForm.sphone3.value = numList[2];
         }
     }
-    function loadJSON(){
+    function loadJSON() {
         var data_file = "message_send2.php";
         var http_request = new XMLHttpRequest();
-        try{
+        try {
             // Opera 8.0+, Firefox, Chrome, Safari
             http_request = new XMLHttpRequest();
-        }catch (e){
+        } catch (e) {
             // Internet Explorer Browsers
-            try{
+            try {
                 http_request = new ActiveXObject("Msxml2.XMLHTTP");
 
-            }catch (e) {
+            } catch (e) {
 
-                try{
+                try {
                     http_request = new ActiveXObject("Microsoft.XMLHTTP");
-                }catch (e){
+                } catch (e) {
                     // Eror
                     alert("지원하지 않는브라우저!");
                     return false;
@@ -643,15 +734,15 @@ while($popup=$popup_stt->fetch()){
 
             }
         }
-        http_request.onreadystatechange = function(){
-            if (http_request.readyState == 4  ){
+        http_request.onreadystatechange = function () {
+            if (http_request.readyState == 4) {
                 // Javascript function JSON.parse to parse JSON data
                 var jsonObj = JSON.parse(http_request.responseText);
-                if(jsonObj['result'] == "Success"){
+                if (jsonObj['result'] == "Success") {
                     var aList = jsonObj['list'];
                     var selectHtml = "<select name=\"sendPhone\" onchange=\"setPhoneNumber(this.value)\">";
                     selectHtml += "<option value='' selected>발신번호를 선택해주세요</option>";
-                    for(var i=0; i < aList.length; i++){
+                    for (var i = 0; i < aList.length; i++) {
                         selectHtml += "<option value=\"" + aList[i] + "\">";
                         selectHtml += aList[i];
                         selectHtml += "</option>";
