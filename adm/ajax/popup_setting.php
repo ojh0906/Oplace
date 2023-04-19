@@ -61,7 +61,7 @@ if ($type == 'insert') {
 
                $insert_sql = "insert into popup_tbl
                                         (popup_name, start_date, end_date, width,
-                                        height, file_name, reg_date, file_name2, width2, height2)
+                                        height, file_name, reg_date, file_name_mobile, width_mobile, height_mobile)
                                    value
                                         (?, ?, ?, ?,
                                         ?, ?, ?, ?, ?, ?)";

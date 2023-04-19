@@ -69,9 +69,9 @@ while ($popup = $popup_stt->fetch()) {
     </div>
 
     <div class="layer-popup mobile"
-        style="display: block; width: 80%; max-width: <?= $popup['width2'] ?>px; height: <?= $popup['height2'] ?>px; top: 10%; left: 10%; z-index: <?= $z_index ?>;">
+        style="display: block; width: 80%; max-width: <?= $popup['width_mobile'] ?>px; height: <?= $popup['height_mobile'] ?>px; top: 10%; left: 10%; z-index: <?= $z_index ?>;">
         <div id="agreePopup_mo<?= $popup['id'] ?>" class="agree-popup-frame">
-            <img src="data/popup/<?= $popup['file_name2'] ?>" style=" height:calc(<?= $popup['height'] ?>px - 36px);"
+            <img src="data/popup/<?= $popup['file_name_mobile'] ?>" style=" height:calc(<?= $popup['height'] ?>px - 36px);"
                 alt="<?= $popup['popup_name'] ?>">
             <div class="show-chk-wrap">
                 <a href="javascript:todayClose('agreePopup_mo<?= $popup['id'] ?>', 1);" class="today-x-btn">오늘하루닫기</a>
