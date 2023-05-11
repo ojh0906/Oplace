@@ -1,0 +1,118 @@
+footer {
+  margin: auto;
+  background: #3c3c3c;
+  margin-top: -1px !important;
+}
+
+footer .footer-wrap {
+  padding: 40px 0;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+}
+footer .footer-wrap .logo {
+  max-width: 153px;
+  width: 40%;
+  height: auto;
+  /* 
+    width: 153px;
+  height: 24px; */
+}
+footer .footer-wrap .left-wrap {
+  display: flex;
+  align-items: start;
+  gap: 32px;
+}
+footer .footer-wrap .left-wrap .text-wrap .line1 {
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+}
+
+footer .footer-wrap .left-wrap .text-wrap .line2 {
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  color: #eeeeee;
+  margin-top: 16px;
+}
+footer .footer-wrap .left-wrap .text-wrap .line1 span:nth-child(1) {
+  font-weight: 800;
+}
+footer .footer-wrap .left-wrap .text-wrap .line1 span:nth-child(2),
+footer .footer-wrap .left-wrap .text-wrap .line2 span {
+  color: #999999;
+}
+
+footer .footer-wrap .left-wrap .text-wrap .line1 .line-hr {
+}
+
+footer .footer-wrap .right-wrap {
+  font-family: "Pretendard";
+
+  border-left: 1px solid #555555;
+  padding-left: 40px;
+}
+
+footer .footer-wrap .right-wrap .tit {
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  font-weight: 600;
+}
+footer .footer-wrap .right-wrap .num {
+  margin-top: 4px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #19d6b4;
+}
+footer .footer-wrap .right-wrap .sub-tit {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  color: #eeeeee;
+}
+
+@media (max-width: 1280px) {
+  footer .footer-wrap {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  footer .footer-wrap {
+    flex-wrap: wrap;
+  }
+
+  footer .footer-wrap .left-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 32px;
+    width: 100%;
+  }
+
+  footer .footer-wrap .right-wrap {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid #555555;
+    padding-top: 40px;
+    margin-top: 40px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  footer .footer-wrap .left-wrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

@@ -47,7 +47,7 @@ $db_conn->prepare($view_sql)->execute(
 
 
 <!-- layer popup -->
-<?
+<!-- <?
 $arr = array();
 $left_count = 0;
 $top = 10;
@@ -84,7 +84,7 @@ while ($popup = $popup_stt->fetch()) {
     $top += 10;
     $top2 += 15;
 }
-?>
+?> -->
 
 <script>
     // * today popup close
@@ -145,384 +145,208 @@ while ($popup = $popup_stt->fetch()) {
     }
 </script>
 
-<audio id="audio" autoplay type="audio/mp3">
-    <source src="bgm.mp3">
-</audio>
-<!-- Menu Navi    -->
-<div class="nav-wrap">
-    <img class="logo" src="img/logo-top.png">
-    <div class="pc-menu-wrap">
-        <ul>
-            <li><a href="#menu1">브랜드</a></li>
-            <li><a href="#menu2">경쟁력</a></li>
-            <li><a href="#menu3">상권안내</a></li>
-            <li><a href="#menu4">성공전략</a></li>
-            <li><a href="#menu5">문의하기</a></li>
-        </ul>
+<!-- 메인 페이지 -->
+<section id="main-page">
+    <div class="banner-container">
+        <p class="title">
+            <strong>Concept makes place</strong><br />
+            멋진 장소에는<br class="mo480-br" /> 멋진 컨셉이 있습니다.<br />
+            <span>오!플레이스</span>는<br class="mo480-br" /> 멋진 컨셉을 만드는 곳입니다.
+        </p>
+        <p class="sub-title">
+            빠른 컨셉 개발과 효율적인 비용,<br />
+            공신력 있는 <span>컨셉 개발</span><br />
+            프로필 확보
+        </p>
+        <img class="location" src="img/main/circle-location.png" />
     </div>
-    <i class="fas fa-bars menu-open"></i>
-</div>
-<div class="sidebar-wrap">
-    <div class="menu-container">
-        <div class="close-wrap">
-            <i class="far fa-times-circle menu-close"></i>
-        </div>
-        <div class="menu-wrap">
-            <a href="#menu1">브랜드</a>
-        </div>
-        <div class="menu-wrap">
-            <a href="#menu2">경쟁력</a>
-        </div>
-        <div class="menu-wrap">
-            <a href="#menu3">상권안내</a>
-        </div>
-        <div class="menu-wrap">
-            <a href="#menu4">성공전략</a>
-        </div>
-        <div class="menu-wrap">
-            <a href="#menu5">문의하기</a>
-        </div>
-    </div>
-</div>
 
-
-<script>
-    $(document).ready(function () {
-        $('.menu-open').click(function () {
-            $(".sidebar-wrap").animate({
-                width: 500
-            });
-        });
-        $('.menu-close').click(function () {
-            $(".sidebar-wrap").animate({
-                width: 0
-            });
-        });
-
-    });
-</script>
-
-
-<div class="content page1" id="menu1">
-    <img class="logo" src="img/page1-top-logo.png">
-    <img class="tit" src="img/page1-tit.png">
-    <img class="bottom" src="img/page1-bottom.png">
-    <img class="left" src="img/page1-logo.png">
-    <img class="right" src="img/page1-right.png">
-</div>
-<div class="content page1-1"">
-<img class=" bg" src="img/veg-bg.png">
-    <img class="tit" src="img/page1-1-tit.png">
-    <div class="content-wrap">
-        <img class="content-tit" src="img/page1-1-tit1.png">
-        <div class="kit-wrap">
-            <img class="" src="img/kit01.png">
-            <img class="" src="img/kit02.png">
-            <img class="" src="img/kit03.png">
-            <img class="" src="img/kit04.png">
-            <img class="" src="img/kit05.png">
-            <img class="" src="img/kit06.png">
-            <img class="" src="img/kit07.png">
-            <img class="" src="img/kit08.png">
-        </div>
-    </div>
-    <div class="content-wrap">
-        <img class="content-tit" src="img/page1-1-tit2.png">
-    </div>
-    <div class="banchan-slide-wrap">
-        <div class="banchan-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="img/banchan1.png"></div>
-                <div class="swiper-slide"><img src="img/banchan2.png"></div>
-                <div class="swiper-slide"><img src="img/banchan3.png"></div>
-                <div class="swiper-slide"><img src="img/banchan4.png"></div>
-                <div class="swiper-slide"><img src="img/banchan5.png"></div>
-                <div class="swiper-slide"><img src="img/banchan6.png"></div>
-                <div class="swiper-slide"><img src="img/banchan7.png"></div>
-                <div class="swiper-slide"><img src="img/banchan9.png"></div>
-                <div class="swiper-slide"><img src="img/banchan10.png"></div>
-                <div class="swiper-slide"><img src="img/banchan11.png"></div>
+    <div class="what-is-service-container">
+        <div class="text-wrap">
+            <p class="title">
+                오!플레이스의<br />
+                컨셉개발<br />
+                서비스란?
+            </p>
+            <div>
+                <p class="sub-title">오!플레이스는 플레이스브랜딩연구소(PBI)의 컨셉 개발 사이트입니다.</p>
+                <div>
+                    컨셉이 꼭 필요하고, 컨셉이 있으면 너무 좋은 것은 알지만, 컨셉을 직접 만들기는 어렵고,<br />
+                    그렇다고 컨셉을 전문적으로 만들어 주는 곳도 없습니다.<br />
+                    물론 수천만원의 비용을 받고 한 두달 이상의 시간을 소요하여 만들어 주는 곳은 있습니다만<br />
+                    그동안 컨셉이 없다고 해서 하고 싶은 일을 못한 것은 아니라서, 망설여지는 상황입니다.<br />
+                    오!플레이스는, 이런 안타까움을 타개하기 위해 “플레이스” 즉 사람들이 방문하고 머무르고,<br />
+                    자랑하거나 기억에 남길만한 “장소(곳)”에 대한 컨셉을 혁신적으로 저렴한 비용과<br />
+                    짧은 기간에 전문적으로 만들어드리는 “컨셉개발서비스”를 제공하게 되었습니다.<br />
+                    오!플레이스에서 제공하는 “컨셉개발서비스”는 사업요약, 자산조사, 컨셉안 3개 그리고 부록으로<br />
+                    구성되어 있는 20페이지 “컨셉개발 보고서”로 이루어져 있으며 네임, 로고 같은 부가적인 서비스를<br />
+                    추가적으로 선택하여 진행할 수 있습니다.
+                </div>
             </div>
         </div>
     </div>
 
-    <img class="sub-tit" src="img/page1-1-sub-tit.png">
+    <div class="concept-area-container">
+        <div class="item item1">
+            <p class="main-title">컨셉개발<br /> 서비스 영역</p>
+            <p class="main-sub-title">CONCEPT CREATION<br /> SERVICE</p>
+        </div>
+        <div class="item item2">
+            <div class="title-btn-wrap">
+                <p class="title">도시 & 지역 개발</p>
+                <a class="more-btn">
+                    더 알아보기
+                    <img class="more-icon" src="img/main/concept-area/arrow.png" />
+                </a>
+            </div>
+        </div>
+        <div class="item item3">
+            <div class="title-btn-wrap">
+                <p class="title">주거 & 오피스</p>
+                <a class="more-btn">
+                    더 알아보기
+                    <img class="more-icon" src="img/main/concept-area/arrow.png" />
+                </a>
+            </div>
+        </div>
+        <div class="item item4">
+            <div class="title-btn-wrap">
+                <p class="title">복합공간 & 리테일</p>
+                <a class="more-btn">
+                    더 알아보기
+                    <img class="more-icon" src="img/main/concept-area/arrow.png" />
+                </a>
+            </div>
+        </div>
+        <div class="item item5">
+            <div class="title-btn-wrap">
+                <p class="title">리조트 & 테마파크</p>
+                <a class="more-btn">
+                    더 알아보기
+                    <img class="more-icon" src="img/main/concept-area/arrow.png" />
+                </a>
+            </div>
+        </div>
+        <div class="item item6">
+            <div class="title-btn-wrap">
+                <p class="title">재생공간</p>
+                <a class="more-btn">
+                    더 알아보기
+                    <img class="more-icon" src="img/main/concept-area/arrow.png" />
+                </a>
+            </div>
+        </div>
+    </div>
 
-    <div class="content-wrap">
-        <img class="content-tit" src="img/page1-1-tit3.png">
-        <div class="cafe-wrap">
-            <img class="" src="img/page1-1-cafe1.png">
-            <img class="" src="img/page1-1-cafe2.png">
-            <img class="" src="img/page1-1-cafe3.png">
-            <img class="" src="img/page1-1-cafe4.png">
-        </div>
-    </div>
-    <img class="bottom" src="img/page1-1-bottom-tit.png">
-</div>
-<div class="content page2" id="menu2">
-    <div class="receipt-slide-wrap">
-        <div class="receipt-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="img/phone-01.png"></div>
-                <div class="swiper-slide"><img src="img/phone-02.png"></div>
-                <div class="swiper-slide"><img src="img/phone-03.png"></div>
-                <div class="swiper-slide"><img src="img/phone-04.png"></div>
-                <div class="swiper-slide"><img src="img/phone-05.png"></div>
-                <div class="swiper-slide"><img src="img/phone-06.png"></div>
-            </div>
-        </div>
-    </div>
-    <img class="tit" src="img/page2-tit.png">
-    <div class="flex-container">
-        <div class="flex-wrap">
-            <img src="img/page2-img1.png">
-            <img src="img/page2-img2.png">
-        </div>
-        <div class="flex-wrap">
-            <img src="img/page2-img3.png">
-            <img src="img/page2-img4.png">
-        </div>
-    </div>
-    <img class="mt-icon" src="img/page2-mt.png">
-</div>
-<div class="content page3">
-    <img class="tit" src="img/page3-tit.png">
-    <img class="chart" src="img/page3-chart.png">
-    <div class="flex-wrap">
-        <img class="" src="img/page3-img1.png">
-        <img class="" src="img/page3-img2.png">
-        <img class="" src="img/page3-img3.png">
-    </div>
-    <div class="video-container">
-        <div class="video-wrap">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/jIb_Lz8K6gU"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-        </div>
-    </div>
-    <img class="cb-icon" src="img/page3-cb.png">
-</div>
-<div class="content page4">
-    <img class="tit" src="img/page4-tit.png">
-    <div class="menu-slide-wrap">
-        <div class="menu-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="img/menu1.png"></div>
-                <div class="swiper-slide"><img src="img/menu2.png"></div>
-                <div class="swiper-slide"><img src="img/menu3.png"></div>
-                <div class="swiper-slide"><img src="img/menu4.png"></div>
-            </div>
-        </div>
-    </div>
-    <img class="sub-tit" src="img/page4-tit2.png">
-    <div class="review-slide-wrap">
-        <div class="review-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="img/recipt0.png"></div>
-                <div class="swiper-slide"><img src="img/recipt1.png"></div>
-                <div class="swiper-slide"><img src="img/recipt2.png"></div>
-                <div class="swiper-slide"><img src="img/recipt3.png"></div>
-                <div class="swiper-slide"><img src="img/recipt4.png"></div>
-            </div>
-        </div>
-    </div>
-    <div class="flex-wrap">
-        <img src="img/page4-naver1.png">
-        <img src="img/page4-naver2.png">
-    </div>
-</div>
-<div class="content page5" id="menu3">
-    <img class="tit" src="img/page5-tit.png">
-
-    <div class="img-wrap">
-        <img class="p5-img" src="img/page5-img1.png">
-        <img class="p5-img" src="img/page5-img2.png">
-        <img class="p5-img" src="img/page5-img3.png">
-    </div>
-    <img class="bottom" src="img/page5-img4.png">
-</div>
-<div class="content page6">
-    <div class="flex-wrap">
-        <img src="img/page6-map1.png">
-        <img src="img/page6-map2.png">
-        <img src="img/page6-map3.png">
-        <img src="img/page6-map4.png">
-        <img src="img/page6-map5.png">
-    </div>
-    <img class="tit" src="img/page6-tit.png">
-    <img class="pic" src="img/page6-pic.png" />
-</div>
-<div class="content page7" id="menu4">
-    <img class="tit" src="img/page7-tit.png" />
-    <img class="content-img" src="img/page7-img1.png" />
-    <img class="content-img" src="img/page7-img2.png" />
-    <img class="content-img" src="img/page7-img3.png" />
-    <img class="content-img" src="img/page7-img4.png" />
-    <img class="content-img" src="img/page7-img5.png" />
-</div>
-<div class="content page8">
-    <img class="tit" src="img/page8-tit.png" />
-    <img class="table" src="img/page8-table.png" />
-    <img class="chart" src="img/page8-chart.png" />
-</div>
-<div class="content page9">
-    <img class="tit" src="img/page9-img.png" />
-</div>
-
-<form name="contact_form" id="contact_form" method="post" action="contact_write.php" onsubmit="return FormSubmit();">
-    <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
-    <input type="hidden" name="action" value="go">
-    <div class="contact-container" id="menu5">
-        <div class="contact-wrap">
-            <div class="input-item">
-                <div class="label-wrap">
-                    <p>성함</p>
-                </div>
-                <div class="input-wrap">
-                    <input type="text" name="name" required>
-                </div>
-            </div>
-            <div class="input-item">
-                <div class="label-wrap">
-                    <p>연락처</p>
-                </div>
-                <div class="input-wrap">
-                    <input type="text" name="phone" required>
-                </div>
-            </div>
-            <div class="input-item">
-                <div class="label-wrap">
-                    <p>창업희망지역</p>
-                </div>
-                <div class="input-wrap">
-                    <input type="text" name="location" required>
-                </div>
-            </div>
-            <div class="input-item">
-                <div class="label-wrap">
-                    <p>희망창업비용</p>
-                </div>
-                <div class="input-wrap">
-                    <input type="text" name="price" required>
-                </div>
-                <span class="sub">만원</span>
-            </div>
-            <div class="input-item">
-                <div class="label-wrap">
-                    <p>문의사항</p>
-                </div>
-                <div class="input-wrap">
-                    <textarea name="contact_desc"></textarea>
-                </div>
-            </div>
-        </div>
-        <div class="agreement-wrap">
-            <div class="agreement">
-                <p class="tit">&#60;개인정보 취급방침&#62;</p>
-                <p class="content">
-                    작성하신 실명과 전화번호는 개인정보 보호법 제 15조 및 22조에 의거, 상담접수 및 서비스제공 용도로만 사용되며 랜딩접수가 진행되는기간 동안만 보관하게 됩니다.<br>
-                    수집 개인정보는 이름 및 휴대전화 번호이며 랜딩접수 및 서비스제공의 목적으로만 사용됩니다.<br>
-                    <br>
-                    - 개인정보 수집, 이용 목적 : 랜딩접수 및 서비스제공<br>
-                    - 수집하려는 개인정보 항목 : 이름, 휴대폰 번호<br>
-                    - 개인정보의 보유 및 이용기간 : 랜딩페이지 사용 종료 후 , 서비스 안내 일주일 후 파기
-                </p>
-            </div>
-            <div class="agree-wrap">
-                <label>
-                    <input type="checkbox" name="agree" required>
-                    개인 정보 취급 방침에 동의
-                </label>
-            </div>
-            <input type="submit" value="창업 문의하기" onclick="sendTo();" />
-            <!--            <div class="g-recaptcha" style="margin-top: 10px" data-sitekey="6LcsckgfAAAAANUAAKdtrsI1S-AaLZbhoPJLN41k"></div>-->
-        </div>
-    </div>
-</form>
-
-<!-- floating -->
-<div class="floating-container">
-    <div class="floating-wrap">
-        <div class="right-wrap item">
-            <div class="item-wrap" id="call" onclick="location.href='tel:031-932-2030'"
-                onMouseDown="javascript:_PL('http://www.yevans.com/call.php');">
-                <div class="icon-wrap">
-                    <i class="fas fa-phone-alt"></i>
-                </div>
+    <div class="project-result-container">
+        <div class="slide-gradient"></div>
+        <div class="result-box">
+            <aside>
                 <div class="text-wrap">
-                    <p>창업문의</p>
-                    <p>1668-1350</p>
+                    <p class="title">프로젝트 실적</p>
+                    <p class="sub-title">
+                        <strong>
+                            PROJECT RESULT
+                        </strong><br />
+                        본 실적은 <span>플레이스브랜딩연구소</span> 실적입니다.
+                    </p>
+                    <a class="more-btn">
+                        <p>클릭하시면 자세히 볼 수 있습니다.</p>
+                    </a>
                 </div>
-            </div>
-        </div>
-        <div class="left-wrap item">
-            <div class="item-wrap" onclick="location.href='#menu5   '">
-                <div class="icon-wrap">
-                    <i class="fas fa-clipboard-check"></i>
+                <!-- project -->
+                <div class="project-result-box">
+                    <div class="swiper project-result-slide">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">Slide 1</div>
+                            <div class="swiper-slide">Slide 2</div>
+                            <div class="swiper-slide">Slide 3</div>
+                            <div class="swiper-slide">Slide 4</div>
+                            <div class="swiper-slide">Slide 5</div>
+                            <div class="swiper-slide">Slide 6</div>
+                            <div class="swiper-slide">Slide 7</div>
+                            <div class="swiper-slide">Slide 8</div>
+                            <div class="swiper-slide">Slide 9</div>
+                        </div>
+                    </div>
+                    <div class="project-result-slide-nav">
+                        <div class="project-result-prev">
+                            <img class="slide-btn" src="img/main/pre-btn.png" />
+
+                        </div>
+                        <div class="project-result-next">
+                            <img class="slide-btn" src="img/main/next-btn.png" />
+                        </div>
+                    </div>
                 </div>
-                <div class="text-wrap">
-                    <p>24시간 접수</p>
-                    <p>가맹상담 신청</p>
-                </div>
-            </div>
+            </aside>
         </div>
     </div>
-</div>
 
-<div class="modal-container">
-    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" width="100%" height="315"
-                            src="https://www.youtube.com/embed/XcYxluLQwxE" title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+
+    <div class="community-container">
+        <div class="community-wrap">
+            <div class="text-wrap">
+                <p class="title">커뮤니티</p>
+                <p class="sub-title">COMMUNITY</p>
+            </div>
+            <div class="community-box-wrap">
+                <div class="community-box">
+                    <!-- 첫 번째 박스 -->
+                    <div class="img-text-box">
+                        <div class="img">
+                        </div>
+                        <div class="text-wrap">
+                            <p class="sub-title"><span>PLACE BRANDING<span></p>
+                            <p class="title">
+                                <span>오래된 것을 즐겁게 만드는 요소! 오래된 것을 즐겁게 만드는 요소!</span>
+                                <a><img class="detail-btn" src="img/main/right.png" /></a>
+                            </p>
+                            <p class="writer"><span>Place Branding Insight BY SIMON<span></p>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+                    
+                    <!-- 두 번째 박스 -->
+                    <div class="img-text-box">
+                        <div class="img">
+                        </div>
+                        <div class="text-wrap">
+                            <p class="sub-title"><span>PLACE BRANDING<span></p>
+                            <p class="title">
+                                <span>오래된 것을 즐겁게 만드는 요소! 오래된 것을 즐겁게 만드는 요소!</span>
+                                <a><img class="detail-btn" src="img/main/right.png" /></a>
+                            </p>
+                            <p class="writer"><span>Place Branding Insight BY SIMON<span></p>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+
+                    <!-- 세 번째 박스 -->
+                    <div class="img-text-box">
+                        <div class="img">
+                        </div>
+                        <div class="text-wrap">
+                            <p class="sub-title"><span>PLACE BRANDING<span></p>
+                            <p class="title">
+                                <span>오래된 것을 즐겁게 만드는 요소! 오래된 것을 즐겁게 만드는 요소!</span>
+                                <a><img class="detail-btn" src="img/main/right.png" /></a>
+                            </p>
+                            <p class="writer"><span>Place Branding Insight BY SIMON<span></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-<div class="modal-container">
-    <div class="modal fade" id="agreeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">이용약관</h5>
-                </div>
-                <div class="modal-body">
-                    <div>
-                        [주식회사 팔공티] 이하 회사의 개인정보 수 및 활용에 관한 내용<br>
-                        개인정보 수집 및 이용 개인정보 수집주체 : 주식회사 팔공티<br>
-                        개인정보 수집항목 : 이름, 연락처, 창업희망지역, 문의사항, IP 등 개인을 식별할 수 있는 기타 정보 포함<br>
-                        개인정보 수집 및 이용목적 : 마케팅<br>
-                        개인정보 보유 및 이용기간 : 수집일로부터 3년 (고객 동의 철회 시 지체없이 파기)
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
+</section>
 
 <script type="text/javascript">
-
-
-
     $(document).ready(function () {
-
         var $w = $(window),
             footerHei = $('.contact-wrap').outerHeight(),
             $floating = $('.floating-container');
-
         $w.on('scroll', function () {
-
             var sT = $w.scrollTop();
             var val = $(document).height() - $w.height() - footerHei;
 
@@ -530,111 +354,40 @@ while ($popup = $popup_stt->fetch()) {
                 $floating.fadeOut('600');
             else
                 $floating.fadeIn('600');
-
         });
 
         // popup //
         var noticeCookie = getCookie("name");  // 쿠키 가져오기
         if (noticeCookie == "value") {
             // 팝업창 띄우기
-
         }
-
-
     });
     $(function () {
-
-        var banchan = new Swiper(".banchan-container", {
-            slidesPerView: 3,
-            loop: true,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
+        /* 프로젝트 실적 슬라이드 */
+        var projectResult = new Swiper(".project-result-slide", {
+            slidesPerView: "auto",
+            // centeredSlides: true,
+            spaceBetween: 40,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
             },
-            breakpoints: {
-                0: {
-                    slidesPerView: 3,
-                    spaceBetween: 10
-                },
-                768: {
-                    slidesPerView: 5,
-                    spaceBetween: 20
-                },
-                1024: {
-                    slidesPerView: 6,
-                    spaceBetween: 20
-                },
-            }
-        });
-
-        var receiptSlide = new Swiper(".receipt-container", {
-            slidesPerView: 3,
-            loop: true,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
+            navigation: {
+                nextEl: ".project-result-next",
+                prevEl: ".project-result-prev",
             },
-            breakpoints: {
-                0: {
-                    slidesPerView: 2.8,
-                    spaceBetween: 10
-                },
-                768: {
-                    slidesPerView: 3.8,
-                    spaceBetween: 20
-                },
-                1024: {
-                    slidesPerView: 5.8,
-                    spaceBetween: 20
-                },
-            }
-        });
+            // breakpoints: {
 
-        var menuSlide = new Swiper(".menu-container", {
-            slidesPerView: 3,
-            loop: true,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            breakpoints: {
-                0: {
-                    slidesPerView: 1.7,
-                    spaceBetween: 10
-                },
-                768: {
-                    slidesPerView: 2.7,
-                    spaceBetween: 20
-                },
-                1024: {
-                    slidesPerView: 3.7,
-                    spaceBetween: 20
-                },
-            }
+            //     768: {
+            //         slidesPerView: 2.3, 
+            //         spaceBetween: 40,
+            //     },
+            //     1024: {
+            //         slidesPerView: "auto", 
+            //         spaceBetween: 40,
+            //     },
+            // },
         });
-        var reviewSlide = new Swiper(".review-container", {
-            slidesPerView: 3,
-            loop: true,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            breakpoints: {
-                0: {
-                    slidesPerView: 2.7,
-                    spaceBetween: 10
-                },
-                768: {
-                    slidesPerView: 4.7,
-                    spaceBetween: 20
-                },
-                1024: {
-                    slidesPerView: 5.7,
-                    spaceBetween: 20
-                },
-            }
-        });
-
 
     });
 

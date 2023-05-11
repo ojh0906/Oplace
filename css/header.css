@@ -1,0 +1,91 @@
+header {
+  position: relative;
+  top: 0;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding-top: 10px;
+  height: 60px;
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: blueviolet; */
+}
+
+header .logo {
+  max-width: 204px;
+  width: 50%;
+  height: auto;
+  max-height: 32px;
+  /* margin-left: 20px; */
+}
+
+header .menu {
+}
+
+header .menu span {
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #333333;
+  padding: 20px 20px 17px;
+  cursor: pointer;
+}
+
+header .menu .click {
+  color: #19d6b4;
+  border-bottom: 3px #00e2ba solid;
+}
+
+@media (max-width: 1280px) {
+  header .logo {
+    margin-left: 20px;
+  }
+}
+@media (max-width: 900px) {
+  header .menu {
+    display: none;
+  }
+  header .menu-show {
+    top: 60px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    background-color: #fff;
+    z-index: 10;
+    box-shadow: 0px 18px 35px 0px rgba(16, 102, 77, 0.1);
+  }
+  header .menu span {
+    width: 100%;
+    padding: 20px;
+  }
+  header .menu span:nth-last-child(1) {
+    padding: 20px 20px 40px 20px;
+  }
+  header .menu .click {
+    /* color: #333; */
+    color: #19d6b4;
+    /* background-color: #19d6b4; */
+    border-bottom: none;
+  }
+
+  header .mo-menu-icon {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    width: 25px;
+    margin-right: 20px;
+  }
+  header .mo-menu-icon span {
+    width: 100%;
+    border: #19d6b4 solid 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  header .logo {
+    width: 38%;
+  }
+}
