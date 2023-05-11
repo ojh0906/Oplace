@@ -22,7 +22,7 @@
         <div class="right-wrap">
             <p class="tit">문의하기</p>
             <p class="num">02-591-7033</p>
-            <p class="subtit">
+            <p class="sub-tit">
                 평일 : 07:00~22:00<br />
                 주말/공휴일 : 09:00~20:00
             </p>

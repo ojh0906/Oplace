@@ -258,15 +258,12 @@ while ($popup = $popup_stt->fetch()) {
                 <div class="project-result-box">
                     <div class="swiper project-result-slide">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">Slide 1</div>
-                            <div class="swiper-slide">Slide 2</div>
-                            <div class="swiper-slide">Slide 3</div>
-                            <div class="swiper-slide">Slide 4</div>
-                            <div class="swiper-slide">Slide 5</div>
-                            <div class="swiper-slide">Slide 6</div>
-                            <div class="swiper-slide">Slide 7</div>
-                            <div class="swiper-slide">Slide 8</div>
-                            <div class="swiper-slide">Slide 9</div>
+                            <div class="swiper-slide"><img src="img/main/project1.png" /></div>
+                            <div class="swiper-slide"><img src="img/main/project1.png" /></div>
+                            <div class="swiper-slide"><img src="img/main/project1.png" /></div>
+                            <div class="swiper-slide"><img src="img/main/project1.png" /></div>
+                            <div class="swiper-slide"><img src="img/main/project1.png" /></div>
+                            <div class="swiper-slide"><img src="img/main/project1.png" /></div>
                         </div>
                     </div>
                     <div class="project-result-slide-nav">
@@ -306,7 +303,7 @@ while ($popup = $popup_stt->fetch()) {
                         </div>
                     </div>
                     <div class="line"></div>
-                    
+
                     <!-- 두 번째 박스 -->
                     <div class="img-text-box">
                         <div class="img">
@@ -376,17 +373,7 @@ while ($popup = $popup_stt->fetch()) {
                 nextEl: ".project-result-next",
                 prevEl: ".project-result-prev",
             },
-            // breakpoints: {
-
-            //     768: {
-            //         slidesPerView: 2.3, 
-            //         spaceBetween: 40,
-            //     },
-            //     1024: {
-            //         slidesPerView: "auto", 
-            //         spaceBetween: 40,
-            //     },
-            // },
+            loop: true
         });
 
     });
