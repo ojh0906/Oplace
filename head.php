@@ -48,25 +48,51 @@ $site = $site_info_stt->fetch();
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        /* 모바일 메뉴 열기 */
+        let openMenu = false;
+        function onMenu() {
+            document.querySelector(".menu").classList.toggle("menu-show");
+            openMenu = !openMenu;
+        }
 
+        /* 헤더를 제외한 다른 영역 클릭 시 상단 메뉴 닫기 */
+        document.addEventListener('click', function (e) {
+            if (openMenu) {
+                let header = e.target.closest('#header');
+                if (!header) {
+                    document.querySelector(".menu").classList.toggle("menu-show");
+                    openMenu = false;
+                }
+            }
+        });
+
+        /* 상단 메뉴 클릭 시 색상 변경 */
+        $(function () {
+            $('.link').click(function () {
+                $('.link').removeClass('clicked');
+                $(this).addClass('clicked');
+            })
+        })
+    </script>
 </head>
 
 <body>
     <!-- 상단 레이아웃 -->
-    <header>
+    <header id="header">
         <img class="logo" src="img/header/logo.png" />
-        <div class="mo-menu-icon">
+        <div class="mo-menu-icon" onclick="onMenu()">
             <span></span>
             <span></span>
             <span></span>
         </div>
-        <div class="menu"> <!-- 모바일 menu-show -->
-            <span class="click">홈</span>
-            <span>컨셉개발서비스</span>
-            <span>프로젝트실적</span>
-            <span>커뮤니티</span>
-            <span>문의하기</span>
-            <span>주문내역</span>
+        <div class="menu">
+            <span class="link">홈</span>
+            <span class="link">컨셉개발서비스</span>
+            <span class="link">프로젝트실적</span>
+            <span class="link">커뮤니티</span>
+            <span class="link">문의하기</span>
+            <span class="link">주문내역</span>
         </div>
     </header>
 
