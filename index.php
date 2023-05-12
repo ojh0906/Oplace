@@ -43,8 +43,10 @@ $db_conn->prepare($view_sql)->execute(
 <link rel="stylesheet" type="text/css" href="css/reset.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+<link href="https://fonts.cdnfonts.com/css/cocogoose" rel="stylesheet">
 <script src='https://www.google.com/recaptcha/api.js'></script>
-
 
 <!-- layer popup -->
 <!-- <?
@@ -150,13 +152,13 @@ while ($popup = $popup_stt->fetch()) {
     <div class="banner-container">
         <p class="title">
             <strong>Concept makes place</strong><br />
+        </p>
+        <p class="title title2">
             멋진 장소에는<br class="mo480-br" /> 멋진 컨셉이 있습니다.<br />
             <span>오!플레이스</span>는<br class="mo480-br" /> 멋진 컨셉을 만드는 곳입니다.
         </p>
         <p class="sub-title">
-            빠른 컨셉 개발과 효율적인 비용,<br />
-            공신력 있는 <span>컨셉 개발</span><br />
-            프로필 확보
+            빠른 컨셉 개발과 효율적인 비용, 공신력 있는<br class="mo768-br" /> <span>컨셉 개발</span> 프로필 확보
         </p>
         <img class="location" src="img/main/circle-location.png" />
     </div>
@@ -164,128 +166,127 @@ while ($popup = $popup_stt->fetch()) {
     <div class="what-is-service-container">
         <div class="text-wrap">
             <p class="title">
-                오!플레이스의<br />
-                컨셉개발<br />
-                서비스란?
+                오!플레이스의 컨셉개발 서비스란?
             </p>
+            <p class="sub-title">오!플레이스는 플레이스브랜딩연구소(PBI)의<br class="mo768-br" /> 컨셉 개발 사이트입니다.</p>
             <div>
-                <p class="sub-title">오!플레이스는 플레이스브랜딩연구소(PBI)의 컨셉 개발 사이트입니다.</p>
-                <div>
-                    컨셉이 꼭 필요하고, 컨셉이 있으면 너무 좋은 것은 알지만, 컨셉을 직접 만들기는 어렵고,<br />
-                    그렇다고 컨셉을 전문적으로 만들어 주는 곳도 없습니다.<br />
-                    물론 수천만원의 비용을 받고 한 두달 이상의 시간을 소요하여 만들어 주는 곳은 있습니다만<br />
-                    그동안 컨셉이 없다고 해서 하고 싶은 일을 못한 것은 아니라서, 망설여지는 상황입니다.<br />
-                    오!플레이스는, 이런 안타까움을 타개하기 위해 “플레이스” 즉 사람들이 방문하고 머무르고,<br />
-                    자랑하거나 기억에 남길만한 “장소(곳)”에 대한 컨셉을 혁신적으로 저렴한 비용과<br />
-                    짧은 기간에 전문적으로 만들어드리는 “컨셉개발서비스”를 제공하게 되었습니다.<br />
-                    오!플레이스에서 제공하는 “컨셉개발서비스”는 사업요약, 자산조사, 컨셉안 3개 그리고 부록으로<br />
-                    구성되어 있는 20페이지 “컨셉개발 보고서”로 이루어져 있으며 네임, 로고 같은 부가적인 서비스를<br />
-                    추가적으로 선택하여 진행할 수 있습니다.
-                </div>
+                컨셉이 꼭 필요하고, 컨셉이 있으면 너무 좋은 것은 알지만, 컨셉을 직접 만들기는 어렵고,<br />
+                그렇다고 컨셉을 전문적으로 만들어 주는 곳도 없습니다.<br />
+                물론 수천만원의 비용을 받고 한 두달 이상의 시간을 소요하여 만들어 주는 곳은 있습니다만<br />
+                그동안 컨셉이 없다고 해서 하고 싶은 일을 못한 것은 아니라서, 망설여지는 상황입니다.<br />
+                오!플레이스는, 이런 안타까움을 타개하기 위해 “플레이스” 즉 사람들이 방문하고 머무르고,<br />
+                자랑하거나 기억에 남길만한 “장소(곳)”에 대한 컨셉을 혁신적으로 저렴한 비용과<br />
+                짧은 기간에 전문적으로 만들어드리는 “컨셉개발서비스”를 제공하게 되었습니다.<br />
+                오!플레이스에서 제공하는 “컨셉개발서비스”는 사업요약, 자산조사, 컨셉안 3개 그리고 부록으로<br />
+                구성되어 있는 20페이지 “컨셉개발 보고서”로 이루어져 있으며 네임, 로고 같은 부가적인 서비스를<br />
+                추가적으로 선택하여 진행할 수 있습니다.
             </div>
         </div>
+        <img class="ractangle" src="img/main/ractangle.png" />
     </div>
 
     <div class="concept-area-container">
-        <div class="item item1">
-            <p class="main-title">컨셉개발<br /> 서비스 영역</p>
-            <p class="main-sub-title">CONCEPT CREATION<br /> SERVICE</p>
+        <div class="text-wrap">
+            <p class="main-title">컨셉개발 서비스 영역</p>
+            <p class="main-sub-title">CONCEPT CREATION SERVICE</p>
         </div>
-        <div class="item item2">
-            <div class="title-btn-wrap">
-                <p class="title">도시 & 지역 개발</p>
-                <a class="more-btn">
-                    더 알아보기
-                    <img class="more-icon" src="img/main/concept-area/arrow.png" />
-                </a>
+
+        <!-- 컨셉 -->
+        <div class="concept">
+            <div class="item">
+                <div class="title-btn-wrap">
+                    <p class="title">도시 및 지역</p>
+                    <a class="more-btn">
+                        더 알아보기
+                        <img class="more-icon" src="img/main/concept-area/arrow.png" />
+                    </a>
+                </div>
+                <img class="item-img" src="img/main/concept-area/bg1.png" />
             </div>
-        </div>
-        <div class="item item3">
-            <div class="title-btn-wrap">
-                <p class="title">주거 & 오피스</p>
-                <a class="more-btn">
-                    더 알아보기
-                    <img class="more-icon" src="img/main/concept-area/arrow.png" />
-                </a>
+            <div class="item">
+                <div class="title-btn-wrap">
+                    <p class="title">주거 및 오피스</p>
+                    <a class="more-btn">
+                        더 알아보기
+                        <img class="more-icon" src="img/main/concept-area/arrow.png" />
+                    </a>
+                </div>
+                <img class="item-img" src="img/main/concept-area/bg2.png" />
             </div>
-        </div>
-        <div class="item item4">
-            <div class="title-btn-wrap">
-                <p class="title">복합공간 & 리테일</p>
-                <a class="more-btn">
-                    더 알아보기
-                    <img class="more-icon" src="img/main/concept-area/arrow.png" />
-                </a>
+            <div class="item">
+                <div class="title-btn-wrap">
+                    <p class="title">복합공간 및 리테일</p>
+                    <a class="more-btn">
+                        더 알아보기
+                        <img class="more-icon" src="img/main/concept-area/arrow.png" />
+                    </a>
+                </div>
+                <img class="item-img" src="img/main/concept-area/bg3.png" />
             </div>
-        </div>
-        <div class="item item5">
-            <div class="title-btn-wrap">
-                <p class="title">리조트 & 테마파크</p>
-                <a class="more-btn">
-                    더 알아보기
-                    <img class="more-icon" src="img/main/concept-area/arrow.png" />
-                </a>
+            <div class="item">
+                <div class="title-btn-wrap">
+                    <p class="title">리조트 및 테마파크</p>
+                    <a class="more-btn">
+                        더 알아보기
+                        <img class="more-icon" src="img/main/concept-area/arrow.png" />
+                    </a>
+                </div>
+                <img class="item-img" src="img/main/concept-area/bg4.png" />
             </div>
-        </div>
-        <div class="item item6">
-            <div class="title-btn-wrap">
-                <p class="title">재생공간</p>
-                <a class="more-btn">
-                    더 알아보기
-                    <img class="more-icon" src="img/main/concept-area/arrow.png" />
-                </a>
+            <div class="item">
+                <div class="title-btn-wrap">
+                    <p class="title">재생공간</p>
+                    <a class="more-btn">
+                        더 알아보기
+                        <img class="more-icon" src="img/main/concept-area/arrow.png" />
+                    </a>
+                </div>
+                <img class="item-img" src="img/main/concept-area/bg5.png" />
             </div>
         </div>
     </div>
 
     <div class="project-result-container">
-        <div class="slide-gradient"></div>
         <div class="result-box">
-            <aside>
-                <div class="text-wrap">
-                    <p class="title">프로젝트 실적</p>
-                    <p class="sub-title">
-                        <strong>
-                            PROJECT RESULT
-                        </strong><br />
-                        본 실적은 <span>플레이스브랜딩연구소</span> 실적입니다.
-                    </p>
-                    <a class="more-btn">
-                        <p>클릭하시면 자세히 볼 수 있습니다.</p>
-                    </a>
-                </div>
-                <!-- project -->
-                <div class="project-result-box">
-                    <div class="swiper project-result-slide">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="img/main/project1.png" /></div>
-                            <div class="swiper-slide"><img src="img/main/project1.png" /></div>
-                            <div class="swiper-slide"><img src="img/main/project1.png" /></div>
-                            <div class="swiper-slide"><img src="img/main/project1.png" /></div>
-                            <div class="swiper-slide"><img src="img/main/project1.png" /></div>
-                            <div class="swiper-slide"><img src="img/main/project1.png" /></div>
-                        </div>
+            <div class="text-wrap">
+                <p class="title">프로젝트 실적</p>
+                <p class="sub-title">
+                    <strong>
+                        PROJECT RESULT
+                    </strong>
+                </p>
+                <a class="more-btn">
+                    <p>클릭하시면 자세히 볼 수 있습니다.</p>
+                </a>
+            </div>
+            <!-- project -->
+            <div class="project-result-box">
+                <div class="swiper project-result-slide">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="img/main/project/project1.png" /></div>
+                        <div class="swiper-slide"><img src="img/main/project/project2.png" /></div>
+                        <div class="swiper-slide"><img src="img/main/project/project1.png" /></div>
+                        <div class="swiper-slide"><img src="img/main/project/project2.png" /></div>
                     </div>
-                    <div class="project-result-slide-nav">
-                        <div class="project-result-prev">
-                            <img class="slide-btn" src="img/main/pre-btn.png" />
+                </div>
+                <div class="project-result-slide-nav">
+                    <img class="project-result-prev" src="img/main/next.png" />
+                    <img class="project-result-next" src="img/main/next.png" />
+                </div>
+            </div>
 
-                        </div>
-                        <div class="project-result-next">
-                            <img class="slide-btn" src="img/main/next-btn.png" />
-                        </div>
-                    </div>
-                </div>
-            </aside>
+            <div class="text-wrap">
+                <p class="sub-title">
+                    본 실적은 <span>플레이스브랜딩연구소</span> 실적입니다.
+                </p>
+            </div>
         </div>
     </div>
-
 
     <div class="community-container">
         <div class="community-wrap">
             <div class="text-wrap">
-                <p class="title">커뮤니티</p>
-                <p class="sub-title">COMMUNITY</p>
+                <p class="title">COMMUNITY</p>
             </div>
             <div class="community-box-wrap">
                 <div class="community-box">
@@ -362,9 +363,8 @@ while ($popup = $popup_stt->fetch()) {
     $(function () {
         /* 프로젝트 실적 슬라이드 */
         var projectResult = new Swiper(".project-result-slide", {
-            slidesPerView: "auto",
-            // centeredSlides: true,
-            spaceBetween: 40,
+            slidesPerView: 1,
+            spaceBetween: 0,
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
@@ -373,7 +373,22 @@ while ($popup = $popup_stt->fetch()) {
                 nextEl: ".project-result-next",
                 prevEl: ".project-result-prev",
             },
-            loop: true
+            loop: true,
+            breakpoints: {
+                480: {
+                    slidesPerView: 2,
+                    spaceBetween: 25,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 40,
+                },
+
+            },
         });
 
     });
