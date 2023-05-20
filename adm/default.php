@@ -32,12 +32,12 @@ if ( !$adm_login ) {
 <div class="gnb-container">
     <div class="sidebar">
         <div class="brand-wrapper">
-            <a class="brand" href="apply_list.php">미디어플래닛(이름)</a>
+            <a class="brand" href="apply_list.php">Oh! Place</a>
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li <?php if($menu == 0  || $menu == "") echo "class='active'" ?> >
-                    <a href="home.php?menu=0">
+                    <a href="index.php?menu=0">
                         <i class="fas fa-chart-bar"></i>
                         <p>로그관리</p>
                     </a>
@@ -67,18 +67,6 @@ if ( !$adm_login ) {
                     </a>
                 </li>
                 <li class="line"></li>
-                <li <?php if($menu == 5) echo "class='active'" ?> >
-                    <a href="chat_bot_service.php?menu=10" class="pay-menu">
-                        <i class="far fa-comment-alt"></i>
-                        <p>챗봇 설정</p>
-                    </a>
-                </li>
-                <li <?php if($menu == 6) echo "class='active'" ?> >
-                    <a href="sms_service.php?menu=10" class="pay-menu">
-                        <i class="far fa-bell"></i>
-                        <p>알림문자 설정</p>
-                    </a>
-                </li>
             </ul>
         </div>
         <div class="service-center-wrap">
@@ -108,11 +96,7 @@ if ( !$adm_login ) {
             <div class="navbar-collapse">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="/adm/apply_list.php"><i class="fas fa-redo-alt"></i></a>
-                    </li>
-                    <li class="nav-item">
                         <a href="./ajax/logout.php?is_login=<?= $adm_login ?>"> <i class="fas fa-sign-out-alt"></i></a>
-
                     </li>
                     <li class="nav-item">
                         <a href="/index.php"> <i class="fas fa-home"></i> </a>
