@@ -394,17 +394,6 @@ while ($popup = $popup_stt->fetch()) {
     });
 
 
-    //리캡쳐
-    // function FormSubmit() {
-    //     if (grecaptcha.getResponse() == "") {
-    //         alert("로봇이 아닙니다를 체크해주세요.");
-    //         return false;
-    //     } else {
-    //         return true;
-    //     }
-    // }
-
-
     //popup
     function setCookie(name, value, expiredays) {
         var today = new Date();
@@ -434,95 +423,7 @@ while ($popup = $popup_stt->fetch()) {
     var checkCookie = getCookie("mycookie");
 
 
-
-    // close layer popup
-    function hidePopup(popupType) {
-        var showChk = $('#show-chk-' + popupType).is(':checked');
-        if (showChk) {
-            setCookie('popup' + popupType, 'Y', 1);
-        }
-        $('.popup' + popupType).fadeOut();
-    }
-
-    //유튜브 팝업
-    $('.video').click(function () {
-        $('#videoModal').modal('show');
-    });
-
-    //상담 내역 팝업
-    $('.open-agree').click(function () {
-        $('#agreeModal').modal('show');
-    });
-
 </script>
-
-<!--문자 알림-->
-<script type="text/javascript">
-    function setPhoneNumber(val) {
-        var numList = val.split("-");
-        document.smsForm.sphone1.value = numList[0];
-        document.smsForm.sphone2.value = numList[1];
-        if (numList[2] != undefined) {
-            document.smsForm.sphone3.value = numList[2];
-        }
-    }
-    function loadJSON() {
-        var data_file = "message_send2.php";
-        var http_request = new XMLHttpRequest();
-        try {
-            // Opera 8.0+, Firefox, Chrome, Safari
-            http_request = new XMLHttpRequest();
-        } catch (e) {
-            // Internet Explorer Browsers
-            try {
-                http_request = new ActiveXObject("Msxml2.XMLHTTP");
-
-            } catch (e) {
-
-                try {
-                    http_request = new ActiveXObject("Microsoft.XMLHTTP");
-                } catch (e) {
-                    // Eror
-                    alert("지원하지 않는브라우저!");
-                    return false;
-                }
-
-            }
-        }
-        http_request.onreadystatechange = function () {
-            if (http_request.readyState == 4) {
-                // Javascript function JSON.parse to parse JSON data
-                var jsonObj = JSON.parse(http_request.responseText);
-                if (jsonObj['result'] == "Success") {
-                    var aList = jsonObj['list'];
-                    var selectHtml = "<select name=\"sendPhone\" onchange=\"setPhoneNumber(this.value)\">";
-                    selectHtml += "<option value='' selected>발신번호를 선택해주세요</option>";
-                    for (var i = 0; i < aList.length; i++) {
-                        selectHtml += "<option value=\"" + aList[i] + "\">";
-                        selectHtml += aList[i];
-                        selectHtml += "</option>";
-                    }
-                    selectHtml += "</select>";
-                    document.getElementById("sendPhoneList").innerHTML = selectHtml;
-                }
-            }
-        }
-
-        http_request.open("GET", data_file, true);
-        http_request.send();
-    }
-
-</script>
-
-<!-- 쳇봇 -->
-<!-- CLOUDTURING -->
-<script>
-    window.dyc = {
-        chatbotUid: "8a010adf4847bdbc"
-    };
-</script>
-<script async src="https://cloudturing.chat/v1.0/chat.js"></script>
-<!-- End CLOUDTURING -->
 
 <?php
 include_once('tale.php');
