@@ -418,6 +418,10 @@ table{
 
 }
 
+/* Common */
+.text-left{
+    text-align: left;
+}
 
 @media (min-width: 991px){
     .sidebar {
