@@ -1,5 +1,11 @@
 <?php
-include_once($_SERVER["DOCUMENT_ROOT"].'/Oplace/db/dbconfig.php');
+$site_path = $_SERVER["DOCUMENT_ROOT"]."/Oplace";
+//$site_url = $_SERVER["HTTP_HOST"]."/Oplace";
+$site_url = "http://".$_SERVER["HTTP_HOST"]."/Oplace";
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+include_once($site_path.'/db/dbconfig.php');
 
 
 //사이트 정보 쿼리
@@ -31,8 +37,8 @@ $site = $site_info_stt->fetch();
     </title>
 
     <!-- <link rel="stylesheet" type="text/css" href="css/common.css" rel="stylesheet" /> -->
-    <link rel="stylesheet" type="text/css" href="css/header.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="css/footer.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $site_url ?>/css/header.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $site_path ?>/css/footer.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
     <!-- CSS only -->
@@ -80,7 +86,7 @@ $site = $site_info_stt->fetch();
 <body>
     <!-- 상단 레이아웃 -->
     <header id="header">
-        <img class="logo" src="img/header/logo.png" />
+        <img class="logo" src="<? echo $site_url ?>/img/header/logo.png" />
         <div class="mo-menu-icon" onclick="onMenu()">
             <span></span>
             <span></span>
