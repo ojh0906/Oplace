@@ -1,5 +1,5 @@
 <?php
-include_once('./db/dbconfig.php');
+include_once($_SERVER["DOCUMENT_ROOT"].'/Oplace/db/dbconfig.php');
 
 
 //사이트 정보 쿼리

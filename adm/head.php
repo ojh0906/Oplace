@@ -37,8 +37,8 @@ $site = $site_info_stt -> fetch();
 
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../css/reset.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="./css/common.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/css/common.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" rel="stylesheet" />
 
     <script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script>
