@@ -15,7 +15,6 @@
         $admin_stt=$db_conn->prepare($admin_sql);
         $admin_stt->execute();
         $row = $admin_stt -> fetch();
-
         $login_id = $row[1];
         $name = $row[4];
         $phone = $row[3];

@@ -37,6 +37,9 @@
     transition: color .3s ease-in-out,border-color .3s ease-in-out,background-color .3s ease-in-out;
     box-shadow: none;
 }
+#smart_editor2{
+    width: 100% !important;
+}
 button, input {
     overflow: visible;
 }

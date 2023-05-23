@@ -1,18 +1,14 @@
 <?
 header('P3P: CP="NOI CURa ADMa DEVa TAIa OUR DELa BUS IND PHY ONL UNI COM NAV INT DEM PRE"');
+$adm_login = false;
 if( isset( $_SESSION[ 'manager_id' ] ) ) {
     $adm_login = TRUE;
 }
-
-if ( !$adm_login ) {
+else if( !$adm_login ) {
     ?>
-    <script>
-
-    </script>
-    <meta http-equiv="refresh" content="0;url=bbs/login.php" />
+    <meta http-equiv="refresh" content="0;url=index.php" />
     <?
 }
-
 ?>
 
 <script type="text/javascript">
@@ -37,7 +33,7 @@ if ( !$adm_login ) {
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li <?php if($menu == 0  || $menu == "") echo "class='active'" ?> >
-                    <a href="index.php?menu=0">
+                    <a href="home.php?menu=0">
                         <i class="fas fa-chart-bar"></i>
                         <p>로그관리</p>
                     </a>
@@ -52,6 +48,12 @@ if ( !$adm_login ) {
                     <a href="config_form.php?menu=2">
                         <i class="fas fa-list-ul"></i>
                         <p>기본 설정</p>
+                    </a>
+                </li>
+                <li <?php if($menu == 33) echo "class='active'" ?> >
+                    <a href="board_list.php?menu=33">
+                        <i class="fab fa-flipboard"></i>
+                        <p>커뮤니티 관리</p>
                     </a>
                 </li>
                 <li <?php if($menu == 3) echo "class='active'" ?> >

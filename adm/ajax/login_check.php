@@ -18,14 +18,13 @@ $is_admin = 1;
 
 while($list_row=$login_stt->fetch()){
     if($login_id == $list_row['login_id'] && password_verify( $password , $list_row['password'] )){
-        echo "ASDFASDF";
         $_SESSION['manager_id'] = $list_row['login_id'];
         ?>
         <meta http-equiv="refresh" content="0;url=../home.php" />
         <?php
     }else{
         echo "<script type='text/javascript'>";
-        echo "alert('가입된 회원아이디가 아니거나 비밀번호가 틀립니다.'); location.href='../bbs/login.php'";
+        echo "alert('가입된 회원아이디가 아니거나 비밀번호가 틀립니다.'); location.href='../index.php'";
         echo "</script>";
     }
 

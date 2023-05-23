@@ -9,12 +9,12 @@
         session_unset();
         session_destroy();
         echo "<script type='text/javascript'>";
-        echo "location.href='../bbs/login.php'";
+        echo "location.href='../index.php'";
         echo "</script>";
 
       } else {
         echo "<script type='text/javascript'>";
-        echo "alert('로그인 중이 아닙니다.'); location.href='../bbs/login.php'";
+        echo "alert('로그인 중이 아닙니다.'); location.href='../index.php'";
         echo "</script>";
     }
 ?>
