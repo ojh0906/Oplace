@@ -86,7 +86,7 @@ $site = $site_info_stt->fetch();
 <body>
     <!-- 상단 레이아웃 -->
     <header id="header">
-        <img class="logo" src="<? echo $site_url ?>/img/header/logo.png" />
+        <img class="logo" src="<?php echo $site_url ?>/img/header/logo.png" />
         <div class="mo-menu-icon" onclick="onMenu()">
             <span></span>
             <span></span>
