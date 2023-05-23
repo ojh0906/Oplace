@@ -43,9 +43,6 @@ $db_conn->prepare($view_sql)->execute(
 <link rel="stylesheet" type="text/css" href="css/reset.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-<link rel="stylesheet" type="text/css"
-    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-<link href="https://fonts.cdnfonts.com/css/cocogoose" rel="stylesheet">
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <!-- layer popup -->
