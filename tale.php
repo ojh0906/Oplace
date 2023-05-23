@@ -5,7 +5,7 @@
 <footer>
     <div class="footer-wrap">
         <div class="left-wrap">
-            <img class="logo" src="img/header/gray-logo.png" />
+            <img class="logo" src="<?php echo $site_url ?>/img/header/gray-logo.png" />
             <div class="text-wrap">
                 <div class="line1">
                     <span>개인정보처리방침</span>

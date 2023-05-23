@@ -38,7 +38,7 @@ $site = $site_info_stt->fetch();
 
     <!-- <link rel="stylesheet" type="text/css" href="css/common.css" rel="stylesheet" /> -->
     <link rel="stylesheet" type="text/css" href="<?php echo $site_url ?>/css/header.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="<?php echo $site_path ?>/css/footer.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $site_url ?>/css/footer.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
     <!-- CSS only -->
