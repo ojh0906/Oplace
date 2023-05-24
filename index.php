@@ -179,7 +179,7 @@ while ($popup = $popup_stt->fetch()) {
                 추가적으로 선택하여 진행할 수 있습니다.
             </div>
         </div>
-        <img class="ractangle" src="<?php echo $site_url ?>img/main/ractangle.png" />
+        <img class="ractangle" src="img/main/ractangle.png" />
     </div>
 
     <div class="concept-area-container">
