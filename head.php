@@ -7,7 +7,6 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 include_once($site_path.'/db/dbconfig.php');
 
-
 //사이트 정보 쿼리
 $site_info_sql = "select * from site_setting_tbl";
 $site_info_stt = $db_conn->prepare($site_info_sql);
@@ -36,7 +35,7 @@ $site = $site_info_stt->fetch();
         <?= $site[1] ?>
     </title>
 
-    <!-- <link rel="stylesheet" type="text/css" href="css/common.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" type="text/css" href="<?php echo $site_url ?>/css/common.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="<?php echo $site_url ?>/css/header.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="<?php echo $site_url ?>/css/footer.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -89,20 +88,22 @@ $site = $site_info_stt->fetch();
 <body>
     <!-- 상단 레이아웃 -->
     <header id="header">
-        <img class="logo" src="<?php echo $site_url ?>/img/header/logo.png" />
-        <div class="mo-menu-icon" onclick="onMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="menu">
-            <span class="link">홈</span>
-            <span class="link">컨셉개발서비스</span>
-            <span class="link">프로젝트실적</span>
-            <span class="link">커뮤니티</span>
-            <span class="link">문의하기</span>
-            <span class="link">주문내역</span>
-        </div>
+        <nav>
+            <img class="logo" src="<?php echo $site_url ?>/img/header/logo.png" />
+            <div class="mo-menu-icon" onclick="onMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu">
+                <span class="link" OnClick="location.href ='<?php echo $site_url ?>'">홈</span>
+                <span class="link" OnClick="location.href ='<?php echo $site_url ?>/page/concept.php'">컨셉개발서비스</span>
+                <span class="link" OnClick="location.href =''">프로젝트실적</span>
+                <span class="link" OnClick="location.href ='<?php echo $site_url ?>/page/community.php'">커뮤니티</span>
+                <span class="link" OnClick="location.href =''">문의하기</span>
+                <span class="link" OnClick="location.href =''">주문내역</span>
+            </div>
+        </nav>
     </header>
 
     <div id="wrapper">
