@@ -5,15 +5,7 @@ p {
   margin-bottom: 0;
 }
 
-.mo-br480 {
-  display: none;
-}
 
-.max {
-  max-width: 1280px;
-  width: 100%;
-  margin: 0 auto;
-}
 
 #community-page .banner {
   margin: 80px auto 138px auto;
@@ -331,10 +323,6 @@ p {
 }
 
 @media (max-width: 768px) {
-  .mo-br480 {
-    display: block;
-  }
-
   #community-page .banner {
     margin: 50px auto 100px auto;
   }

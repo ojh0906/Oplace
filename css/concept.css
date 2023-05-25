@@ -1,0 +1,336 @@
+#concept-page {
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.max {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#concept-page .title-wrap {
+  font-family: "Cocogoose";
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 80px;
+  color: #19d6b4;
+  padding: 80px 0 130px 0;
+}
+
+#concept-page .title-wrap .title {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 80px;
+  color: #222;
+  text-align: left;
+}
+
+#concept-page {
+}
+#concept-page .service-areas {
+  background: #19d6b4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+#concept-page .service-areas .area-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 60px 0; */
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+#concept-page .service-areas .title {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 34px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+#concept-page .service-areas .area {
+  box-shadow: 4px 8px 32px rgba(16, 102, 77, 0.25);
+  border-radius: 50px;
+  padding: 12px 20px;
+  background: #d9fff4;
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #444444;
+  cursor: pointer;
+}
+#concept-page .service-areas .click {
+  background: #ffffff !important;
+}
+
+/* 슬라이드 */
+#concept-page .bg1 {
+  background-color: #000;
+}
+#concept-page .bg2 {
+  background-color: #d5e2e2;
+}
+#concept-page .bg3 {
+  background-color: #3c3c3c;
+}
+#concept-page .bg4 {
+  background-color: #e5e9ec;
+}
+#concept-page .bg5 {
+  background-color: #333333;
+}
+
+.text-color1 {
+  color: #333 !important;
+}
+.more-btn2 {
+  color: #444 !important;
+  border: 1px solid #666 !important;
+}
+
+#concept-page .concept-slide {
+  padding: 100px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#concept-page .concept-slide .title {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 54px;
+  line-height: 80px;
+  color: #ffffff;
+  text-align: center;
+  width: 100%;
+}
+
+#concept-page .concept-service-wrap {
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  margin: 60px auto;
+}
+#concept-page .concept-service-box {
+  width: 110%;
+}
+
+#concept-page .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+#concept-page .concept-service-slide .swiper-slide {
+  border-radius: 40px;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* height: 320px; */
+}
+
+#concept-page .concept-service-slide .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 40px;
+}
+
+#concept-page .more-icon1 {
+  width: 16px;
+  height: 16px;
+  /* filter: opacity(0) drop-shadow(0 0 0 #fff); */
+}
+#concept-page .more-btn {
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  gap: 4px;
+  display: inline-flex;
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ffffff;
+  box-sizing: border-box;
+  border: 1px solid #ffffff;
+  border-radius: 100px;
+}
+
+@media (max-width: 1280px) {
+  #concept-page .title-wrap {
+    font-size: 43px;
+    line-height: 53px;
+    padding: 80px 20px 130px 20px;
+  }
+
+  #concept-page .title-wrap .title {
+    margin-top: 10px;
+    font-size: 60px;
+    line-height: 68px;
+  }
+  #concept-page .service-areas {
+    padding: 60px 20px;
+  }
+
+  #concept-page .concept-slide .title {
+    font-size: 50px;
+    line-height: 60px;
+  }
+
+  #concept-page .more-btn {
+    padding: 14px 22px;
+    gap: 4px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+@media (max-width: 1024px) {
+  #concept-page .title-wrap {
+    font-size: 40px;
+    line-height: 45px;
+  }
+
+  #concept-page .title-wrap .title {
+    font-size: 50px;
+    line-height: 65px;
+  }
+
+  #concept-page .service-areas {
+    gap: 30px;
+  }
+  #concept-page .service-areas .area-box {
+    gap: 20px;
+  }
+  #concept-page .service-areas .area {
+    font-size: 17px;
+    line-height: 20px;
+    padding: 8px 15px;
+  }
+
+  #concept-page .service-areas .title {
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  #concept-page .concept-slide .title {
+    font-size: 43px;
+    line-height: 50px;
+  }
+
+  #concept-page .concept-service-slide .swiper-slide,
+  #concept-page .concept-service-slide .swiper-slide img {
+    border-radius: 30px;
+  }
+
+  #concept-page .more-btn {
+    padding: 10px 18px;
+    gap: 2px;
+    font-size: 13px;
+    line-height: 17px;
+  }
+}
+
+@media (max-width: 768px) {
+  #community-page .banner {
+  }
+
+  #concept-page .title-wrap {
+    padding: 50px 20px 100px 20px;
+    font-size: 30px;
+    line-height: 40px;
+  }
+  #concept-page .title-wrap .title {
+    margin-top: 5px;
+    font-size: 34px;
+    line-height: 50px;
+  }
+
+  #concept-page .service-areas .title {
+    width: 100%;
+  }
+  #concept-page .service-areas .area-box {
+    width: 480px;
+  }
+  #concept-page .service-areas .area {
+    font-size: 15px;
+    line-height: 20px;
+  }
+  #concept-page .service-areas .title {
+    text-align: center;
+    font-size: 22px;
+    line-height: 27px;
+  }
+
+  #concept-page .concept-slide .title {
+    font-size: 28px;
+    line-height: 37px;
+  }
+}
+
+@media (max-width: 480px) {
+  #concept-page .title-wrap {
+    font-size: 24px;
+    line-height: 30px;
+    padding: 40px 20px 80px 20px;
+  }
+
+  #concept-page .title-wrap .title {
+    font-size: 28px;
+    line-height: 35px;
+  }
+
+  #concept-page .service-areas {
+    padding: 50px 20px;
+  }
+  #concept-page .service-areas .area-box {
+    width: auto;
+  }
+  #concept-page .service-areas .title {
+    font-size: 20px;
+    line-height: 25px;
+  }
+  #concept-page .service-areas .area {
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  #concept-page .concept-slide .title {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  #concept-page .more-btn {
+    padding: 9px 16px;
+    gap: 2px;
+    font-size: 11px;
+    line-height: 12px;
+  }
+
+  #concept-page .concept-slide {
+    padding: 80px 0;
+  }
+  #concept-page .concept-service-box {
+    width: 90%;
+  }
+
+  #concept-page .concept-service-wrap {
+    margin: 35px auto;
+  }
+}
