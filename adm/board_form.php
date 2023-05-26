@@ -11,76 +11,72 @@ if (!empty($_GET['id'])) {
 }
 
 $today = date("Y-m-d");
-$timestamp = strtotime("+1 week");
-$seven_day = date("Y-m-d", $timestamp);
 
-$start_date = '';
-$end_date = '';
-$width = '';
-$height = '';
-$width2 = '';
-$height2 = '';
-$popup_name = '';
+$title = '';
+$writer = "";
+$content = '';
 $file1 = '';
-$file2 = '';
+$file_fk = '';
 
 if ($type == 'modify') {
     // 리스트에 출력하기 위한 sql문
-    $admin_sql = "select * from popup_tbl where id = $id";
+    $admin_sql = "select * from community_board_tbl where id = $id";
     $admin_stt = $db_conn->prepare($admin_sql);
     $admin_stt->execute();
     $row = $admin_stt->fetch();
 
-    $file1 = '/data/popup/' . $row[6]; // pc
-    $file2 = '/data/popup/' . $row[8]; // mobile
+    $file_sql = "select * from file_tbl where id = $row[5]";
+    $file_stt = $db_conn->prepare($file_sql);
+    $file_stt->execute();
+    $file = $file_stt->fetch();
 
-    $start_date = $row[2];
-    $end_date = $row[3];
-    $width = $row[4];
-    $height = $row[5];
-    $width2 = $row[9];
-    $height2 = $row[10];
-    $popup_name = $row[1];
+    $title = $row[1];
+    $writer = $row[2];
+    $content = $row[3];
+    $file_url = $site_url.'/data/community/' .$file[2]; // pc
+    $file_fk = $row[5];
+
 }
 ?>
 
 <link rel="stylesheet" type="text/css" href="./css/popup_form.css" rel="stylesheet" />
 <script type="text/javascript" src="ajax/smartEditor2/js/HuskyEZCreator.js" charset="utf-8"></script>
 
+
 <div class="page-header">
     <h4 class="page-title">커뮤니티 관리</h4>
     <form name="popup_form" id="popup_form" method="post" enctype="multipart/form-data"
-        action="./ajax/popup_setting.php">
+        action="./ajax/board_setting.php">
         <input type="hidden" name="id" value="<?= $id ?>" />
         <input type="hidden" name="type" value="<?= $type ?>" />
+        <input type="hidden" name="file_fk" value="<?= $file_fk ?>" />
         <div>
             <div class="input-wrap">
                 <p class="label-name">제목</p>
-                <input type="text" name="start_date" id="start_date" class="form-control" value="<?= $start_date ?>"
-                    placeholder="ex) 2021-01-01 00:00:00" required>
-                <label>
-                    <input type="checkbox" name="today_chk"
-                        onclick="if (this.checked == true) this.form.start_date.value=this.form.today_chk.value; else this.form.start_date.value = this.form.start_date.defaultValue;"
-                        value="<?= $today ?> 00:00:00">
-                    시작일시를 오늘로
-                </label>
+                <input type="text" name="title" id="title" class="form-control" value="<?= $title ?>"
+                    placeholder="제목을 입력해주세요" required>
+            </div>
+            <div class="input-wrap">
+                <p class="label-name">작성자</p>
+                <input type="text" name="writer" id="writer" class="form-control" value="<?= $writer ?>"
+                       placeholder="작성자를 입력해주세요" required>
             </div>
             <hr>
             <textarea id="content" name="content"></textarea>
             <hr>
             <div class="input-wrap input-file">
                 <p class="label-name">썸네일 </p>
-                <input type="file" id="img_upload1" name="img_upload1" class="form-control">
+                <input type="file" id="img_upload1" name="img_upload1" class="form-control" <?php if($type != 'modify') echo 'required' ?>>
                 <small>5MB 이하의 파일만 업로드 가능합니다.</small>
                 <div class="img-preview">
-                    <img src="<?= $file1 ?>" id="preview1">
+                    <img src="<?= $file_url ?>" id="preview1">
                 </div>
             </div>
             <hr>
         </div>
         <div class="btn-wrap">
-            <input type="submit" class="submit" value="확인" required />
-            <a href="./popup_list.php" class="go-back">목록</a>
+            <input type="submit" class="submit" id="submit" value="확인" />
+            <a href="./board_list.php" class="go-back">목록</a>
         </div>
     </form>
 </div>
@@ -93,7 +89,6 @@ if ($type == 'modify') {
 
     $(document).ready(function () {
         $("#img_upload1").on("change", handleImgFileSelect1);
-        $("#img_upload2").on("change", handleImgFileSelect2);
     });
 
     $(function(){
@@ -112,17 +107,20 @@ if ($type == 'modify') {
                 // 모드 탭(Editor | HTML | TEXT) 사용 여부
                 bUseModeChanger : true,
             },
+            fOnAppLoad : function(){
+                obj.getById["content"].exec("PASTE_HTML", ['<?= $content ?>']);
+            },
             fCreator: "createSEditor2"
         });
         function pasteHTML(filepath) {
-            var sHTML = '';
-            oEditors.getById["content"].exec("PASTE_HTML", [sHTML]);
+            var sHTML = '<span><img src="'+filepath+'"></span>';
+            obj.getById["content"].exec("PASTE_HTML", [sHTML]);
         }
         //전송버튼
-        $("#insertBoard").click(function(){
+        $("#submit").click(function(){
             //id가 smarteditor인 textarea에 에디터에서 대입
             obj.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
-            $("#insertBoardFrm").submit();
+            $("#submit").submit();
         });
     });
 

@@ -3,7 +3,7 @@ include_once('./head.php');
 include_once('./default.php');
 
 // 리스트에 출력하기 위한 sql문
-$admin_sql = "select * from community_board_tbl order by id";
+$admin_sql = "select * from community_board_tbl order by id desc ";
 $admin_stt = $db_conn->prepare($admin_sql);
 $admin_stt->execute();
 ?>
@@ -11,7 +11,7 @@ $admin_stt->execute();
 <div class="page-header">
     <h4 class="page-title">커뮤니티 관리</h4>
     <div class="btn_fixed_top">
-        <button type="button" onclick="location.href='./popup_form.php?menu=3&type=insert'"
+        <button type="button" onclick="location.href='./board_form.php?menu=33&type=insert'"
             class="btn btn-danger btn-sm">게시글 작성</button>
     </div>
 </div>
@@ -53,16 +53,16 @@ $admin_stt->execute();
                             <?= $list_row['last_update'] ?>
                         </td>
                         <td>
-                            <a href="./popup_form.php?menu=33&type=modify&id=<?= $list_row['id'] ?>"
+                            <a href="./board_form.php?menu=33&type=modify&id=<?= $list_row['id'] ?>"
                                 class="btn btn_03">수정</a>
-                            <a href="./ajax/popup_delete.php?id=<?= $list_row['id'] ?>&file=<?= $list_row['file_id'] ?>"
+                            <a href="./ajax/board_delete.php?id=<?= $list_row['id'] ?>&file=<?= $list_row['thumb_file'] ?>"
                                 onclick="return confirm('선택한 팝업을 삭제하시겠습니까?');" class="btn btn_03">삭제</a>
                         </td>
                     </tr>
                 <?php } ?>
                 <?php if ($is_data != 1) { ?>
                     <tr>
-                        <td colspan="20" class="text-center text-dark bg-light">새창이 없습니다.</td>
+                        <td colspan="20" class="text-center text-dark bg-light">등록된 글이 없습니다.</td>
                     </tr>
                 </tbody>
             <?php } ?>
