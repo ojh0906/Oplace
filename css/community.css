@@ -52,6 +52,10 @@ p {
 
 #community-page .community-container .community-box {
   width: 31%;
+  overflow: hidden;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  cursor: pointer;
 }
 #community-page .community-container .community-box .text-wrap {
   padding: 20px;
@@ -60,13 +64,12 @@ p {
   border-bottom-right-radius: 25px;
   box-sizing: border-box;
 }
-
-#community-page .community-container .community-box .image {
+#community-page .community-container .community-box .thumb{
   width: 100%;
   height: 230px;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-  object-fit: cover;
+  background-size: cover !important;
+  background-position: center center !important;
+
 }
 
 #community-page .community-container .community-box .sub-title {
@@ -148,8 +151,10 @@ p {
   font-size: 16px;
   line-height: 19px;
   color: #555555;
-  text-align: center;
   padding: 40px 0;
+}
+#community-page #community-detail .contents-wrap img{
+  max-width: 100%;
 }
 #community-page #community-detail .next-board .next {
   border-top: 0 !important;
@@ -182,7 +187,10 @@ p {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   text-align: left;
-  height: 30px;
+  height: 32px;
+}
+#community-page #community-detail .next-board .pre .title a{
+  color: #444;
 }
 #community-page #community-detail .next-board .pre .writer {
 }
@@ -250,7 +258,9 @@ p {
   #community-page .community-container .community-box-wrap {
     justify-content: center;
   }
-
+  #community-page .community-container .community-box .thumb{
+    height: 190px;
+  }
   #community-page .community-container .next-board .pre .title {
     width: 60%;
   }
@@ -356,6 +366,9 @@ p {
   #community-page .community-container .community-box .sub-title {
     font-size: 12px;
     line-height: 14px;
+  }
+  #community-page .community-container .community-box .thumb {
+    height: 130px;
   }
   #community-page .community-container .community-box .title {
     font-size: 16px;

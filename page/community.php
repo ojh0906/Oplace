@@ -2,6 +2,14 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 include_once('../head.php');
+
+$file_url = $site_url.'/data/community/'; // pc
+
+//Community List
+$list_sql = "select * from community_board_tbl order by id desc ";
+$list_stt = $db_conn->prepare($list_sql);
+$list_stt->execute();
+
 ?>
 
 <link rel="stylesheet" type="text/css" href="../css/community.css" rel="stylesheet" />
@@ -22,60 +30,27 @@ include_once('../head.php');
     <article class="community-container">
         <aside class="max community-box-wrap">
             <!--  -->
-            <div class="community-box">
-                <img class="image" />
-                <div class="text-wrap">
-                    <p class="sub-title">PLACE BRANDING</p>
-                    <p class="title">오래된 것을 즐겁게 만드는 요소!</p>
-                    <p class="writer">Real Talk by MS</p>
-                </div>
-            </div>
-            
-            <div class="community-box">
-                <img class="image" />
-                <div class="text-wrap">
-                    <p class="sub-title">PLACE BRANDING</p>
-                    <p class="title">오래된 것을 즐겁게 만드는 요소!</p>
-                    <p class="writer">Real Talk by MS</p>
-                </div>
-            </div>
+            <?php
+            $is_data = 0;
+            while ($list_row = $list_stt->fetch()) {
+                $is_data = 1;
 
-            <div class="community-box">
-                <img class="image" />
+                $file_sql = "select * from file_tbl where id = " .$list_row['thumb_file'];
+                $file_stt = $db_conn->prepare($file_sql);
+                $file_stt->execute();
+                $file = $file_stt->fetch();
+            ?>
+            <div class="community-box" onclick="location.href='community-detail.php?id=<?= $list_row['id'] ?>'">
+                <div class="thumb" style="background: url('<?= $file_url .$file[2] ?>')"></div>
                 <div class="text-wrap">
                     <p class="sub-title">PLACE BRANDING</p>
-                    <p class="title">오래된 것을 즐겁게 만드는 요소!</p>
-                    <p class="writer">Real Talk by MS</p>
+                    <p class="title"><?= $list_row['title'] ?></p>
+                    <p class="writer"><?= $list_row['writer'] ?></p>
                 </div>
             </div>
+            <?php } if ($is_data != 1) { ?>
 
-            <div class="community-box">
-                <img class="image" />
-                <div class="text-wrap">
-                    <p class="sub-title">PLACE BRANDING</p>
-                    <p class="title">오래된 것을 즐겁게 만드는 요소!</p>
-                    <p class="writer">Real Talk by MS</p>
-                </div>
-            </div>
-
-            <div class="community-box">
-                <img class="image" />
-                <div class="text-wrap">
-                    <p class="sub-title">PLACE BRANDING</p>
-                    <p class="title">오래된 것을 즐겁게 만드는 요소!</p>
-                    <p class="writer">Real Talk by MS</p>
-                </div>
-            </div>
-
-            <div class="community-box">
-                <img class="image" />
-                <div class="text-wrap">
-                    <p class="sub-title">PLACE BRANDING</p>
-                    <p class="title">오래된 것을 즐겁게 만드는 요소!</p>
-                    <p class="writer">Real Talk by MS</p>
-                </div>
-            </div>
-
+            <?php } ?>
             <!--  -->
         </aside>
     </article>

@@ -2,10 +2,45 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 include_once('../head.php');
+
+//Community Detail
+$id = $_GET['id'];
+$detail_sql = "select * from community_board_tbl where id = " .$id;
+$detail_stt = $db_conn->prepare($detail_sql);
+$detail_stt->execute();
+$detail = $detail_stt->fetch();
+//View Count
+$view_sql = "UPDATE community_board_tbl set view_cnt = view_cnt + 1 where id = " .$id;
+$viewStmt = $db_conn->prepare($view_sql);
+$viewStmt->execute();
+//Prev Board
+$prev_sql = "select * from community_board_tbl where id < " .$id ." order by id desc limit 1";
+$prev_stt = $db_conn->prepare($prev_sql);
+$prev_stt->execute();
+$prev = $prev_stt->fetch();
+if(!$prev){
+    $prev_title = "이전 게시글이 없습니다.";
+    $prev_href = "";
+}else{
+    $prev_title = $prev['title'];
+    $prev_href = "href='community-detail.php?id={$prev['id']}'";
+}
+//Next Board
+$next_sql = "select * from community_board_tbl where id > " .$id ." order by id ASC limit 1";
+$next_stt = $db_conn->prepare($next_sql);
+$next_stt->execute();
+$next = $next_stt->fetch();
+if(!$next){
+    $next_title = "다음 게시글이 없습니다.";
+    $next_href = "";
+}else{
+    $next_title = $next['title'];
+    $next_href = "href='community-detail.php?id={$next['id']}'";
+}
+
+
 ?>
-
 <link rel="stylesheet" type="text/css" href="../css/community.css" rel="stylesheet" />
-
 <script>
     /* 공유 상자 열기/닫기 */
     let openShareBox = false;
@@ -52,13 +87,13 @@ include_once('../head.php');
     <article class="community-container" id="community-detail">
         <aside class="board-wrap max">
             <div class="text-wrap">
-                <p class="title">제목</p>
+                <p class="title"><?= $detail['title'] ?></p>
                 <div class="sub-text-wrap">
-                    <span>글쓴이 이름</span>
+                    <span><?= $detail['writer'] ?></span>
                     <span class="line">|</span>
-                    <span>2023.05.23</span>
+                    <span><?= str_replace("-", ".", $detail['regdate']) ?></span>
                     <span class="line mo-480hidden">|</span>
-                    <span class="mo-480hidden">조회수 105</span>
+                    <span class="mo-480hidden">조회수 <?= $detail['view_cnt'] ?></span>
                     <span class="line">|</span>
                     <div class="share-wrap">
                         <img onclick="onShareBox()" class="share-icon" src="<?php echo $site_url ?>/img/share.png" />
@@ -77,27 +112,27 @@ include_once('../head.php');
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
             <div class="contents-wrap">
-                본문 글이 노출되는 영역입니다.
-                본문 글이 노출되는 영역입니다.
-                본문 글이 노출되는 영역입니다.
-                본문 글이 노출되는 영역입니다.
+                <?= $detail['content_desc'] ?>
             </div>
             <div class="next-board">
                 <div class="pre">
                     <div class="next">다음글</div>
-                    <div class="title">제목 dsdsd d sd s d sd d sd sd s</div>
-                    <div class="writer">글쓴이</div>
-                    <div class="date">2023.05.23</div>
+                    <div class="title"><a <?php echo $next_href ?>><?php echo $next_title ?></a></div>
+                    <?php if($next){ ?>
+                        <div class="writer"><?= $next['writer'] ?></div>
+                        <div class="date"><?= str_replace("-", ".", $next['regdate']) ?></div>
+                    <?php } ?>
                 </div>
                 <div class="pre next">
-                    <div class="next">다음글</div>
-                    <div class="title">제목 ds sd sd sd sd sd sd sd dd d d s d d</div>
-                    <div class="writer">글쓴이</div>
-                    <div class="date">2023.05.23</div>
+                    <div class="next">이전글</div>
+                    <div class="title"><a <?php echo $prev_href ?>><?php echo $prev_title ?></a></div>
+                    <?php if($prev){ ?>
+                    <div class="writer"><?= $prev['writer'] ?></div>
+                    <div class="date"><?= str_replace("-", ".", $prev['regdate']) ?></div>
+                    <?php } ?>
                 </div>
             </div>
         </aside>
