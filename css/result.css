@@ -1,0 +1,222 @@
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#result-page .banner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#result-page .banner .text-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 80px 0 30px 0;
+  width: 100%;
+}
+#result-page .banner .round {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 70%;
+}
+
+#result-page .banner .text-wrap {
+  font-family: "Pretendard";
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 24px;
+  color: #555555;
+  margin-top: 12px;
+}
+#result-page .banner .text-wrap .sub {
+  font-weight: 500;
+  line-height: 34px;
+  margin-top: 1rem;
+}
+
+#result-page .result-box {
+  background-color: #19d6b4;
+  padding: 100px 0;
+}
+#result-page .result-box .text {
+  font-family: "Pretendard";
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 34px;
+  text-align: center;
+  color: #ffffff;
+}
+
+#result-page .result-box .sub-text {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin: 30px auto 0 auto;
+  color: #69c6b5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 8px 16px;
+  gap: 10px;
+
+  width: 240px;
+  height: 35px;
+
+  background: #ffffff;
+  border-radius: 40px;
+
+  /* Inside auto layout */
+}
+
+#result-page .result-box .result-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 80px;
+  margin-top: 48px;
+}
+#result-page .result-box .result {
+  filter: drop-shadow(4px 8px 32px rgba(0, 0, 0, 0.25));
+  border-radius: 20px;
+  width: calc(50% - 40px);
+  height: 340px;
+  background-color: darkcyan;
+}
+#result-page .result-box .result img {
+  object-fit: cover;
+}
+
+@media (max-width: 1280px) {
+  #result-page .banner {
+    padding: 0 20px;
+  }
+  #result-page .result-box .result-wrap {
+    gap: 50px;
+    padding: 0 20px;
+  }
+  #result-page .result-box .result {
+    height: 310px;
+    width: calc(50% - 25px);
+  }
+}
+
+@media (max-width: 1024px) {
+  #result-page .result-box .result-wrap {
+    gap: 30px;
+    padding: 0 20px;
+  }
+  #result-page .result-box .result {
+    height: 250px;
+    width: calc(50% - 15px);
+  }
+  #result-page .banner .text-box {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    padding: 80px 0 50px 0;
+  }
+
+  #result-page .banner .text-box .title-wrap,
+  #result-page .banner .text-box .text-wrap {
+    width: 100%;
+    text-align: center;
+  }
+
+  #result-page .banner .text-wrap {
+    margin-top: 0;
+    font-size: 20px;
+    line-height: 20px;
+  }
+  #result-page .banner .text-wrap .sub {
+    line-height: 27px;
+  }
+}
+
+@media (max-width: 768px) {
+  #result-page .result-box .result-wrap {
+    gap: 20px;
+    padding: 0 20px;
+  }
+  #result-page .result-box .result {
+    height: 200px;
+    width: calc(50% - 10px);
+  }
+
+  #result-page .banner .text-wrap {
+    margin-top: 0;
+    font-size: 15px;
+    line-height: 15px;
+  }
+  #result-page .banner .text-wrap .sub {
+    line-height: 21px;
+  }
+
+  #result-page .result-box {
+    padding: 80px 0;
+  }
+
+  #result-page .result-box .text {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  #result-page .result-box .sub-text {
+    font-size: 13px;
+    line-height: 18px;
+    margin: 20px auto 0 auto;
+    padding: 5px 13px;
+    width: 215px;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  #result-page .banner .round {
+    width: 85%;
+  }
+
+  #result-page .result-box .result-wrap {
+    gap: 20px;
+    padding: 0 20px;
+  }
+  #result-page .result-box .result {
+    width: 100%;
+  }
+
+  #result-page .result-box .text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  #result-page .banner .text-box {
+    padding: 50px 0 35px 0;
+  }
+
+  #result-page .banner .text-wrap {
+    font-size: 13px;
+    line-height: 12px;
+  }
+  #result-page .banner .text-wrap .sub {
+    line-height: 18px;
+    margin-top: 10px;
+  }
+
+  #result-page .result-box .sub-text {
+    font-size: 11px;
+    line-height: 14px;
+    padding: 5px 13px;
+    width: 190px;
+    height: auto;
+  }
+
+  #result-page .result-box .result-wrap {
+    margin-top: 40px;
+  }
+}

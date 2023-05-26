@@ -1,0 +1,58 @@
+/* popup */
+.layer-popup-wrap {
+  background-color: #000000a6;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  z-index: 30;
+}
+
+.layer-popup {
+  position: relative;
+  max-width: 90%;
+  overflow-y: auto;
+  z-index: 9999;
+  height: 70vh;
+
+  /* 해당 이미지 값으로 변경 */
+  /* max-width: 880px;
+  max-height: 995px; */
+}
+
+.close-btn {
+  width: 70px !important;
+  height: 70px !important;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.layer-popup .popup-img {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .layer-popup {
+    max-width: 85%;
+  }
+
+  .close-btn {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .close-btn {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}

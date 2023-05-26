@@ -151,11 +151,11 @@ while ($popup = $popup_stt->fetch()) {
             <strong>Concept makes place</strong><br />
         </p>
         <p class="title title2">
-            멋진 장소에는<br class="mo480-br" /> 멋진 컨셉이 있습니다.<br />
-            <span>오!플레이스</span>는<br class="mo480-br" /> 멋진 컨셉을 만드는 곳입니다.
+            멋진 장소에는<br class="mo-br480" /> 멋진 컨셉이 있습니다.<br />
+            <span>오!플레이스</span>는<br class="mo-br480" /> 멋진 컨셉을 만드는 곳입니다.
         </p>
         <p class="sub-title">
-            빠른 컨셉 개발과 효율적인 비용, 공신력 있는<br class="mo768-br" /> <span>컨셉 개발</span> 프로필 확보
+            빠른 컨셉 개발과 효율적인 비용, 공신력 있는<br class="mo-br768" /> <span>컨셉 개발</span> 프로필 확보
         </p>
         <img class="location" src="img/main/circle-location.png" />
     </div>
@@ -165,7 +165,7 @@ while ($popup = $popup_stt->fetch()) {
             <p class="title">
                 오!플레이스의 컨셉개발 서비스란?
             </p>
-            <p class="sub-title">오!플레이스는 플레이스브랜딩연구소(PBI)의<br class="mo768-br" /> 컨셉 개발 사이트입니다.</p>
+            <p class="sub-title">오!플레이스는 플레이스브랜딩연구소(PBI)의<br class="mo-br768" /> 컨셉 개발 사이트입니다.</p>
             <div>
                 컨셉이 꼭 필요하고, 컨셉이 있으면 너무 좋은 것은 알지만, 컨셉을 직접 만들기는 어렵고,<br />
                 그렇다고 컨셉을 전문적으로 만들어 주는 곳도 없습니다.<br />
@@ -179,7 +179,7 @@ while ($popup = $popup_stt->fetch()) {
                 추가적으로 선택하여 진행할 수 있습니다.
             </div>
         </div>
-        <img class="ractangle" src="img/main/ractangle.png" />
+        <img class="ractangle" src="<?php echo $site_url ?>/img/main/ractangle.png" />
     </div>
 
     <div class="concept-area-container">

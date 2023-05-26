@@ -3,13 +3,6 @@ body {
   color: #333333;
 }
 
-.mo480-br {
-  display: none;
-}
-
-.mo768-br {
-  display: none;
-}
 
 #main-page {
   margin-top: 80px;
@@ -298,8 +291,6 @@ body {
   height: 60px;
 }
 
-.swiper-button-lock {
-}
 .swiper {
   width: 100%;
   height: 100%;
@@ -627,10 +618,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  .mo768-br {
-    display: block !important;
-  }
-
   #main-page .banner-container .title,
   #main-page .what-is-service-container .text-wrap .title,
   #main-page .concept-area-container .text-wrap .main-title,
@@ -784,10 +771,6 @@ body {
   }
 }
 @media (max-width: 480px) {
-  .mo480-br {
-    display: block;
-  }
-
   #main-page {
     margin-top: 40px;
   }
