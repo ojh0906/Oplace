@@ -150,6 +150,7 @@ p {
   height: 100%;
   object-fit: cover;
   border-radius: 40px;
+  cursor: pointer;
 }
 
 #concept-page .more-icon1 {

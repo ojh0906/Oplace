@@ -67,46 +67,13 @@ $db_conn->prepare($view_sql)->execute(
 
     // 창열기
     function todayOpen(winName) {
-        var blnCookie = getCookie(winName);
         var obj = eval("window." + winName);
-        console.log(blnCookie);
-        if (blnCookie != "expire") {
-            $('#' + winName).show();
-        } else {
-            $('#' + winName).hide();
-        }
     }
     // 창닫기
     function todayClose(winName, expiredays) {
         setCookie(winName, "expire", expiredays);
         var obj = eval("window." + winName);
         $('#' + winName).hide();
-    }
-
-    // 쿠키 가져오기
-    function getCookie(name) {
-        var nameOfCookie = name + "=";
-        var x = 0;
-        while (x <= document.cookie.length) {
-            var y = (x + nameOfCookie.length);
-            if (document.cookie.substring(x, y) == nameOfCookie) {
-                if ((endOfCookie = document.cookie.indexOf(";", y)) == -1)
-                    endOfCookie = document.cookie.length;
-                return unescape(document.cookie.substring(y, endOfCookie));
-            }
-            x = document.cookie.indexOf(" ", x) + 1;
-            if (x == 0)
-                break;
-        }
-        return "";
-    }
-
-    // 24시간 기준 쿠키 설정하기
-    // 만료 후 클릭한 시간까지 쿠키 설정
-    function setCookie(name, value, expiredays) {
-        var todayDate = new Date();
-        todayDate.setDate(todayDate.getDate() + expiredays);
-        document.cookie = name + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";"
     }
 </script>
 
@@ -139,11 +106,13 @@ $db_conn->prepare($view_sql)->execute(
             <div class="concept-service-box">
                 <div class="swiper concept-service-slide">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="<?php echo $site_url ?>/img/concept/1city/1.png" />
+                        <div class="swiper-slide" onclick="detailPopup()"><img src="<?php echo $site_url ?>/img/concept/1city/1.png" />
                         </div>
                         <div class="swiper-slide"><img src="<?php echo $site_url ?>/img/concept/1city/2.png" />
                         </div>
                         <div class="swiper-slide"><img src="<?php echo $site_url ?>/img/concept/1city/3.png" />
+                        </div>
+                        <div class="swiper-slide"><img src="<?php echo $site_url ?>/img/concept/1city/4.png" />
                         </div>
                         <div class="swiper-slide"><img src="<?php echo $site_url ?>/img/concept/1city/4.png" />
                         </div>
@@ -296,11 +265,13 @@ $db_conn->prepare($view_sql)->execute(
                     slidesPerView: 4,
                     spaceBetween: 40,
                 },
-
             },
         });
 
     });
+    function detailPopup(){
+        $(".layer-popup-wrap").show();
+    }
 
 </script>
 

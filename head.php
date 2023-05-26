@@ -39,7 +39,7 @@ $site = $site_info_stt->fetch();
     <link rel="stylesheet" type="text/css" href="<?php echo $site_url ?>/css/reset.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="<?php echo $site_url ?>/css/header.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="<?php echo $site_url ?>/css/footer.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $site_url ?>/css/swiper.min.css" rel="stylesheet" />
 
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -51,7 +51,7 @@ $site = $site_info_stt->fetch();
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
 
     <script type="text/javascript" src="<?php echo $site_url ?>/js/jquery-1.12.4.min.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="<?php echo $site_url ?>/js/swiper.min.js"></script>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
