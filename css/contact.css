@@ -1,0 +1,223 @@
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#contact-page .banner {
+  padding: 80px 0 90px 0;
+}
+
+/* 문의 폼 */
+#contact-page .contact-form {
+  background-color: #edf2f1;
+  padding: 80px 0;
+}
+#contact-page .contact-form > div {
+  /* justify-content: space-between; */
+  gap: 70px;
+  display: flex;
+  width: 100%;
+}
+#contact-page .contact-img {
+  max-width: 480px;
+  width: 100%;
+  height: 370px;
+}
+#contact-page .contact-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+#contact-page .contact-img .text {
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  color: #555555;
+  margin-top: 20px;
+}
+
+#contact-page .contact-img .text strong {
+  font-weight: 800;
+}
+
+#contact-page .contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+#contact-page .contact-container .input-title {
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  color: #555555;
+  margin-bottom: 6px;
+}
+#contact-page .contact-container .input-text textarea,
+#contact-page .contact-container .input-text input {
+  padding: 12px 0px 12px 10px;
+  gap: 10px;
+  width: 100%;
+  /* height: 44px; */
+  background: #ffffff;
+  border: 1px solid #d0e0dd;
+  border-radius: 5px;
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  color: #444;
+}
+#contact-page .contact-container .input-text input::placeholder {
+  color: #bbbbbb;
+}
+#contact-page .contact-container .name-email-box {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+#contact-page .contact-container .name-email-box > div {
+  width: 100%;
+}
+
+#contact-page .contact-container .select-wrap .select {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+#contact-page .contact-container .select-wrap input {
+  display: none;
+}
+#contact-page .contact-container .select-wrap label {
+  padding: 8px 10px;
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 4px;
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #bbbbbb;
+}
+#contact-page .contact-container .select-wrap img {
+  width: 20px;
+  height: 20px;
+}
+#contact-page .contact-container .select-wrap label .on {
+  display: none;
+}
+#contact-page .contact-container .select-wrap label .off {
+  display: block;
+}
+#contact-page .select-wrap input[type="radio"]:checked + label {
+  border: 1px solid #19d6b4;
+  color: #19d6b4;
+  font-weight: 700;
+}
+#contact-page .select-wrap input[type="radio"]:checked + label .off {
+  display: none;
+}
+#contact-page .select-wrap input[type="radio"]:checked + label .on {
+  display: block;
+}
+
+#contact-page .contact-container .question-box {
+  width: 100%;
+}
+#contact-page .contact-container .send {
+  width: 100%;
+  background: #19d6b4;
+  border-radius: 5px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  padding: 14px 0;
+  border: 0;
+}
+
+@media (max-width: 1280px) {
+  #contact-page .banner {
+    padding: 80px 20px 90px 20px;
+  }
+
+  #contact-page .contact-form {
+    padding: 80px 20px;
+  }
+
+  #contact-page .contact-form > div {
+    gap: 35px;
+  }
+
+  #contact-page .contact-img {
+    height: 400px;
+  }
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 768px) {
+  #contact-page .contact-form > div {
+    gap: 80px;
+    flex-wrap: wrap;
+  }
+  #contact-page .contact-img {
+    height: 370px;
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  #contact-page .contact-container .name-email-box {
+    flex-wrap: wrap;
+  }
+
+  #contact-page .contact-img .text {
+    font-size: 15px;
+    line-height: 18px;
+    margin-top: 15px;
+  }
+
+  #contact-page .contact-form > div {
+    gap: 70px;
+  }
+  #contact-page .contact-container .input-title {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  #contact-page .contact-container .input-text textarea,
+  #contact-page .contact-container .input-text input {
+    padding: 9px 10px 9px 10px;
+    font-size: 13px;
+    line-height: 15px;
+  }
+
+  #contact-page .contact-container .select-wrap label {
+    padding: 5px 8px;
+    font-size: 11px;
+    line-height: 23px;
+  }
+  #contact-page .contact-container .select-wrap img {
+    width: 15px;
+    height: 15px;
+  }
+  #contact-page .contact-container .send {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 0;
+  }
+
+  #contact-page .banner {
+    padding: 60px 20px 70px 20px;
+  }
+}
