@@ -360,8 +360,8 @@ while ($popup = $popup_stt->fetch()) {
     $(function () {
         /* 프로젝트 실적 슬라이드 */
         var projectResult = new Swiper(".project-result-slide", {
-            slidesPerView: 1,
-            spaceBetween: 0,
+            spaceBetween: 40,
+            slidesPerView: 2,
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
@@ -373,7 +373,7 @@ while ($popup = $popup_stt->fetch()) {
             loop: true,
             breakpoints: {
                 480: {
-                    slidesPerView: 2,
+                    slidesPerView: 1,
                     spaceBetween: 25,
                 },
                 768: {

@@ -3,7 +3,6 @@ body {
   color: #333333;
 }
 
-
 #main-page {
   margin-top: 80px;
 }
@@ -294,6 +293,7 @@ body {
 .swiper {
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 .project-result-slide .swiper-slide {
