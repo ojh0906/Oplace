@@ -1,0 +1,53 @@
+#orders-page .contact-container > div {
+  width: 100%;
+}
+
+#orders-page .max {
+  max-width: 480px;
+}
+
+#orders-page .contact-title {
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  color: #333333;
+}
+
+#orders-page .re-find-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#orders-page .re-pw {
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #555555;
+}
+#orders-page .re-pw input {
+  background: #ffffff;
+  /* stroke */
+
+  border: 1px solid #d0e0dd;
+  border-radius: 4px;
+}
+#orders-page .find-pw {
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #999999;
+  text-decoration: none;
+}
+
+#orders-page .phone-btn {
+  background: #ffffff !important;
+  border: 1px solid #19d6b4 !important;
+  font-weight: 700 !important;
+  color: #19d6b4 !important;
+  text-align: center;
+  margin-top: 5px;
+  padding: 12px 10px !important;
+}
