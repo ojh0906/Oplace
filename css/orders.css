@@ -139,6 +139,70 @@
   display: block;
 }
 
+/* 결제정보확인 팝업 */
+#order-popup .layer-popup {
+  max-width: 880px;
+  max-height: 800px;
+  width: 90%;
+  height: 70vh;
+  background: #fff;
+
+  padding: 50px 20px;
+}
+#order-popup .layer-popup .order-data {
+  display: flex;
+  width: 100%;
+}
+#order-popup .layer-popup .order-data > div {
+  border: #d0e0dd 1px solid;
+  padding: 20px 16px;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+#order-popup .layer-popup .order-data > div:nth-child(2) {
+  border-left: none;
+}
+
+#order-popup .layer-popup .order-data p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  color: #555555;
+  width: 100%;
+  display: flex;
+}
+#order-popup .layer-popup .order-data span {
+  font-weight: 700;
+  width: 100px;
+  display: block;
+}
+
+#order-popup .layer-popup .order-data .data-service {
+  width: 100%;
+  display: flex;
+}
+#order-popup .layer-popup .order-data .data-service > p {
+  width: 100px;
+}
+#order-popup .layer-popup .order-data ul {
+  list-style: disc;
+  padding-left: 1rem;
+}
+
+#order-popup .input-info {
+  margin-top: 40px;
+}
+#order-popup .input-info .title {
+  font-family: "Pretendard";
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 24px;
+  color: #555555;
+  margin-bottom: 20px;
+}
+
 @media (max-width: 1280px) {
 }
 
@@ -172,6 +236,17 @@
     font-size: 14px;
     line-height: 20px;
   }
+
+  #order-popup .layer-popup .order-data > div {
+    width: 100%;
+  }
+  #order-popup .layer-popup .order-data {
+    flex-wrap: wrap;
+  }
+  #order-popup .layer-popup .order-data > div:nth-child(2) {
+    border-left: #d0e0dd 1px solid;
+    border-top: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -190,4 +265,14 @@
   #orders-page .order-data-box .order-regdate-box .num-regdate {
     width: 73%;
   }
+
+  #order-popup .layer-popup .order-data p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  #order-popup .input-info .title {
+    font-size: 17px;
+    line-height: 19px;
+  }
+
 }

@@ -102,8 +102,8 @@ $site = $site_info_stt->fetch();
                 <span class="link" OnClick="location.href ='<?php echo $site_url ?>/page/concept.php'">컨셉개발서비스</span>
                 <span class="link" OnClick="location.href ='<?php echo $site_url ?>/page/result.php'">프로젝트실적</span>
                 <span class="link" OnClick="location.href ='<?php echo $site_url ?>/page/community.php'">커뮤니티</span>
-                <span class="link" OnClick="location.href =''">문의하기</span>
-                <span class="link" OnClick="location.href =''">주문내역</span>
+                <span class="link" OnClick="location.href ='<?php echo $site_url ?>/page/contact.php'">문의하기</span>
+                <span class="link" OnClick="location.href ='<?php echo $site_url ?>/page/orders/step1.php'">주문내역</span>
             </div>
         </nav>
     </header>

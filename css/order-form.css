@@ -1,0 +1,106 @@
+.input-box {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.input-wrap {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.input-wrap .input-title {
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #555555;
+}
+
+.input-wrap label img {
+  width: 17px;
+  height: 17px;
+}
+.input-wrap .input-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.input-wrap label {
+  display: flex;
+  width: 107px;
+  justify-content: center;
+  border: 1px solid #00e2ba;
+  border-radius: 5px;
+  align-items: center;
+  padding: 8px 16px;
+  font-family: "Pretendard";
+  font-style: normal;
+  gap: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  background: #fff;
+  text-align: center;
+  color: #19d6b4;
+}
+
+.input-wrap input[type="file"] {
+  border: none !important;
+  font-family: "Noto Sans Korean";
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #999999;
+}
+.input-wrap input[type="file"]::file-selector-button {
+  border: none;
+  display: none;
+}
+
+.input-wrap input:active {
+  border: none;
+}
+
+.input-wrap .input-text {
+  padding: 8px 10px;
+  border: 1px solid #efefef;
+  border-radius: 4px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #333;
+  width: 100%;
+}
+.input-wrap .input-text::placeholder {
+  color: #bbbbbb;
+}
+
+@media (max-width: 480px) {
+  .input-wrap .input-text {
+    padding: 6px 8px;
+    font-size: 12px;
+    line-height: 22px;
+  }
+
+  .input-wrap label {
+    width: 90px;
+    padding: 6px 11px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .input-wrap input[type="file"] {
+    font-size: 11px;
+    line-height: 17px;
+  }
+
+  .input-wrap .input-title {
+    font-size: 13px;
+    line-height: 15px;
+  }
+}
