@@ -5,7 +5,7 @@ include_once('../../head.php');
 <link rel="stylesheet" type="text/css" href="../../css/orders.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="../../css/contact.css" rel="stylesheet" />
 
-<!-- 프로젝트 실적 페이지 -->
+<!-- 주문내역 페이지 -->
 <section id="contact-page">
     <article class="max banner">
         <p class="main-title">ORDERS</p>
