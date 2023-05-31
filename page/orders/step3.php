@@ -46,7 +46,7 @@ include_once('../../head.php');
                             <img src="<?php echo $site_url ?>/img/attach.png" />
                             파일 선택
                         </label>
-                        <input id="company-file" name="company-file" type="file" @change="handleChange($event)" />
+                        <input id="company-file" name="company-file" type="file" />
                     </div>
                 </div>
                 <div class="input-wrap">
@@ -58,7 +58,7 @@ include_once('../../head.php');
                             <img src="<?php echo $site_url ?>/img/attach.png" />
                             파일 선택
                         </label>
-                        <input id="company-file" name="company-file" type="file" @change="handleChange($event)" />
+                        <input id="company-file" name="company-file" type="file" />
                     </div>
                 </div>
                 <div class="input-wrap">
@@ -70,7 +70,7 @@ include_once('../../head.php');
                             <img src="<?php echo $site_url ?>/img/attach.png" />
                             파일 선택
                         </label>
-                        <input id="company-file" name="company-file" type="file" @change="handleChange($event)" />
+                        <input id="company-file" name="company-file" type="file" />
                     </div>
                 </div>
                 <div class="input-wrap">
@@ -82,7 +82,7 @@ include_once('../../head.php');
                             <img src="<?php echo $site_url ?>/img/attach.png" />
                             파일 선택
                         </label>
-                        <input id="company-file" name="company-file" type="file" @change="handleChange($event)" />
+                        <input id="company-file" name="company-file" type="file" />
                     </div>
                 </div>
                 <div class="input-wrap">
@@ -93,7 +93,7 @@ include_once('../../head.php');
                             <img src="<?php echo $site_url ?>/img/attach.png" />
                             파일 선택
                         </label>
-                        <input id="target" name="target" type="file" @change="handleChange($event)" />
+                        <input id="target" name="target" type="file" />
                     </div>
                 </div>
             </div>
