@@ -1,0 +1,501 @@
+#concept-detail .banner .text-wrap {
+  list-style: disc;
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 34px;
+  color: #555555;
+}
+
+#concept-detail .banner .text-wrap li {
+  word-break: keep-all;
+}
+
+#concept-detail .banner .sub-title {
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-size: 54px;
+  line-height: 70px;
+  color: #222222;
+}
+#concept-detail .banner .sub-title span {
+  font-weight: 900;
+}
+
+#concept-detail .banner {
+  background-color: #edf2f1;
+}
+
+#concept-detail .banner .round {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+}
+
+#concept-detail .result-box .result img {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  object-fit: cover;
+  position: absolute;
+  bottom: 0;
+}
+
+#concept-detail .result-box .result {
+  filter: drop-shadow(4px 8px 32px rgba(0, 0, 0, 0.25));
+  border-radius: 20px;
+  width: calc(50% - 40px);
+  height: 300px;
+  background-color: transparent;
+}
+
+#concept-detail .result-box .result-wrap .mark {
+  background: rgba(0, 226, 186, 0.7);
+  border-radius: 60px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  width: 52px;
+  height: 52px;
+  color: #222222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#concept-detail .result-box .result-wrap .img-title {
+  font-family: "Pretendard";
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 34px;
+  color: #ffffff;
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+#concept-detail .result-box .result-wrap .img-title p {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+#concept-detail .result-box {
+  background-color: #222222;
+}
+
+#concept-detail .result-box .text {
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 64px;
+  color: #ffffff;
+}
+
+#concept-detail .result-box .text span {
+  font-weight: 800;
+  color: #00e2ba;
+}
+
+#concept-detail .report-box {
+}
+#concept-detail .report-box {
+  background-color: #333;
+}
+#concept-detail .report-box .round {
+  width: 100%;
+  margin: 40px auto;
+}
+#concept-detail .report-box .text {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-size: 42px;
+  line-height: 64px;
+  color: #00e2ba;
+}
+
+#concept-detail .report-box .text img {
+  width: 204px;
+}
+
+#concept-detail .report-box .sample {
+  max-width: 1200px;
+  margin: auto;
+}
+
+#concept-detail .report-box .sample img {
+  max-width: 720px;
+  width: 60%;
+}
+#concept-detail .report-box .sample .title {
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 34px;
+  color: #00e2ba;
+  margin-bottom: 40px;
+}
+
+#concept-detail .report-box .sample .sample-box {
+  display: flex;
+  gap: 70px;
+  align-items: center;
+  justify-content: center;
+}
+
+#concept-detail .report-box .sample .sample-text {
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 40px;
+  color: #ffffff;
+}
+#concept-detail .report-box .sample .sample-text p {
+  word-break: keep-all;
+}
+#concept-detail .report-box .sample .order-btn img {
+  width: 14px;
+  height: 11px;
+}
+#concept-detail .report-box .sample .order-btn {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 24px;
+  margin-top: 40px;
+  /* identical to box height */
+
+  letter-spacing: -0.02em;
+
+  color: #333333;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 32px;
+  gap: 4px;
+
+  width: 154px;
+  height: 64px;
+
+  /* 19D6B4 */
+
+  background: #19d6b4;
+  border-radius: 100px;
+}
+
+#concept-detail .menu {
+  padding: 40px 0;
+  margin-top: 20px;
+  background: #19d6b4;
+}
+#concept-detail .menu aside {
+  gap: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#concept-detail .menu .title {
+  font-family: "Cocogoose";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: #ffffff;
+}
+#concept-detail .menu .btn-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+#concept-detail .menu .btn-wrap .click {
+  color: #444444;
+  background: #ffffff;
+  box-shadow: 4px 8px 32px rgba(16, 102, 77, 0.25);
+}
+#concept-detail .menu .btn-wrap p {
+  background: #d9fff4;
+  border-radius: 50px;
+  padding: 12px 20px;
+  text-align: center;
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #666666;
+}
+
+@media (max-width: 1280px) {
+  #concept-detail .menu aside {
+    padding: 0 20px;
+  }
+
+  #concept-detail .report-box .sample {
+    padding: 0 20px;
+  }
+
+  #concept-detail .report-box .sample .sample-box {
+    gap: 50px;
+  }
+  #concept-detail .menu .title {
+    width: 100%;
+    text-align: center;
+  }
+  #concept-detail .menu .title br {
+    display: none;
+  }
+
+  #concept-detail .menu aside {
+    padding: 0 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  #concept-detail .menu .btn-wrap {
+    width: 100%;
+    justify-content: center;
+  }
+
+  #concept-detail .banner .sub-title {
+    font-size: 44px;
+    line-height: 60px;
+  }
+
+  #concept-detail .banner .text-wrap {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  #concept-detail .result-box .result {
+    width: calc(50% - 30px);
+  }
+
+  #concept-detail .result-box .result-wrap .img-title {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  #concept-detail .result-box .result-wrap .img-title p {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    width: 100%;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 1024px) {
+  #concept-detail .menu .btn-wrap p {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  #result-page .banner .text-box .title-wrap {
+    text-align: center;
+  }
+  #result-page .banner .text-box .text-wrap {
+    width: auto;
+    text-align: left;
+  }
+
+  #concept-detail .result-box .text {
+    font-size: 36px;
+    line-height: 55px;
+  }
+
+  #concept-detail .result-box .result {
+    width: calc(50% - 20px);
+  }
+
+  #concept-detail .result-box .result-wrap .mark {
+    top: 15px;
+    left: 15px;
+    font-size: 17px;
+    line-height: 20px;
+    width: 45px;
+    height: 45px;
+  }
+
+  #concept-detail .report-box .sample .sample-text {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  #concept-detail .report-box .sample .title {
+    font-size: 25px;
+    line-height: 30px;
+    margin-bottom: 30px;
+  }
+
+  #concept-detail .result-box .result-wrap .img-title {
+    font-size: 16px;
+    line-height: 23px;
+  }
+
+  #concept-detail .result-box .result-wrap .img-title p {
+    font-size: 18px;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  #concept-detail .menu .btn-wrap {
+    gap: 15px;
+  }
+
+  #concept-detail .menu .btn-wrap p {
+    font-size: 13px;
+    line-height: 14px;
+    padding: 9px 15px;
+  }
+
+  #concept-detail .banner .sub-title {
+    font-size: 35px;
+    line-height: 50px;
+  }
+
+  #concept-detail .banner .text-wrap {
+    font-size: 17px;
+    line-height: 28px;
+    list-style: none;
+    padding-left: 0;
+  }
+  #concept-detail .banner .text-wrap li {
+    text-align: center;
+  }
+  #concept-detail .banner .round {
+    width: 85%;
+  }
+
+  #concept-detail .result-box .text {
+    font-size: 25px;
+    line-height: 35px;
+  }
+
+  #concept-detail .result-box .result {
+    width: 100%;
+  }
+
+  #concept-detail .result-box .result-wrap .img-title {
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  #concept-detail .result-box .result-wrap .img-title p {
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 5px;
+  }
+
+  #concept-detail .result-box .result-wrap .mark {
+    font-size: 13px;
+    line-height: 16px;
+    width: 35px;
+    height: 35px;
+  }
+  #concept-detail .report-box .text img {
+    width: 170px;
+  }
+
+  #concept-detail .report-box .sample img {
+    max-width: none;
+    width: 100%;
+  }
+
+  #concept-detail .report-box .sample .sample-box {
+    gap: 35px;
+    flex-wrap: wrap;
+  }
+
+  #concept-detail .report-box .sample .sample-text {
+    font-size: 17px;
+    line-height: 28px;
+    text-align: center;
+  }
+
+  #concept-detail .report-box .sample .order-btn {
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 0;
+    padding: 12px 24px;
+    gap: 7px;
+    width: 138px;
+    height: 50px;
+    text-align: center;
+    margin: 20px auto;
+  }
+
+  #concept-detail .report-box .round {
+    width: 70%;
+    margin: 25px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  #concept-detail .banner .sub-title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  #concept-detail .banner .text-wrap {
+    font-size: 14px;
+    line-height: 23px;
+  }
+
+  #concept-detail .result-box .text {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  #concept-detail .result-box .result-wrap .img-title {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  #concept-detail .result-box .result-wrap .img-title p {
+    font-size: 10px;
+    line-height: 10px;
+  }
+
+  #concept-detail .result-box .result {
+    height: 200px;
+  }
+
+  #concept-detail .report-box .text img {
+    width: 140px;
+  }
+
+  #concept-detail .report-box .sample .title {
+    font-size: 22px;
+    line-height: 30px;
+    margin-bottom: 20px;
+  }
+
+  #concept-detail .report-box .sample .sample-text {
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  #concept-detail .report-box .sample .order-btn {
+    font-size: 13px;
+    line-height: 20px;
+    padding: 7px 24px;
+    width: 130px;
+    height: 40px;
+    margin: 18px auto;
+  }
+}

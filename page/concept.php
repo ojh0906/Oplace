@@ -221,7 +221,6 @@ $db_conn->prepare($view_sql)->execute(
             자세히 알아보기<img class="more-icon1" src="<?php echo $site_url ?>/img/concept/arrow-white.png" />
         </div>
     </article>
-
 </section>
 
 <script type="text/javascript">
