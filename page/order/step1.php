@@ -5,98 +5,125 @@ include_once('../../head.php');
 <link rel="stylesheet" type="text/css" href="../../css/popup.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="../../css/order.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="../../css/order-form.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="../../css/order-popup.css" rel="stylesheet" />
 
 <!-- 팝업 화면 -->
-<section class="layer-popup-wrap" id="order-popup">
+<section class="layer-popup-wrap layer-popup-naming" id="order-popup">
     <div class="layer-popup">
         <img class="close-btn close-popup" src="<?php echo $site_url ?>/img/close-btn.png" />
-        <div class="order-data">
-            <div>
-                <p><span>주문번호</span> 2023-00000-00</p>
-                <p><span>이름</span> 홍길동전</p>
-                <p><span>이메일</span>hong@</p>
-                <p><span>휴대폰 번호</span> 010-1234-1234</p>
-            </div>
-            <div>
-                <p><span>서비스</span> 컨셉개발</p>
-                <div class="data-service">
-                    <p>
-                        <span>부가서비스</span>
-                    </p>
-                    <ul>
-                        <li>슬로건</li>
-                        <li>네이밍</li>
-                    </ul>
-                </div>
-                <p><span>결제 일자</span> 2023.00.00</p>
-                <p><span>결제 금액</span> 118,000,000원</p>
-            </div>
-        </div>
 
-        <div class="input-info">
-            <p class="title">입력 정보 및 첨부파일</p>
-            <div class="input-box">
-                <div class="input-wrap">
-                    <p class="input-title">회사 소개서</p>
-                    <input class="input-text" type="text" name="company"
-                        placeholder="기업 철학, 비즈니스 유형, 유사 개발 실적 외 회사 기본 정보 (회사 소개서 첨부 권장)" />
-                    <div class="input-btn">
-                        <label for="company-file">
-                            <img src="<?php echo $site_url ?>/img/attach.png" />
-                            파일 선택
-                        </label>
-                        <input id="company-file" name="company-file" type="file" />
+        <article class="naming-popup">
+            <p class="naming-title">
+                <img src="<?php echo $site_url ?>/img/header/logo.png" />
+                Naming 네이밍 프로세스
+            </p>
+            <div>
+                <div class="naming-container">
+                    <div class="step-box">
+                        <p class="step-title">
+                            1. 브랜드 목표 설정
+                        </p>
+                        <p class="step-text">
+                            브랜드의 성장과 비전, 사회적 기여 등을 함축한 브랜드 목표를 설정합니다.
+                        </p>
                     </div>
-                </div>
-                <div class="input-wrap">
-                    <p class="input-title">개발 현황</p>
-                    <input class="input-text" type="text" name="company"
-                        placeholder="주소, 면적, 평면도, 조감도, 입지분석, 지역 현황 (자료 첨부 권장)" />
-                    <div class="input-btn">
-                        <label for="company-file">
-                            <img src="<?php echo $site_url ?>/img/attach.png" />
-                            파일 선택
-                        </label>
-                        <input id="company-file" name="company-file" type="file" />
+                    <img class="arrow" src="<?php echo $site_url ?>/img/order/arr-r-gray.png" />
+                    <div class="step-box">
+                        <p class="step-title">
+                            2. 브랜드 스토리 개발
+                        </p>
+                        <p class="step-text">
+                            브랜드가 어떤 이유로 존재하는지, 어떤 가치를 제공하는지에 대한 이야기입니다.
+                        </p>
                     </div>
-                </div>
-                <div class="input-wrap">
-                    <p class="input-title">개발 목표, 비전</p>
-                    <input class="input-text" type="text" name="company"
-                        placeholder="개발의 목표, 목적, 예상 효과, 업계에 미치는 영향, 확장 방향, 공공성(지역사회 역할 및 연계 부분)" />
-                    <div class="input-btn">
-                        <label for="company-file">
-                            <img src="<?php echo $site_url ?>/img/attach.png" />
-                            파일 선택
-                        </label>
-                        <input id="company-file" name="company-file" type="file" />
+                    <img class="arrow" src="<?php echo $site_url ?>/img/order/arr-r-gray.png" />
+                    <div class="step-box">
+                        <p class="step-title">
+                            3. 주요 단어 도출
+                        </p>
+                        <p class="step-text">
+                            브랜드의 핵심 가치와 이미지를 고려하여 주요 단어를 도출합니다.
+                        </p>
                     </div>
-                </div>
-                <div class="input-wrap">
-                    <p class="input-title">시설 개요</p>
-                    <input class="input-text" type="text" name="company"
-                        placeholder="도입시설 구성의 목표와 방향성, 확정된 도입시설, 콘텐츠, MD 등의 정보 (자료 첨부 권장)" />
-                    <div class="input-btn">
-                        <label for="company-file">
-                            <img src="<?php echo $site_url ?>/img/attach.png" />
-                            파일 선택
-                        </label>
-                        <input id="company-file" name="company-file" type="file" />
+                    <img class="arrow" src="<?php echo $site_url ?>/img/order/arr-r-gray.png" />
+                    <div class="step-box">
+                        <p class="step-title">
+                            4. 네이밍 개발
+                        </p>
+                        <p class="step-text">
+                            브랜드의 기술적, 이미지적, 시대적, 지리적 네이밍 연구와 신조어, 합성어 등 다양한 방식을 실행합니다.
+                        </p>
                     </div>
-                </div>
-                <div class="input-wrap">
-                    <p class="input-title">예상 타겟</p>
-                    <input class="input-text" type="text" name="company" placeholder="주요 예상 고객층, 도입시설별 예상 고객" />
-                    <div class="input-btn">
-                        <label for="target">
-                            <img src="<?php echo $site_url ?>/img/attach.png" />
-                            파일 선택
-                        </label>
-                        <input id="target" name="target" type="file" />
+                    <br />
+
+                    <img class="arrow" src="<?php echo $site_url ?>/img/order/arr-r-gray.png" />
+                    <div class="step-box">
+                        <p class="step-title">
+                            5. 네이밍 검증
+                        </p>
+                        <p class="step-text">
+                            발음이나 철자, 브랜드 이미지와의 일치도, 유니크함, 검색 엔진 최적화(SEO) 등도 충분히 고려합니다.
+                        </p>
+                    </div>
+                    <img class="arrow" src="<?php echo $site_url ?>/img/order/arr-r-gray.png" />
+
+                    <br />
+
+
+                    <div class="step-box">
+                        <p class="step-title">
+                            6. 명칭후보 선정
+                        </p>
+                        <p class="step-text">
+                            개발안 중에서 등록 가능성이 높은 ‘중, 상’의 네이밍 중 최종 3종의 네이밍을 선정합니다.
+                            <span>
+                                * 등록 가능성 높은 중, 상으로 3종 제안 (1류 기준 / 1류 추가 시 100만원)
+                            </span>
+                        </p>
+                    </div>
+                    <img class="arrow" src="<?php echo $site_url ?>/img/order/arr-r-gray.png" />
+                    <div class="step-box">
+                        <p class="step-title">
+                            7. 광고주 컨펌
+                        </p>
+                        <p class="step-text">
+                            광고주 검토후, 선정된 한가지 안에 대해 보안 작업을 진행하여 완료합니다.
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
+
+            <div class="naming-result">
+                <p class="result-title">
+                    네이밍 결과물
+                    <span>
+                        네이밍 개발 비용 : 3,000,000원 (VAT 별도)
+                    </span>
+                </p>
+
+                <div class="result-box">
+                    <div class="result">
+                        <img src="<?php echo $site_url ?>/img/order/naming/Creating.png" />
+                        <p>
+                            네이밍 프로세스
+                        </p>
+                    </div>
+                    <div class="result">
+                        <img src="<?php echo $site_url ?>/img/order/naming/3.png" />
+                        <p>
+                            네이밍 3안
+                        </p>
+                    </div>
+                    <div class="result">
+                        <img src="<?php echo $site_url ?>/img/order/naming/PPT.png" />
+                        <p>
+                            제출형식: PPT
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </article>
     </div>
 </section>
 
@@ -119,7 +146,7 @@ include_once('../../head.php');
         $('#' + winName).hide();
     }
     function detailPopup() {
-        $(".layer-popup-wrap").css('display', 'flex');
+        $(".layer-popup-naming").css('display', 'flex');
     }
 </script>
 
@@ -134,9 +161,11 @@ include_once('../../head.php');
                 <p class="menu">2. 규정 동의</p>
                 <p class="menu">3. 약관 동의</p>
                 <p class="menu">4. 정보 입력</p>
-                <p class="menu">5. 결제 방법</p>
-                <p class="menu">6. 자료 요청</p>
-                <p class="menu">7. 접수 완료</p>
+                <p class="menu">5. 결제</p>
+                <p class="menu">6. 자료 첨부</p>
+                <div class="menu-line"></div>
+                <p class="menu">7. 부가서비스 자료 첨부</p>
+                <p class="menu">8. 접수 완료</p>
             </div>
         </article>
 
@@ -250,7 +279,8 @@ include_once('../../head.php');
             </div>
 
             <div class="next-btn">
-                <p onClick="location.href ='<?php echo $site_url ?>/page/order/step2.php'">다음 <img src="<?php echo $site_url ?>/img/order/arr-r.png" /></p>
+                <p onClick="location.href ='<?php echo $site_url ?>/page/order/step2.php'">다음 <img
+                        src="<?php echo $site_url ?>/img/order/arr-r.png" /></p>
             </div>
         </article>
     </div>

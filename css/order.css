@@ -6,9 +6,12 @@ p {
 #order-page {
   background-color: #edf2f1;
   padding: 80px 0;
+  overflow: hidden;
 }
 #order-page hr {
-  border: #dddddd;
+  border-top: #dddddd 1px solid;
+  display: block;
+  margin: 30px 0;
 }
 #order-page .main-container {
   display: flex;
@@ -25,7 +28,7 @@ p {
   max-width: 240px;
   width: 30%;
   height: auto;
-  max-height: 400px;
+  max-height: 458px;
 }
 
 #order-page .main-container .menu-box .title {
@@ -47,6 +50,11 @@ p {
 #order-page .main-container .menu-box .menu-text .click {
   font-weight: 800;
   color: #19d6b4;
+}
+
+#order-page .main-container .menu-box .menu-text p:nth-child(5) {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 24px;
 }
 
 #order-page .main-container .menu-box .menu-text p {
@@ -72,6 +80,14 @@ p {
   padding-bottom: 20px;
 
   border-bottom: 1px solid #ddd;
+}
+
+#order-page .main-container .order-container .sub-tit {
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #767676;
 }
 
 #order-page .main-container .order-container .service-wrap {
@@ -153,6 +169,9 @@ p {
   flex-wrap: wrap;
   gap: 20px;
 }
+#order-page .main-container .order-container .step5-table {
+  margin-top: 20px !important;
+}
 #order-page .main-container .order-container .table-wrap {
   font-family: "Pretendard";
   font-weight: 500;
@@ -230,7 +249,8 @@ p {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 8px 24px;
+  /* padding: 8px 24px; */
+  padding: 14px 24px;
   gap: 4px;
   background: #19d6b4;
   border-radius: 100px;
@@ -254,6 +274,7 @@ p {
   color: #555555;
   padding-left: 1rem;
   margin-bottom: 0;
+  word-break: keep-all;
 }
 
 #order-page .main-container .order-container .term-wrap {
@@ -317,12 +338,17 @@ p {
   flex-wrap: wrap;
   justify-content: center;
   gap: 4px;
-  margin-top: 110px;
+  margin-top: 87px;
+}
+#order-page .main-container .order-container .thank-wrap .done {
+  width: 80px;
+  height: 80px;
 }
 #order-page .main-container .order-container .thank-text {
   font-family: "Pretendard";
   font-weight: 500;
   font-size: 16px;
+  margin-top: 20px;
   line-height: 24px;
   text-align: center;
   color: #555555;
@@ -330,9 +356,195 @@ p {
   word-break: keep-all;
 }
 
+#order-page .menu-text .menu-line {
+  display: none;
+}
+
+#order-page .main-container .order-container .done-wrap {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#order-page .main-container .order-container .done-wrap .done-text {
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #444444;
+  width: 100%;
+  text-align: center;
+  margin-top: 24px;
+}
+#order-page .main-container .order-container .done-wrap .done {
+  width: 80px;
+  height: 80px;
+}
+#order-page .main-container .order-container .done-wrap .done-btn-wrap {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 14px;
+}
+#order-page .main-container .order-container .done-wrap .done-btn-wrap img {
+  margin-top: -3px;
+}
+#order-page .main-container .order-container .done-wrap .done-btn-wrap p {
+  /* line-height: 14px !important; */
+  padding: 10px 25px;
+  gap: 8px;
+}
+
+#order-page
+  .main-container
+  .order-container
+  .done-wrap
+  .done-btn-wrap
+  .home-btn
+  p {
+  border: 1px solid #19d6b4;
+  color: #19d6b4;
+  background: #fff !important;
+}
+
+#order-page .main-container .done-container {
+  height: 311px !important;
+}
+
+#order-page .main-container #contact-page .contact-form {
+  padding: 30px 0 !important;
+  background-color: transparent !important;
+}
+
+#order-page
+  .main-container
+  #contact-page
+  .select-wrap
+  input[type="radio"]:checked
+  + label {
+  border: 1px solid #19d6b4;
+  color: #fff;
+  font-weight: 700;
+  background: #19d6b4;
+}
+
+#order-page
+  .main-container
+  #contact-page
+  .contact-container
+  .select-wrap
+  label {
+  background: #f4f4f4;
+}
+
+#order-page
+  .main-container
+  #contact-page
+  .contact-container
+  .select-wrap
+  .open-date {
+  display: flex;
+  gap: 8px;
+}
+
+#order-page
+  .main-container
+  #contact-page
+  .contact-container
+  .select-wrap
+  .open-date
+  input {
+  display: block;
+  border: #efefef solid 1px;
+  padding: 0px 10px;
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #bbbbbb;
+  background-color: #fff;
+}
+
+#order-page .main-container .order-add-container .add-title {
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  color: #444444;
+  margin-bottom: 10px;
+  word-break: keep-all;
+}
+#order-page .main-container .order-add-container .add-sub-title {
+  word-break: keep-all;
+  margin-bottom: 30px;
+}
+
+.layer-popup .submit-popup {
+  background: #fff;
+  padding: 30px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.layer-popup .submit-popup .title {
+  font-family: "Pretendard";
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 34px;
+  color: #222222;
+  text-align: center;
+}
+.layer-popup .submit-popup .title img {
+  max-width: 153px;
+  width: 30%;
+  margin-right: 16px;
+}
+.layer-popup .submit-popup .text {
+  margin-top: 40px;
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #555555;
+}
+
+.layer-popup .submit-popup .submit-btn img {
+  width: 12px;
+  height: 10px;
+  margin-left: 4px;
+}
+
+.layer-popup .submit-popup .submit-btn {
+  font-family: "Pretendard";
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  padding: 16px 24px;
+  background: #19d6b4;
+  border: 1px solid #19d6b4;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  margin: 40px auto 0 auto;
+}
+
+#order-popup .submit-layer-popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  max-width: 480px;
+  width: 90%;
+  height: auto;
+  max-height: 300px;
+}
+
 @media (max-width: 1024px) {
   #order-page .main-container .menu-box {
-    width: 25%;
+    width: 28%;
   }
 
   #order-page .main-container .order-container {
@@ -362,6 +574,7 @@ p {
 
   #order-page .main-container .menu-box .menu-text {
     margin-top: 25px;
+    justify-content: center;
   }
 
   #order-page .main-container .order-container {
@@ -378,6 +591,17 @@ p {
     margin-top: 90px;
     margin-bottom: 90px;
     padding: 20px;
+  }
+
+  #order-page .main-container .menu-box .menu-text p:nth-child(5) {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  #order-page .menu-text .menu-line {
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    display: block;
   }
 }
 
@@ -476,5 +700,33 @@ p {
   #order-page .main-container .order-container .all-term {
     font-size: 12px;
     line-height: 19px;
+  }
+
+  .layer-popup .submit-popup .text {
+    margin-top: 25px;
+    font-size: 11px;
+    line-height: 18px;
+  }
+  .layer-popup .submit-popup .title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .layer-popup .submit-popup .submit-btn {
+    font-size: 14px;
+    line-height: 17px;
+    padding: 12px 21px;
+    margin: 20px auto 0 auto;
+  }
+
+  #order-page
+    .main-container
+    #contact-page
+    .contact-container
+    .select-wrap
+    .open-date
+    input {
+    font-size: 11px;
+    line-height: 24px;
   }
 }

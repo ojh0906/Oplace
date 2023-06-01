@@ -11,6 +11,7 @@
   width: 100%;
 }
 
+#order-page .main-container #contact-page .contact-container .input-title,
 .input-wrap .input-title {
   font-family: "Pretendard";
   font-weight: 700;
@@ -138,6 +139,7 @@
     line-height: 17px;
   }
 
+  #order-page .main-container #contact-page .contact-container .input-title,
   .input-wrap .input-title {
     font-size: 13px;
     line-height: 15px;

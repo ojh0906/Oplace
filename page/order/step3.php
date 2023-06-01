@@ -15,9 +15,11 @@ include_once('../../head.php');
                 <p class="menu">2. 규정 동의</p>
                 <p class="menu click">3. 약관 동의</p>
                 <p class="menu">4. 정보 입력</p>
-                <p class="menu">5. 결제 방법</p>
-                <p class="menu">6. 자료 요청</p>
-                <p class="menu">7. 접수 완료</p>
+                <p class="menu">5. 결제</p>
+                <p class="menu">6. 자료 첨부</p>
+                <div class="menu-line"></div>
+                <p class="menu">7. 부가서비스 자료 첨부</p>
+                <p class="menu">8. 접수 완료</p>
             </div>
         </article>
 
