@@ -121,7 +121,7 @@ $db_conn->prepare($view_sql)->execute(
                 </div>
             </div>
         </div>
-        <div class="more-btn">
+        <div class="more-btn" onClick="location.href ='<?php echo $site_url ?>/page/concept/detail1.php'">
             자세히 알아보기<img class="more-icon1" src="<?php echo $site_url ?>/img/concept/arrow-white.png" />
         </div>
     </article>
@@ -145,7 +145,7 @@ $db_conn->prepare($view_sql)->execute(
                 </div>
             </div>
         </div>
-        <div class="more-btn more-btn2">
+        <div class="more-btn more-btn2" onClick="location.href ='<?php echo $site_url ?>/page/concept/detail2.php'">
             자세히 알아보기<img class="more-icon1" src="<?php echo $site_url ?>/img/concept/arrow-gray.png" />
         </div>
     </article>
@@ -169,7 +169,7 @@ $db_conn->prepare($view_sql)->execute(
                 </div>
             </div>
         </div>
-        <div class="more-btn">
+        <div class="more-btn" onClick="location.href ='<?php echo $site_url ?>/page/concept/detail3.php'">
             자세히 알아보기<img class="more-icon1" src="<?php echo $site_url ?>/img/concept/arrow-white.png" />
         </div>
     </article>
@@ -193,7 +193,7 @@ $db_conn->prepare($view_sql)->execute(
                 </div>
             </div>
         </div>
-        <div class="more-btn more-btn2">
+        <div class="more-btn more-btn2" onClick="location.href ='<?php echo $site_url ?>/page/concept/detail4.php'">
             자세히 알아보기<img class="more-icon1" src="<?php echo $site_url ?>/img/concept/arrow-gray.png" />
         </div>
     </article>
@@ -217,7 +217,7 @@ $db_conn->prepare($view_sql)->execute(
                 </div>
             </div>
         </div>
-        <div class="more-btn">
+        <div class="more-btn" onClick="location.href ='<?php echo $site_url ?>/page/concept/detail5.php'">
             자세히 알아보기<img class="more-icon1" src="<?php echo $site_url ?>/img/concept/arrow-white.png" />
         </div>
     </article>
