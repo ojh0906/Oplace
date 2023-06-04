@@ -108,6 +108,14 @@ $db_conn->prepare($view_sql)->execute(
                     <div class="swiper-wrapper">
                         <div class="swiper-slide" onclick="detailPopup()"><img src="<?php echo $site_url ?>/img/concept/1city/1.png" />
                         </div>
+                        <div class="swiper-slide"><img src="<?php echo $site_url ?>/img/concept/1city/2.png" />
+                        </div>
+                        <div class="swiper-slide"><img src="<?php echo $site_url ?>/img/concept/1city/3.png" />
+                        </div>
+                        <div class="swiper-slide"><img src="<?php echo $site_url ?>/img/concept/1city/4.png" />
+                        </div>
+                        <div class="swiper-slide"><img src="<?php echo $site_url ?>/img/concept/1city/4.png" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -237,8 +245,9 @@ $db_conn->prepare($view_sql)->execute(
     $(function () {
         /* 프로젝트 실적 슬라이드 */
         var projectResult = new Swiper(".concept-service-slide", {
-            slidesPerView: 3.8,
+            slidesPerView: 1,
             spaceBetween: 20,
+            loop: true,
             breakpoints: {
                 480: {
                     slidesPerView: 2,
