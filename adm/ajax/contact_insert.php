@@ -19,7 +19,7 @@
     $count = $updateStmt->rowCount();
 
     echo "<script type='text/javascript'>";
-    echo "alert('등록되었습니다.'); location.href='../apply_list.php'";
+    echo "alert('등록되었습니다.'); location.href='../home.php'";
     echo "</script>";
 
 ?>

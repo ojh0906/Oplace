@@ -124,6 +124,7 @@ p {
   overflow: hidden;
   justify-content: center;
   margin: 60px auto;
+  width: 100%;
 }
 #concept-page .concept-service-box {
   width: 110%;

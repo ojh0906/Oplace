@@ -20,7 +20,7 @@
 
 
              echo "<script type='text/javascript'>";
-             echo "alert('삭제 되었습니다.'); location.href='../apply_list.php?menu=1&'";
+             echo "alert('삭제 되었습니다.'); location.href='../home.php?menu=1&'";
              echo "</script>";
 
 ?>

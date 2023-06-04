@@ -28,18 +28,12 @@ else if( !$adm_login ) {
 <div class="gnb-container">
     <div class="sidebar">
         <div class="brand-wrapper">
-            <a class="brand" href="apply_list.php">Oh! Place</a>
+            <a class="brand" href="home.php">Oh! Place</a>
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li <?php if($menu == 0  || $menu == "") echo "class='active'" ?> >
-                    <a href="home.php?menu=0">
-                        <i class="fas fa-chart-bar"></i>
-                        <p>로그관리</p>
-                    </a>
-                </li>
-                <li <?php if($menu == 1) echo "class='active'" ?> >
-                    <a href="apply_list.php?menu=1">
+                    <a href="home.php?menu=1">
                         <i class="far fa-address-book"></i>
                         <p>전체보기</p>
                     </a>

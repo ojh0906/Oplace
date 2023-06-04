@@ -20,7 +20,7 @@
                 </div>
                 <div class="modal-body">
                     <div>
-                        <p><?= $row[3] ?></p>
+                        <p><?= $row[5] ?></p>
                     </div>
                 </div>
             </div>
