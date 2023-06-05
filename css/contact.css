@@ -13,7 +13,7 @@ p {
   padding: 80px 0;
 }
 #contact-page .contact-form > div {
-  /* justify-content: space-between; */
+  justify-content: center;
   gap: 70px;
   display: flex;
   width: 100%;
@@ -43,7 +43,8 @@ p {
   font-weight: 800;
 }
 
-#contact-page .contact-container {
+#contact-page .contact-container,
+#contact-page .contact-container form {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
