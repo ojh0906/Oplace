@@ -150,6 +150,7 @@ p {
   font-size: 14px;
   line-height: 17px;
   color: #777777;
+  cursor: pointer;
 }
 #order-page .main-container .order-container .more-box label {
   font-family: "Pretendard";
