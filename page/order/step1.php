@@ -17,7 +17,7 @@ $prevPage = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
 <link rel="stylesheet" type="text/css" href="../../css/order-popup.css" rel="stylesheet" />
 
 <!-- 팝업 화면 -->
-<section class="layer-popup-wrap layer-popup-naming" id="order-popup">
+<section class="layer-popup-wrap layer-popup-order layer-popup-naming" id="order-popup">
     <div class="layer-popup">
         <img class="close-btn close-popup" src="<?php echo $site_url ?>/img/close-btn.png" />
 
@@ -134,6 +134,243 @@ $prevPage = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
     </div>
 </section>
 
+<!-- 팝업 화면 -->
+<section class="layer-popup-wrap layer-popup-order layer-popup-logo" id="order-popup">
+    <div class="layer-popup">
+        <img class="close-btn close-popup" src="<?php echo $site_url ?>/img/close-btn.png" />
+        <article class="naming-popup">
+            <p class="naming-title">
+                <img src="<?php echo $site_url ?>/img/header/logo.png" />
+                Logo Design 로고 디자인 프로세스
+            </p>
+            <div>
+                <div class="naming-container">
+                    <div class="step-box">
+                        <p class="step-title">
+                            1. 브랜드 분석
+                        </p>
+                        <p class="step-text">
+                            브랜드의 목적, 대상 시장, 경쟁사 등에 대한 정보를 수집하고 분석합니다.
+                        </p>
+                    </div>
+                    <img class="arrow" src="<?php echo $site_url ?>/img/order/arr-r-gray.png" />
+                    <div class="step-box">
+                        <p class="step-title">
+                            2. 브랜드 스토리 개발
+                        </p>
+                        <p class="step-text">
+                            브랜드가 어떤 가치와 이미지를 전달하고자 하는지에 대한 이야기를 만듭니다.
+                        </p>
+                    </div>
+                    <img class="arrow" src="<?php echo $site_url ?>/img/order/arr-r-gray.png" />
+                    <div class="step-box">
+                        <p class="step-title">
+                            3. 목표 설정
+                        </p>
+                        <p class="step-text">
+                            로고 디자인을 통해 얻고자 하는 기업적, 사회적, 소비자적 목표를 설정합니다.
+                        </p>
+                    </div>
+                    <img class="arrow" src="<?php echo $site_url ?>/img/order/arr-r-gray.png" />
+                    <div class="step-box">
+                        <p class="step-title">
+                            4. 벤치마킹 및 연구
+                        </p>
+                        <p class="step-text">
+                            트렌드의 흐름과 경쟁사를 분석하여 차별화된 로고 디자인 요인을 찾습니다.
+                        </p>
+                    </div>
+                    <br />
+
+                    <img class="arrow" src="<?php echo $site_url ?>/img/order/arr-r-gray.png" />
+                    <div class="step-box">
+                        <p class="step-title">
+                            5. 로고 디자인
+                        </p>
+                        <p class="step-text">
+                            여러 가지 디자인 아이디어를 만들고 압축과 확장을 반복하면서 로고 디자인을 완성합니다.
+                        </p>
+                    </div>
+                    <img class="arrow" src="<?php echo $site_url ?>/img/order/arr-r-gray.png" />
+
+                    <br />
+
+                    <div class="step-box">
+                        <p class="step-title">
+                            6. 로고 응용 디자인
+                        </p>
+                        <p class="step-text">
+                            완료된 로고를 응용하여 명함 등 3가지의 매체에 테스트를 합니다.
+                        </p>
+                    </div>
+                    <img class="arrow" src="<?php echo $site_url ?>/img/order/arr-r-gray.png" />
+                    <div class="step-box">
+                        <p class="step-title">
+                            7. 가이드라인 작성
+                        </p>
+                        <p class="step-text">
+                            로고를 사용하는 방법과 용도, 색상, 크기 등에 대한 가이드라인을 제공합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="naming-result">
+                <p class="result-title">
+                    로고 디자인 결과물
+                    <span>
+                        로고 디자인 비용 : 3,000,000원 (VAT 별도)
+                    </span>
+                </p>
+
+                <div class="result-box">
+                    <div class="result">
+                        <img src="<?php echo $site_url ?>/img/order/naming/Creating.png" />
+                        <p>
+                            로고 디자인 프로세스
+                        </p>
+                    </div>
+                    <div class="result">
+                        <img src="<?php echo $site_url ?>/img/order/naming/3.png" />
+                        <p>
+                            로고 디자인 3안
+                        </p>
+                    </div>
+                    <div class="result">
+                        <img src="<?php echo $site_url ?>/img/order/naming/Flashcards.png" />
+                        <p>
+                            로고 디자인 응용 3안
+                        </p>
+                    </div>
+                    <div class="result">
+                        <img src="<?php echo $site_url ?>/img/order/naming/PPT.png" />
+                        <p>
+                            제출형식: PPT
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </article>
+    </div>
+</section>
+
+<!-- 컨셉 영상 디자인 : 팝업 화면 -->
+<section class="layer-popup-wrap layer-popup-order layer-popup-concept" id="order-popup">
+    <div class="layer-popup">
+        <img class="close-btn close-popup" src="<?php echo $site_url ?>/img/close-btn.png" />
+        <article class="naming-popup">
+            <p class="naming-title">
+                <img src="<?php echo $site_url ?>/img/header/logo.png" />
+                Concept Video 컨셉 영상 제작 프로세스
+            </p>
+            <div>
+                <div class="naming-container">
+                    <div class="step-box">
+                        <p class="step-title">
+                            1. 사내용 컨셉 영상의 목표
+                        </p>
+                        <p class="step-text">
+                            투자사, 협력사 또는 직원 교육을 포함한 사업 소개 영상을 제작하는 것입니다.
+                        </p>
+                    </div>
+                    <img class="arrow" src="<?php echo $site_url ?>/img/order/arr-r-gray.png" />
+                    <div class="step-box">
+                        <p class="step-title">
+                            2. 사내용 영상 제작의 한계점
+                        </p>
+                        <p class="step-text">
+                            사내 자료(스틸, 영상)을 기본적으로 활용하고 사업을 효과적으로 이해시킬 수 있는 인터넷(사진, 영상/경우에 따라 저작권 있는 사진)을 자료로 활용합니다.
+                            즉 본 컨셉 영상은 순수 내부용 영상입니다.
+                        </p>
+                    </div>
+                    <img class="arrow" src="<?php echo $site_url ?>/img/order/arr-r-gray.png" />
+                    <div class="step-box">
+                        <p class="step-title">
+                            3. 타겟 그룹의 주안점 파악
+                        </p>
+                        <p class="step-text">
+                            주요 대상 그룹의 주안점을 파악하여 영상 안에 포함합니다.
+                        </p>
+                    </div>
+                    <img class="arrow" src="<?php echo $site_url ?>/img/order/arr-r-gray.png" />
+                    <div class="step-box">
+                        <p class="step-title">
+                            4. 아이디어 도출
+                        </p>
+                        <p class="step-text">
+                            영상의 논리적인 흐름과 감성적인 요소를 동시에 고려 합니다.
+                        </p>
+                    </div>
+                    <br />
+
+                    <img class="arrow" src="<?php echo $site_url ?>/img/order/arr-r-gray.png" />
+                    <div class="step-box">
+                        <p class="step-title">
+                            5. 시나리오 작성
+                        </p>
+                        <p class="step-text">
+                            영상의 구성과 순서를 구체적으로 스토리보드화 합니다.
+                        </p>
+                    </div>
+                    <img class="arrow" src="<?php echo $site_url ?>/img/order/arr-r-gray.png" />
+
+                    <br />
+
+                    <div class="step-box">
+                        <p class="step-title">
+                            6. 제작 및 편집
+                        </p>
+                        <p class="step-text">
+                            디자인 요소, 편집, 효과음, 음악 등을 포함하여 전체적인 영상 제작을 진행합니다.
+                        </p>
+                    </div>
+                    <img class="arrow" src="<?php echo $site_url ?>/img/order/arr-r-gray.png" />
+                    <div class="step-box">
+                        <p class="step-title">
+                            7. 검수 및 수정
+                        </p>
+                        <p class="step-text">
+                            제작된 영상을 검수하고 필요한 부분을 수정 작업하여 완료합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="naming-result">
+                <p class="result-title">
+                    컨셉 영상 제작 결과물
+                    <span>
+                        컨셉 영상 제작 비용 : 2,500,000원 (VAT 별도)
+                    </span>
+                </p>
+
+                <div class="result-box">
+                    <div class="result">
+                        <img src="<?php echo $site_url ?>/img/order/naming/Creating.png" />
+                        <p>
+                            컨셉 영상 프로세스
+                        </p>
+                    </div>
+                    <div class="result">
+                        <img src="<?php echo $site_url ?>/img/order/naming/film.png" />
+                        <p>
+                            2분 전후 영상
+                        </p>
+                    </div>
+                    <div class="result">
+                        <img class="mp4" src="<?php echo $site_url ?>/img/order/naming/pptmp4.png" />
+                        <p>
+                            MP4, PPT
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </article>
+    </div>
+</section>
+
 <script>
     $(document).ready(function () {
         $(".close-popup").click(function () {
@@ -154,6 +391,12 @@ $prevPage = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
     }
     function detailPopup() {
         $(".layer-popup-naming").css('display', 'flex');
+    }
+    function detailPopupLogo() {
+        $(".layer-popup-logo").css('display', 'flex');
+    }
+    function detailPopupConcept() {
+        $(".layer-popup-concept").css('display', 'flex');
     }
 </script>
 
@@ -211,7 +454,7 @@ $prevPage = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
                                     차별화되고 확장성과 유연성을 가진 세련된 멋진 로고 디자인은 디지털 기반에서 브랜드의 유니크 함과 재미, 브랜드 가치와 신뢰를 줄 것입니다.</p>
                             </div>
                             <div class="more-box">
-                                <p class="click-more">자세히 알아보기<img
+                                <p class="click-more" onclick="detailPopupLogo()">자세히 알아보기<img
                                         src="<?php echo $site_url ?>/img/order/arr-r-gray.png" /></p>
                                 <label>
                                     <input id="target" name="target" type="checkbox" />
@@ -234,7 +477,7 @@ $prevPage = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
                                 </p>
                             </div>
                             <div class="more-box">
-                                <p class="click-more">자세히 알아보기<img
+                                <p class="click-more" onclick="detailPopupConcept()">자세히 알아보기<img
                                         src="<?php echo $site_url ?>/img/order/arr-r-gray.png" /></p> <label>
                                     <input id="target" name="target" type="checkbox" />
                                     선택하기
