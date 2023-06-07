@@ -1,4 +1,7 @@
 <?php
+header('P3P: CP="NOI CURa ADMa DEVa TAIa OUR DELa BUS IND PHY ONL UNI COM NAV INT DEM PRE"');
+session_start();
+
 $site_path = $_SERVER["DOCUMENT_ROOT"]."/Oplace";
 //$site_url = $_SERVER["HTTP_HOST"]."/Oplace";
 $site_url = "http://".$_SERVER["HTTP_HOST"]."/Oplace";
@@ -13,6 +16,11 @@ $site_info_stt = $db_conn->prepare($site_info_sql);
 $site_info_stt->execute();
 $site = $site_info_stt->fetch();
 
+function GoToMain(){
+    echo "<script type='text/javascript'>";
+    echo "location.href = '/';";
+    echo "</script>";
+}
 ?>
 
 <!doctype html>

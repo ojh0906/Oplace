@@ -1,5 +1,14 @@
 <?php
 include_once('../../head.php');
+
+//접속 확인
+if(!isset($_SERVER['HTTP_REFERER'])){
+    echo "<script>alert('허용되지 않는 잘못된 접근입니다.');</script>";
+}
+$prevPage = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
+//if($prevPage != '/page/concept/detail1.php') {
+//    echo "<script>alert('허용되지 않는 잘못된 접근입니다.');</script>";
+//}
 ?>
 
 <link rel="stylesheet" type="text/css" href="../../css/popup.css" rel="stylesheet" />
@@ -69,7 +78,6 @@ include_once('../../head.php');
 
                     <br />
 
-
                     <div class="step-box">
                         <p class="step-title">
                             6. 명칭후보 선정
@@ -122,7 +130,6 @@ include_once('../../head.php');
                     </div>
                 </div>
             </div>
-
         </article>
     </div>
 </section>
@@ -279,14 +286,26 @@ include_once('../../head.php');
             </div>
 
             <div class="next-btn">
-                <p onClick="location.href ='<?php echo $site_url ?>/page/order/step2.php'">다음 <img
-                        src="<?php echo $site_url ?>/img/order/arr-r.png" /></p>
+                <form id="step-form" action="ajax/order_temp_insert.php" method="post" >
+                    <input type="hidden" name="service_type" value="3500000">
+                    <input type="hidden" name="addition" value="3000000">
+                    <input type="hidden" name="total" value="9500000">
+                    <input type="hidden" name="vat" value="950000">
+                    <input type="hidden" name="total_price" value="10450000">
+                    <p id="submit" onClick="location.href ='<?php echo $site_url ?>/page/order/step2.php'">다음 <img
+                                src="<?php echo $site_url ?>/img/order/arr-r.png" /></p>
+                </form>
+
             </div>
         </article>
     </div>
-
-
 </section>
+
+<script>
+    $("#submit").click(function (){
+        $("#step-form").submit();
+    });
+</script>
 
 <?php
 include_once('../../tale.php');

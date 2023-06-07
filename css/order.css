@@ -245,7 +245,8 @@ p {
   color: #ffffff;
   text-align: end;
 }
-#order-page .main-container .order-container .next-btn p {
+#order-page .main-container .order-container .next-btn p,
+#order-page .main-container .order-container .next-btn .step {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -541,6 +542,15 @@ p {
   height: auto;
   max-height: 300px;
 }
+
+/* LAYER POPUP STYLE START */
+.fdLayer {display:none; position: absolute; top: 50%; left: 50%; width: 566px; height:auto;  background-color:#fff; border: 5px solid rgb(0, 66, 101); z-index: 10;}
+.fdLayer .fdContainer {padding: 3px;}
+.fdLayer .fdBtn {width: 100%; margin:10px 0 0; padding-top: 10px; border-top: 1px solid #DDD; text-align:right;}
+a.closeBtn {display:inline-block; height:25px; padding:0 14px 0; border:1px solid #304a8a; background-color:rgb(0, 32, 61); font-size:13px; color:#fff; line-height:25px;}
+a.closeBtn:hover {border: 1px solid #091940; background-color:#1f326a; color:#fff;}
+#mask { position:absolute; left:0; top:0; z-index:9; background-color:#000; display:none;}
+/* LAYER POPUP STYLE END */
 
 @media (max-width: 1024px) {
   #order-page .main-container .menu-box {

@@ -126,17 +126,13 @@ include_once('../../head.php');
                                 꼭 함께 하세요!
                             </p>
                             <p class="order-btn">
-                                주문하기<img src="<?php echo $site_url ?>/img/concept/detail/check.png" />
+                                <a href="/oplace/page/order/step1.php">주문하기<img src="<?php echo $site_url ?>/img/concept/detail/check.png" /></a>
                             </p>
-
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </article>
-
     </div>
 
 </section>

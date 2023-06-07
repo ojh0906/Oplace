@@ -1,5 +1,18 @@
 <?php
 include_once('../../head.php');
+echo $_SESSION['order_temp_id'];
+
+//접속 확인
+if(!isset($_SERVER['HTTP_REFERER']) && !isset($_SESSION['order_temp_id'])){
+    echo "<script>alert('허용되지 않는 잘못된 접근입니다.');</script>";
+    GoToMain();
+}
+$prevPage = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
+//TODO 아래 경로 "oplace" 수정해야함
+if($prevPage != '/oplace/page/order/ajax/order_temp_insert.php') {
+    echo "<script>alert('허용되지 않는 잘못된 접근입니다.');</script>";
+    GoToMain();
+}
 ?>
 
 <link rel="stylesheet" type="text/css" href="../../css/order.css" rel="stylesheet" />
