@@ -98,9 +98,9 @@ $order = $sql_stt -> fetch();
                 <input type="text" name="LangType" id="LangType" value="HAN">
                 <input type="text" name="EncodeType" id="EncodeType" value="U">
                 <input type="text" name="connectionType" id="connectionType" value="http">
-                <input type="text" name="URL" id="URL" value="<?php echo $site_url ?>/page/order/step5-1.php">
-                <input type="text" name="DBPATH" id="DBPATH" value="<?php echo $site_url ?>/page/order/step5-1.php" />
-                <input type="text" name="rtnUrl" id="rtnUrl" value="http://localhost:8880/Oplace/payment/integration/layer.php">
+                <input type="text" name="URL" id="URL" value="<?php echo $site_url ?>">
+                <input type="text" name="DBPATH" id="DBPATH" value="<?php echo $site_url ?>/page/order/payment/integration/insert.php" />
+                <input type="text" name="rtnUrl" id="rtnUrl" value="<?php echo $site_url ?>/page/order/payment/integration/layer.php">
             </form>
             <!-- 레이어 팝업 처리 시 화면 영역 시작 -->
             <div id="mask"></div>
@@ -116,7 +116,21 @@ $order = $sql_stt -> fetch();
             </div>
             <!-- 레이어 팝업 처리 시 화면 영역 끝 -->
             <div class="next-btn">
-                <p onclick="payProc()">결제 <img src="<?php echo $site_url ?>/img/order/arr-r.png" /></p>
+                <?php
+                $mobile_agent = "/(iPod|iPhone|Android|BlackBerry|SymbianOS|SCH-M\d+|Opera Mini|Windows CE|Nokia|SonyEricsson|webOS|PalmOS)/";
+
+                if(preg_match($mobile_agent, $_SERVER['HTTP_USER_AGENT'])){
+                ?>
+                    <p onclick="payProcMobile()">결제 <img src="<?php echo $site_url ?>/img/order/arr-r.png" /></p>
+
+                    <?php
+                }else{
+                ?>
+                    <p onclick="payProcPC()">결제 <img src="<?php echo $site_url ?>/img/order/arr-r.png" /></p>
+                <?php
+                }
+                ?>
+
             </div>
         </article>
     </div>
@@ -124,7 +138,7 @@ $order = $sql_stt -> fetch();
 
 <script type="text/javascript" src="payment/integration/js/sha256.js"></script>
 <script>
-    var popflag = "L";									//P:팝업창 호출 결제, L:Layer 팝업 호출 결제(Default)
+    var popflag = "P";									//P:팝업창 호출 결제, L:Layer 팝업 호출 결제(Default)
     var keyData = "6aMoJujE34XnL9gvUqdKGMqs9GzYaNo6";	//가맹점 배포 PASSKEY 입력
 
     $(document).ready(function(){
@@ -207,8 +221,24 @@ $order = $sql_stt -> fetch();
 
     }
 
-    //결제하기 호출 시 처리
-    function payProc(){
+    //결제하기 호출 시 처리 (Mobile)
+    function payProcMobile(){
+        if(document.fdpay.PAYDATA.value == ""){
+
+            alert("전문 생성 후 결제 요청해 주세요.");
+
+        }else{
+            var frm = document.fdpay;
+
+            frm.acceptCharset = 'euc-kr';
+            if(document.all)document.charset = 'euc-kr';
+
+            frm.action = "https://testpg.firstpay.co.kr/jsp/mobile.jsp";
+            frm.submit();
+        }
+    }
+    //결제하기 호출 시 처리 (PC)
+    function payProcPC(){
 
         if(document.fdpay.PAYDATA.value == ""){
             alert("전문 생성 후 결제 요청해 주세요.");
@@ -269,14 +299,13 @@ $order = $sql_stt -> fetch();
 
         //레이어 팝업으로 호출한 경우만 처리
         if(popflag != "P"){
-
             FD_PAY_FRAME.location.href = "blank.html";					//결제창 결과 수신 시 빈 페이지로 프레임 영역 변경
-
             document.getElementById("fdpayWin").style.display = "none";	//결제창 결과 수신 시 프레임 영역 표시 해제
-
             document.getElementById("mask").style.display = "none";		//결제창 결과 수신 시 하단 MASKING 표시 해제
+            window.addEventListener( 'message', function( e ) {
+                console.log( e.data );
+            } );
         }
-
         if(rtncode == "0000"){
 
             var mxid = document.fdpay.MxID.value;
@@ -286,12 +315,14 @@ $order = $sql_stt -> fetch();
             document.pay.MxIssueNO.value = mxissueno;
             document.pay.FDTid.value = fdtid;
 
-            document.pay.action = "send.php";
+            document.pay.action = "step5-1.php";
             document.pay.submit();
         }else{
             alert("인증실패["+rtncode+"("+rtnmsg+")]");
         }
     }
+
+
 </script>
 <?php
 include_once('../../tale.php');
