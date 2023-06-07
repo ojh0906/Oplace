@@ -23,7 +23,9 @@ include_once('../../head.php');
             </div>
         </article>
 
-        <article class="order-container done-container">
+
+        <!-- 결제 완료 창 -->
+        <!-- <article class="order-container done-container">
             <p class="title">결제 완료</p>
 
             <aside class="done-wrap">
@@ -38,9 +40,40 @@ include_once('../../head.php');
                     </div>
                 </div>
             </aside>
+        </article> -->
+
+        <!-- 결제 창 -->
+        <article class="order-container order-num-container">
+            <p class="title">결제</p>
+            <aside class="done-wrap">
+                <p class="order-done-text">아래 계좌정보로 입금해 주시면<br class="mo-br480" /> 결제 완료 처리가 됩니다.</p>
+
+                <div class="order-num">
+                    <div class="order-wrap">
+                        <div class="order">
+                            <p class="tit">입금 계좌</p>
+                            <p class="">우리은행 1002-111-483927</p>
+                        </div>
+                        <div class="order">
+                            <p class="tit">금액</p>
+                            <p class="">110,000</p>
+                        </div>
+                        <div class="order">
+                            <p class="tit">주문번호</p>
+                            <p class="">2023</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="done-btn-wrap">
+                    <div class="next-btn home-btn">
+                        <p onClick="location.href ='<?php echo $site_url ?>'">홈으로 <img
+                                src="<?php echo $site_url ?>/img/order/arr-r-mint.png" /></p>
+                    </div>
+                </div>
+            </aside>
         </article>
     </div>
-
 
 </section>
 
