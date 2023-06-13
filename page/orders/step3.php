@@ -16,7 +16,7 @@ if( !$user_login ) {
         location.href = 'step1.php';
     </script>
 
-    <?
+    <?php
 }
 //회원정보
 $member_sql = "select * from order_member_tbl WHERE id = " .$_SESSION[ 'user_id' ];

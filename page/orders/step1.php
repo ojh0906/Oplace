@@ -14,7 +14,7 @@ if( $user_login ) {
         location.href = 'step3.php';
     </script>
 
-    <?
+    <?php
 }
 
 ?>
