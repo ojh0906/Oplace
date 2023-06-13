@@ -91,13 +91,13 @@
                 <ul>
                     <?php if($addYn1){ ?>
                     <li>네이밍</li>
-                    <? } ?>
+                    <?php } ?>
                     <?php if($addYn2){ ?>
                     <li>로고 디자인</li>
-                    <? } ?>
+                    <?php } ?>
                     <?php if($addYn3){ ?>
                     <li>사업 컨셉 영상</li>
-                    <? } ?>
+                    <?php } ?>
                 </ul>
             </div>
             <p><span>결제 일자</span> <?= dateTime($row['orderDate']) ?></p>
