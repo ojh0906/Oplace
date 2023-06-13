@@ -25,7 +25,7 @@ if ($type == 'modify') {
     $admin_stt->execute();
     $row = $admin_stt->fetch();
 
-    $file_sql = "select * from file_tbl where id = $row[5]";
+    $file_sql = "select * from community_file_tbl where id = $row[5]";
     $file_stt = $db_conn->prepare($file_sql);
     $file_stt->execute();
     $file = $file_stt->fetch();

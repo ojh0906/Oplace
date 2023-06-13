@@ -56,6 +56,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
+  position: relative;
 }
 
 #orders-page .order-data-box {
@@ -205,6 +206,76 @@
   line-height: 24px;
   color: #555555;
   margin-bottom: 20px;
+}
+.logout-wrap{
+  display: inline-block !important;
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: left;
+}
+.logout-wrap a{
+  background: #19d6b4;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  padding: 6px 20px;
+  border-radius: 15px;
+}
+.layer-popup .select-wrap .select {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.layer-popup .select-wrap input {
+  display: none;
+}
+.layer-popup .select-wrap label {
+  padding: 8px 10px;
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 4px;
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #bbbbbb;
+}
+.layer-popup .select-wrap img {
+  width: 20px;
+  height: 20px;
+}
+.layer-popup .select-wrap label .on {
+  display: none;
+}
+.layer-popup .select-wrap label .off {
+  display: block;
+}
+#contact-page .select-wrap input[type="radio"]:checked + label {
+  border: 1px solid #19d6b4;
+  color: #19d6b4;
+  font-weight: 700;
+}
+#contact-page .select-wrap input[type="radio"]:checked + label .off {
+  display: none;
+}
+#contact-page .select-wrap input[type="radio"]:checked + label .on {
+  display: block;
+}
+.layer-popup .download{
+  display: inline-block;
+  width: 100%;
+  font-size: 15px;
+  color: #333;
+}
+.layer-popup .download:hover{
+  color: #19d6b4;
+}
+.layer-popup .download i{
+  margin-right: 15px;
 }
 
 @media (max-width: 1280px) {

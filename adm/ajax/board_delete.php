@@ -14,7 +14,7 @@ $deleteStmt->execute();
 $count = $deleteStmt->rowCount();
 
 // 게시글 첨부파일 삭제
-$select_file = "select * from file_tbl where id =" .$file;
+$select_file = "select * from community_file_tbl where id =" .$file;
 $selectStmt = $db_conn->prepare($select_file);
 $selectStmt->execute();
 $row = $selectStmt->fetch();
@@ -22,7 +22,7 @@ $file_name = $row[2];
 unlink($file_link.$file_name);
 
 // 게시글 첨부파일 DB 삭제
-$file_delete_sql = "delete from file_tbl
+$file_delete_sql = "delete from community_file_tbl
                where
                   id = $file";
 $file_deleteStmt = $db_conn->prepare($file_delete_sql);

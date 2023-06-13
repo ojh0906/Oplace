@@ -32,10 +32,10 @@ else if( !$adm_login ) {
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
-                <li <?php if($menu == 0  || $menu == "") echo "class='active'" ?> >
+                <li <?php if($menu == 1  || $menu == "") echo "class='active'" ?> >
                     <a href="home.php?menu=1">
                         <i class="far fa-address-book"></i>
-                        <p>전체보기</p>
+                        <p>문의 관리</p>
                     </a>
                 </li>
                 <li <?php if($menu == 2) echo "class='active'" ?> >
@@ -57,9 +57,15 @@ else if( !$adm_login ) {
                     </a>
                 </li>
                 <li <?php if($menu == 4) echo "class='active'" ?> >
-                    <a href="manager_list.php?menu=4">
+                    <a href="member_list.php?menu=4">
                         <i class="far fa-user"></i>
-                        <p>담당자 설정</p>
+                        <p>구매회원 관리</p>
+                    </a>
+                </li>
+                <li <?php if($menu == 5) echo "class='active'" ?> >
+                    <a href="order_list.php?menu=5">
+                        <i class="fas fa-money-check-alt"></i>
+                        <p>주문내역 관리</p>
                     </a>
                 </li>
                 <li class="line"></li>

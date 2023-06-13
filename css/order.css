@@ -209,7 +209,9 @@ p {
 #order-page .main-container .order-container .table-wrap .tr p:nth-child(2) {
   text-align: right;
 }
-
+#order-page .main-container .order-container .table-wrap .tr.target_re{
+  display: none;
+}
 #order-page .main-container .order-container .table-wrap p {
   width: 50%;
   padding: 10px;
@@ -301,6 +303,8 @@ p {
   border: 1px solid #efefef;
   border-radius: 4px;
   margin-top: 4px;
+  height: 200px;
+  overflow-y: scroll;
 }
 #order-page .main-container .order-container .term-box .term-checkbox {
   font-family: "Pretendard";

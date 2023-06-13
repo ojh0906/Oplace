@@ -1,5 +1,7 @@
 <?php
 include_once('../../head.php');
+session_unset();
+session_destroy();
 ?>
 
 <link rel="stylesheet" type="text/css" href="../../css/order.css" rel="stylesheet" />

@@ -35,7 +35,7 @@ $list_stt->execute();
             while ($list_row = $list_stt->fetch()) {
                 $is_data = 1;
 
-                $file_sql = "select * from file_tbl where id = " .$list_row['thumb_file'];
+                $file_sql = "select * from community_file_tbl where id = " .$list_row['thumb_file'];
                 $file_stt = $db_conn->prepare($file_sql);
                 $file_stt->execute();
                 $file = $file_stt->fetch();

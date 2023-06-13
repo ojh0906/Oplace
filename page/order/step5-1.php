@@ -1,5 +1,21 @@
 <?php
 include_once('../../head.php');
+
+$type = false;
+$no = $_GET['no'];
+if(isset($_GET['type'])){
+    if($_GET['type'] == 'VA') {
+        $type = true;
+    }
+}
+
+if($type){
+    $va_sql = "select * from payment_order_tbl where orderNo = '$no'";
+    $va_stt = $db_conn->prepare($va_sql);
+    $va_stt->execute();
+    $va = $va_stt -> fetch();
+}
+
 ?>
 
 <link rel="stylesheet" type="text/css" href="../../css/order.css" rel="stylesheet" />
@@ -23,9 +39,9 @@ include_once('../../head.php');
             </div>
         </article>
 
-
         <!-- 결제 완료 창 -->
-        <!-- <article class="order-container done-container">
+        <?php if(!$type) { ?>
+         <article class="order-container done-container">
             <p class="title">결제 완료</p>
 
             <aside class="done-wrap">
@@ -40,8 +56,8 @@ include_once('../../head.php');
                     </div>
                 </div>
             </aside>
-        </article> -->
-
+        </article>
+        <?php } else { ?>
         <!-- 결제 창 -->
         <article class="order-container order-num-container">
             <p class="title">결제</p>
@@ -52,19 +68,18 @@ include_once('../../head.php');
                     <div class="order-wrap">
                         <div class="order">
                             <p class="tit">입금 계좌</p>
-                            <p class="">우리은행 1002-111-483927</p>
+                            <p class=""><?php echo $va['bkName'] ?> <?php echo $va['vactno'] ?></p>
                         </div>
                         <div class="order">
                             <p class="tit">금액</p>
-                            <p class="">110,000</p>
+                            <p class=""><?php echo number_format(intval($va['price'])) ?> 원</p>
                         </div>
                         <div class="order">
                             <p class="tit">주문번호</p>
-                            <p class="">2023</p>
+                            <p class=""><?php echo $no ?></p>
                         </div>
                     </div>
                 </div>
-
                 <div class="done-btn-wrap">
                     <div class="next-btn home-btn">
                         <p onClick="location.href ='<?php echo $site_url ?>'">홈으로 <img
@@ -73,6 +88,7 @@ include_once('../../head.php');
                 </div>
             </aside>
         </article>
+        <?php } ?>
     </div>
 
 </section>

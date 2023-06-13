@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			FDK 결제 테스트 페이지
+		</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<style type="text/css">
+			table { margin: 1em; border-collapse: collapse; }
+			td, th { padding: .3em; border: 1px #ccc solid; font-size:12px; }
+			thead { background: #fc9; }
+			input { background-color: #ffffff; border: #bbbbbb 1px solid; font-size: 9pt; height: 20px; width: 250px;}
+			select { background-color: #ffffff; border-bottom: #a5a4a4 1px solid; border-left: #a5a4a4  1px solid; border-right: #a5a4a4  1px solid; border-top: #a5a4a4 1px solid; font-size: 9pt; height: 20px }
+		</style>
+		<script type="text/javascript" src="js/sha256.js"></script>
+		<script type="text/javascript" src="js/jquery1.7.1.js"></script>
+		<script type="text/javascript">
+
+			function canProc(){
+				
+				var mxid = document.fdpay.MxID.value;
+				var mxissueno = document.fdpay.MxIssueNO.value;
+				var amount = document.fdpay.Amount.value;
+
+				document.fdpay.action = "send.php";
+				document.fdpay.submit();
+			}
+		</script>
+	</head>
+	<body>
+		<form name="fdpay" id="fdpay" method="post">
+		<table>
+			<thead>
+				<tr>
+					<th>Description</th>
+					<th>Values</th>
+					<th>Remark</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>* 가맹점 ID</td>
+					<td><input type="text" name="MxID" id="MxID" value="testcorp" /></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>* 주문번호</td>
+					<td><input type="text" name="MxIssueNO" id="MxIssueNO" value="" /></td>
+					<td>가맹점 사용 주문번호</td>
+				</tr>
+				<tr>
+					<td>* 주문시간</td>
+					<td><input type="text" name="MxIssueDate" id="MxIssueDate" value="" /></td>
+					<td>YYYYMMDDHHMMSS</td>
+				</tr>
+				<tr>
+					<td>취소요청금액</td>
+					<td><input type="text" name="Amount" id="Amount" value="" /></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>* 거래모드</td>
+					<td><input type="text" name="CcMode" id="CcMode" value="10" /></td>
+					<td>10:승인 (고정 DATA)</td>
+				</tr>
+				<tr>
+					<td>* 결제종류</td>
+					<td><input type="text" name="PayMethod" id="PayMethod" value="" /></td>
+					<td>CC:신용, IC:계좌, MO:휴대폰, VA:가상, CA:현금</td>
+				</tr>
+				<tr>
+					<td>* 결제구분</td>
+					<td><input type="text" name="TxCode" id="TxCode" value="" /></td>
+					<td>EC131400:신용, EC601200:계좌, EC1D1100:휴대폰, EC801200:가상, EC301200:현금</td>
+				</tr>
+				<tr>
+					<td> 환불은행코드</td>
+					<td><input type="text" name="RefundBankCode" id="RefundBankCode" value="" /></td>
+					<td> 가상계좌 취소 시 필수</td>
+				</tr>
+				<tr>
+					<td> 환불예금주명</td>
+					<td><input type="text" name="HolderName" id="HolderName" value="" /></td>
+					<td> 가상계좌 취소 시 필수</td>
+				</tr>
+				<tr>
+					<td> 환불계좌번호</td>
+					<td><input type="text" name="RefundAccount" id="RefundAccount" value="" /></td>
+					<td> 가상계좌 취소 시 필수</td>
+				</tr>
+				<tr>
+					<td colspan="3" align="center">
+						<a href="javascript:canProc();"><img src="img/btn_payment.png" width="131" height="46" border="0"></a>	
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</form>
+	</body>
+</html>

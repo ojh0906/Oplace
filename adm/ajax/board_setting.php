@@ -40,7 +40,7 @@ if ($type == 'insert') {
           $chg_file = str_replace(' ', '', $chg_file);
           if (move_uploaded_file($file1['tmp_name'], $upload_directory .  $chg_file)) {
                // 파일 DB에 저장
-               $file_sql = "insert into file_tbl (file_title, chg_title, ftype)
+               $file_sql = "insert into community_file_tbl (file_title, chg_title, ftype)
                                 value  
                                     (?, ?, ?)";
                $db_conn->prepare($file_sql)->execute(
@@ -84,7 +84,7 @@ if ($type == 'modify') {
 
 
      //기존 파일 정보 불러오기
-     $file_sql = "select * from file_tbl where id = " .$file_fk;
+     $file_sql = "select * from community_file_tbl where id = " .$file_fk;
      $file_stt = $db_conn->prepare($file_sql);
      $file_stt->execute();
      $file = $file_stt->fetch();
@@ -121,7 +121,7 @@ if ($type == 'modify') {
           $chg_file = str_replace(' ', '', $chg_file);
           if (move_uploaded_file($file1['tmp_name'], $upload_directory .  $chg_file)) {
                // 파일 DB에 저장
-               $file_sql = "insert into file_tbl (file_title, chg_title, ftype)
+               $file_sql = "insert into community_file_tbl (file_title, chg_title, ftype)
                            value
                                (?, ?, ?)";
                $db_conn->prepare($file_sql)->execute(

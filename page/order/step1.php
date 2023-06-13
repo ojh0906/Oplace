@@ -4,11 +4,40 @@ include_once('../../head.php');
 //접속 확인
 if(!isset($_SERVER['HTTP_REFERER'])){
     echo "<script>alert('허용되지 않는 잘못된 접근입니다.');</script>";
+    GoToMain();
 }
-$prevPage = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
-//if($prevPage != '/page/concept/detail1.php') {
-//    echo "<script>alert('허용되지 않는 잘못된 접근입니다.');</script>";
-//}
+if(!isset($_GET['type'])) {
+    echo "<script>alert('허용되지 않는 잘못된 접근입니다.');</script>";
+    GoToMain();
+}
+$product_type = "";
+$price = "";
+switch ($_GET['type']){
+    case 1:
+        $product_type = "도시 및 지역";
+        $price = 3500000;
+        break;
+    case 2:
+        $product_type = "주거 및 오피스";
+        $price = 3500000;
+        break;
+    case 3:
+        $product_type = "복합공간 및 리테일";
+        $price = 3500000;
+        break;
+    case 4:
+        $product_type = "리조트 및 테마파크";
+        $price = 3500000;
+        break;
+    case 5:
+        $product_type = "재생공간";
+        $price = 3500000;
+        break;
+    default:
+        GoToMain();
+}
+
+
 ?>
 
 <link rel="stylesheet" type="text/css" href="../../css/popup.css" rel="stylesheet" />
@@ -436,7 +465,7 @@ $prevPage = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
                             <div class="more-box">
                                 <p class="click-more" onclick="detailPopup()">자세히 알아보기<img
                                         src="<?php echo $site_url ?>/img/order/arr-r-gray.png" /></p> <label>
-                                    <input id="target" name="target" type="checkbox" />
+                                    <input id="target1" name="target" type="checkbox" />
                                     선택하기
                                 </label>
                             </div>
@@ -457,7 +486,7 @@ $prevPage = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
                                 <p class="click-more" onclick="detailPopupLogo()">자세히 알아보기<img
                                         src="<?php echo $site_url ?>/img/order/arr-r-gray.png" /></p>
                                 <label>
-                                    <input id="target" name="target" type="checkbox" />
+                                    <input id="target2" name="target" type="checkbox" />
                                     선택하기
                                 </label>
                             </div>
@@ -479,7 +508,7 @@ $prevPage = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
                             <div class="more-box">
                                 <p class="click-more" onclick="detailPopupConcept()">자세히 알아보기<img
                                         src="<?php echo $site_url ?>/img/order/arr-r-gray.png" /></p> <label>
-                                    <input id="target" name="target" type="checkbox" />
+                                    <input id="target3" name="target" type="checkbox" />
                                     선택하기
                                 </label>
                             </div>
@@ -494,8 +523,9 @@ $prevPage = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
                         <p>견적</p>
                     </div>
                     <div class="tr">
-                        <p>도시와 지역 컨셉 개발</p>
-                        <p>3,500,000 원</p>
+                        <p><?php echo $product_type ?></p>
+                        <p><?php echo number_format($price); ?></p>
+
                     </div>
                 </aside>
                 <aside>
@@ -503,39 +533,43 @@ $prevPage = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
                         <p>추가된 부가 서비스</p>
                         <p>견적</p>
                     </div>
-                    <div class="tr">
+                    <div id="target1_re" class="tr target_re">
                         <p>네이밍</p>
                         <p>3,000,000 원</p>
                     </div>
-                    <div class="tr">
+                    <div id="target2_re" class="tr target_re">
                         <p>로고 디자인</p>
                         <p>3,000,000 원</p>
+                    </div>
+                    <div id="target3_re" class="tr target_re">
+                        <p>사업 컨셉 영</p>
+                        <p>2,500,000 원</p>
                     </div>
                 </aside>
                 <aside class="total-wrap">
                     <div class="price">
                         <p>합계</p>
-                        <p>9,500,000 원</p>
+                        <p><span id="total-text"><?php echo number_format($price); ?></span> 원</p>
                     </div>
                     <div class="price">
                         <p>부가가치세 (+10%)</p>
-                        <p>950,000 원</p>
+                        <p><span id="vat-text"></span> 원</p>
                     </div>
                     <div class="price">
                         <p>총 합계</p>
-                        <p>10,450,000 원</p>
+                        <p><span id="total-price"></span> 원</p>
                     </div>
                 </aside>
             </div>
 
             <div class="next-btn">
                 <form id="step-form" action="ajax/order_temp_insert.php" method="post" >
-                    <input type="hidden" name="service_type" value="3500000">
-                    <input type="hidden" name="addition" value="3000000">
-                    <input type="hidden" name="total" value="9500000">
-                    <input type="hidden" name="vat" value="950000">
-                    <input type="hidden" name="total_price" value="10450000">
-                    <p id="submit" onClick="location.href ='<?php echo $site_url ?>/page/order/step2.php'">다음 <img
+                    <input type="hidden" name="service_type" value="<?= $_GET['type'] ?>">
+                    <input type="hidden" name="addition" id="addition" value="0">
+                    <input type="hidden" name="total" id="total" value="<?= $price ?>">
+                    <input type="hidden" name="vat" id="vat" value="950000">
+                    <input type="hidden" name="total_price" id="total_price" value="10450000">
+                    <p id="submit">다음 <img
                                 src="<?php echo $site_url ?>/img/order/arr-r.png" /></p>
                 </form>
 
@@ -545,9 +579,100 @@ $prevPage = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
 </section>
 
 <script>
+    var service = 0;
+    var total = 0;
+    var addition = 0
+    var vat = 0;
+    var total_price = 0;
+    var additionYn1 = 0;
+    var additionYn2 = 0;
+    var additionYn3 = 0;
+
+    $( document ).ready(function() {
+        service = $("#total").val();
+        total = $("#total").val();
+        vat = total / 10;
+        total_price = parseInt(total) + parseInt(vat);
+
+        $("#vat-text").text(vat.toLocaleString());
+        $("#total-price").text(total_price.toLocaleString());
+    });
+
+
+    $("#target1").click(function (){
+        var status = $(this).prop('checked');
+        if(status){
+            $("#target1_re").removeClass("target_re");
+            addition += 3000000;
+            additionYn1 = 1;
+        }
+        else{
+            $("#target1_re").addClass("target_re");
+            addition -= 3000000;
+            additionYn1 = 0;
+        }
+        calculate()
+    });
+    $("#target2").click(function (){
+        var status = $(this).prop('checked');
+        if(status){
+            $("#target3_re").removeClass("target_re");
+            addition += 3000000;
+            additionYn2 = 1;
+        }
+        else{
+            $("#target1_re").addClass("target_re");
+            addition -= 3000000;
+            additionYn2 = 0;
+        }
+        calculate()
+    });
+    $("#target3").click(function (){
+        var status = $(this).prop('checked');
+        if(status){
+            $("#target1_re").removeClass("target_re");
+            addition += 2500000;
+            additionYn3 = 1;
+        }
+        else{
+            $("#target1_re").addClass("target_re");
+            addition -= 2500000;
+            additionYn3 = 0;
+        }
+        calculate()
+    });
+
     $("#submit").click(function (){
+        var additionYn = "";
+        $("#total").val(total);
+        $("#vat").val(vat);
+        $("#total_price").val(total_price);
+        if(additionYn1){
+            additionYn += "|1"
+        }
+        if(additionYn2){
+            additionYn += "|2"
+        }
+        if(additionYn3){
+            additionYn += "|3"
+        }
+        $("#addition").val(additionYn);
+
         $("#step-form").submit();
     });
+
+    function calculate(){
+        total = parseInt(service) + parseInt(addition)
+        vat = total / 10;
+        total_price = parseInt(total) + parseInt(vat);
+
+        $("#total-text").text(total.toLocaleString());
+        $("#vat-text").text(vat.toLocaleString());
+        $("#total-price").text(total_price.toLocaleString());
+    }
+
+
+
 </script>
 
 <?php

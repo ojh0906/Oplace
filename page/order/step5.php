@@ -1,5 +1,6 @@
 <?php
 include_once('../../head.php');
+$mobile_agent = "/(iPod|iPhone|Android|BlackBerry|SymbianOS|SCH-M\d+|Opera Mini|Windows CE|Nokia|SonyEricsson|webOS|PalmOS)/";
 
 //접속 확인
 if(!isset($_SERVER['HTTP_REFERER']) && !isset($_SESSION['order_temp_id'])){
@@ -20,10 +21,50 @@ $sql_stt=$db_conn->prepare($sql);
 $sql_stt->execute();
 $order = $sql_stt -> fetch();
 
+// 서비스 명
+switch ($order[1]){
+    case 1:
+        $product_type = "도시 및 지역";
+        $price = 3500000;
+        break;
+    case 2:
+        $product_type = "주거 및 오피스";
+        $price = 3500000;
+        break;
+    case 3:
+        $product_type = "복합공간 및 리테일";
+        $price = 3500000;
+        break;
+    case 4:
+        $product_type = "리조트 및 테마파크";
+        $price = 3500000;
+        break;
+    case 5:
+        $product_type = "재생공간";
+        $price = 3500000;
+        break;
+}
+
+// 부가 서비스
+$addArr = explode("|", $order[2]);
+$addYn1 = false;
+$addYn2 = false;
+$addYn3 = false;
+
+for ($i = 0; $i < count($addArr); $i++) {
+    if($addArr[$i] == 1){
+        $addYn1 = true;
+    }else if($addArr[$i] == 2) {
+        $addYn2 = true;
+    }else if($addArr[$i] == 3) {
+        $addYn3 = true;
+    }
+}
 ?>
 
 <link rel="stylesheet" type="text/css" href="../../css/order.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="../../css/order-form.css" rel="stylesheet" />
+
 
 <!-- 결제 정보 확인 -->
 <section id="order-page">
@@ -53,8 +94,8 @@ $order = $sql_stt -> fetch();
                         <p>견적</p>
                     </div>
                     <div class="tr">
-                        <p>도시와 지역 컨셉 개발</p>
-                        <p><?php echo number_format(intval($order[1])); ?> 원</p>
+                        <p><?= $product_type ?></p>
+                        <p><?php echo number_format(intval($price)); ?> 원</p>
                     </div>
                 </aside>
                 <aside>
@@ -62,10 +103,24 @@ $order = $sql_stt -> fetch();
                         <p>추가된 부가 서비스</p>
                         <p>견적</p>
                     </div>
-                    <div class="tr">
+                    <?php if($addYn1){ ?>
+                    <div id="target1_re" class="tr">
                         <p>네이밍</p>
-                        <p><?php echo number_format(intval($order[2])); ?> 원</p>
+                        <p>3,000,000 원</p>
                     </div>
+                    <?php } ?>
+                    <?php if($addYn2){ ?>
+                    <div id="target2_re" class="tr">
+                        <p>로고 디자인</p>
+                        <p>3,000,000 원</p>
+                    </div>
+                    <?php } ?>
+                    <?php if($addYn3){ ?>
+                    <div id="target3_re" class="tr">
+                        <p>사업 컨셉 영</p>
+                        <p>2,500,000 원</p>
+                    </div>
+                    <?php } ?>
                 </aside>
                 <aside class="total-wrap">
                     <div class="price">
@@ -83,24 +138,37 @@ $order = $sql_stt -> fetch();
                     </div>
                 </aside>
             </div>
+            <form name="pay" id="pay" method="post">
+                <input type="hidden" name="MxID" value="" />
+                <input type="hidden" name="MxIssueNO" value="" />
+                <input type="hidden" name="FDTid" value="" />
+                <input type="hidden" name="productName" value="<?= $order[1] ?>" />
+                <input type="hidden" name="addition" value="<?= $order[2] ?>" />
+            </form>
             <form name="fdpay" id="fdpay" method="post">
-                <input type="text" name="PAYDATA" id="PAYDATA" value="">
-                <input type="text" name="MxID" id="MxID" value="testcorp">
-                <input type="text" name="MxIssueNO" id="MxIssueNO" value="">
-                <input type="text" name="MxIssueDate" id="MxIssueDate" value="" />
-                <input type="text" name="CcProdDesc" id="CcProdDesc" value="도시와 지역 컨셉 개발">
+                <input type="hidden" name="PAYDATA" id="PAYDATA" value="">
+                <input type="hidden" name="MxID" id="MxID" value="testcorp">
+                <input type="hidden" name="MxIssueNO" id="MxIssueNO" value="">
+                <input type="hidden" name="MxIssueDate" id="MxIssueDate" value="" />
+                <input type="hidden" name="CcProdDesc" id="CcProdDesc" value="<?= $product_type ?>">
 <!--                <input type="text" name="Amount" id="Amount" value="--><?//= $order[5] ?><!--" />-->
-                <input type="text" name="Amount" id="Amount" value="1000" />
-                <input type="text" name="ItemInfo" id="ItemInfo" value="1">
-                <input type="text" name="SelectPayment" id="SelectPayment" value="ALL">
-                <input type="text" name="CardSelect" id="CardSelect" value="00">
-                <input type="text" name="cashYn" id="cashYn" value="Y">
-                <input type="text" name="LangType" id="LangType" value="HAN">
-                <input type="text" name="EncodeType" id="EncodeType" value="U">
-                <input type="text" name="connectionType" id="connectionType" value="http">
-                <input type="text" name="URL" id="URL" value="<?php echo $site_url ?>">
-                <input type="text" name="DBPATH" id="DBPATH" value="<?php echo $site_url ?>/page/order/payment/integration/insert.php" />
-                <input type="text" name="rtnUrl" id="rtnUrl" value="<?php echo $site_url ?>/page/order/payment/integration/layer.php">
+                <input type="hidden" name="Amount" id="Amount" value="1000" />
+                <input type="hidden" name="addition" id="addition" value="1" />
+                <input type="hidden" name="ItemInfo" id="ItemInfo" value="1">
+                <input type="hidden" name="SelectPayment" id="SelectPayment" value="ALL">
+                <input type="hidden" name="CardSelect" id="CardSelect" value="00">
+                <input type="hidden" name="cashYn" id="cashYn" value="Y">
+                <input type="hidden" name="LangType" id="LangType" value="HAN">
+                <input type="hidden" name="EncodeType" id="EncodeType" value="U">
+                <input type="hidden" name="connectionType" id="connectionType" value="http">
+                <input type="hidden" name="URL" id="URL" value="<?php echo $site_url ?>">
+                <input type="hidden" name="DBPATH" id="DBPATH" value="<?php echo $site_url ?>/page/order/payment/integration/insert.php" />
+                <?php
+                if(preg_match($mobile_agent, $_SERVER['HTTP_USER_AGENT'])){?>
+                    <input type="hidden" name="rtnUrl" id="rtnUrl" value="<?php echo $site_url ?>/page/order/payment/integration/layer.php">
+                <?php } else {?>
+                    <input type="hidden" name="rtnUrl" id="rtnUrl" value="<?php echo $site_url ?>/page/order/payment/integration/layer.php">
+                <?php } ?>
             </form>
             <!-- 레이어 팝업 처리 시 화면 영역 시작 -->
             <div id="mask"></div>
@@ -117,8 +185,6 @@ $order = $sql_stt -> fetch();
             <!-- 레이어 팝업 처리 시 화면 영역 끝 -->
             <div class="next-btn">
                 <?php
-                $mobile_agent = "/(iPod|iPhone|Android|BlackBerry|SymbianOS|SCH-M\d+|Opera Mini|Windows CE|Nokia|SonyEricsson|webOS|PalmOS)/";
-
                 if(preg_match($mobile_agent, $_SERVER['HTTP_USER_AGENT'])){
                 ?>
                     <p onclick="payProcMobile()">결제 <img src="<?php echo $site_url ?>/img/order/arr-r.png" /></p>
@@ -138,7 +204,7 @@ $order = $sql_stt -> fetch();
 
 <script type="text/javascript" src="payment/integration/js/sha256.js"></script>
 <script>
-    var popflag = "P";									//P:팝업창 호출 결제, L:Layer 팝업 호출 결제(Default)
+    var popflag = "L";									//P:팝업창 호출 결제, L:Layer 팝업 호출 결제(Default)
     var keyData = "6aMoJujE34XnL9gvUqdKGMqs9GzYaNo6";	//가맹점 배포 PASSKEY 입력
 
     $(document).ready(function(){
@@ -223,33 +289,23 @@ $order = $sql_stt -> fetch();
 
     //결제하기 호출 시 처리 (Mobile)
     function payProcMobile(){
-        if(document.fdpay.PAYDATA.value == ""){
 
-            alert("전문 생성 후 결제 요청해 주세요.");
+        var frm = document.fdpay;
 
-        }else{
-            var frm = document.fdpay;
+        frm.acceptCharset = 'euc-kr';
+        if(document.all)document.charset = 'euc-kr';
 
-            frm.acceptCharset = 'euc-kr';
-            if(document.all)document.charset = 'euc-kr';
+        frm.action = "https://testpg.firstpay.co.kr/jsp/mobile.jsp";
+        frm.submit();
 
-            frm.action = "https://testpg.firstpay.co.kr/jsp/mobile.jsp";
-            frm.submit();
-        }
     }
     //결제하기 호출 시 처리 (PC)
     function payProcPC(){
-
-        if(document.fdpay.PAYDATA.value == ""){
-            alert("전문 생성 후 결제 요청해 주세요.");
-        }else{
-
-            if(popflag == "P"){	//POPUP 호출 시
-                window.open("payment/integration/pop.html","PAY_POP","width=560, height=602, scrollbars=1");
-            }else{				//LAYER 호출 시
-                FD_PAY_FRAME.location.href = "payment/integration/layer.php";	//FDK 결제 창 호출 페이지로 프레임 영역 변경
-                layer_open('fdpayWin');						//"FD_PAY_FRAME" 프레임을 가지고 있는 DIV 영역의 ID를 입력(sample 이용 시 : id="fdpayWin")
-            }
+        if(popflag == "P"){	//POPUP 호출 시
+            window.open("payment/integration/pop.html","PAY_POP","width=560, height=602, scrollbars=1");
+        }else{				//LAYER 호출 시
+            FD_PAY_FRAME.location.href = "payment/integration/layer.php";	//FDK 결제 창 호출 페이지로 프레임 영역 변경
+            layer_open('fdpayWin');						//"FD_PAY_FRAME" 프레임을 가지고 있는 DIV 영역의 ID를 입력(sample 이용 시 : id="fdpayWin")
         }
     }
 
@@ -307,15 +363,15 @@ $order = $sql_stt -> fetch();
             } );
         }
         if(rtncode == "0000"){
-
             var mxid = document.fdpay.MxID.value;
             var mxissueno = document.fdpay.MxIssueNO.value;
+            var product_name = document.fdpay.MxIssueNO.value;
 
             document.pay.MxID.value = mxid;
             document.pay.MxIssueNO.value = mxissueno;
             document.pay.FDTid.value = fdtid;
 
-            document.pay.action = "step5-1.php";
+            document.pay.action = "ajax/payment_order_insert.php";
             document.pay.submit();
         }else{
             alert("인증실패["+rtncode+"("+rtnmsg+")]");

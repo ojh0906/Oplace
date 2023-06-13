@@ -122,7 +122,7 @@ $db_conn->prepare($view_sql)->execute(
             </div>
         </div>
         <div class="more-btn">
-            자세히 알아보기<img class="more-icon1" src="<?php echo $site_url ?>/img/concept/arrow-white.png" />
+            <a href="concept/detail1.php">자세히 알아보기<img class="more-icon1" src="<?php echo $site_url ?>/img/concept/arrow-white.png" /></a>
         </div>
     </article>
 
@@ -146,7 +146,7 @@ $db_conn->prepare($view_sql)->execute(
             </div>
         </div>
         <div class="more-btn more-btn2">
-            자세히 알아보기<img class="more-icon1" src="<?php echo $site_url ?>/img/concept/arrow-gray.png" />
+            <a href="concept/detail2.php">자세히 알아보기<img class="more-icon1" src="<?php echo $site_url ?>/img/concept/arrow-gray.png" /></a>
         </div>
     </article>
 
@@ -170,7 +170,7 @@ $db_conn->prepare($view_sql)->execute(
             </div>
         </div>
         <div class="more-btn">
-            자세히 알아보기<img class="more-icon1" src="<?php echo $site_url ?>/img/concept/arrow-white.png" />
+            <a href="concept/detail3.php">자세히 알아보기<img class="more-icon1" src="<?php echo $site_url ?>/img/concept/arrow-white.png" /></a>
         </div>
     </article>
 
@@ -194,7 +194,7 @@ $db_conn->prepare($view_sql)->execute(
             </div>
         </div>
         <div class="more-btn more-btn2">
-            자세히 알아보기<img class="more-icon1" src="<?php echo $site_url ?>/img/concept/arrow-gray.png" />
+            <a href="concept/detail4.php">자세히 알아보기<img class="more-icon1" src="<?php echo $site_url ?>/img/concept/arrow-gray.png" /></a>
         </div>
     </article>
 
@@ -218,7 +218,7 @@ $db_conn->prepare($view_sql)->execute(
             </div>
         </div>
         <div class="more-btn">
-            자세히 알아보기<img class="more-icon1" src="<?php echo $site_url ?>/img/concept/arrow-white.png" />
+            <a href="concept/detail5.php">자세히 알아보기<img class="more-icon1" src="<?php echo $site_url ?>/img/concept/arrow-white.png" /></a>
         </div>
     </article>
 

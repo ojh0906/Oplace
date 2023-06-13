@@ -1,127 +1,66 @@
 <?php
 include_once('../../head.php');
+include_once('ajax/order_function.php');
+
+$user_login = "";
+if( isset( $_SESSION[ 'user_id' ] ) ) {
+    $user_login = TRUE;
+}
+else{
+    $user_login = FALSE;
+}
+if( !$user_login ) {
+    ?>
+    <script>
+        alert("접근 권한이 없습니다.");
+        location.href = 'step1.php';
+    </script>
+
+    <?
+}
+//회원정보
+$member_sql = "select * from order_member_tbl WHERE id = " .$_SESSION[ 'user_id' ];
+$member_stt=$db_conn->prepare($member_sql);
+$member_stt->execute();
+$member = $member_stt->fetch();
+
+// 리스트에 출력하기 위한 sql문
+$admin_sql = "select * from payment_order_tbl"
+            ." where member_fk = " .$_SESSION[ 'user_id' ]
+         ." order by id";
+$admin_stt=$db_conn->prepare($admin_sql);
+$admin_stt->execute();
+
 ?>
 
 <link rel="stylesheet" type="text/css" href="../../css/popup.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="../../css/orders.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="../../css/order.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="../../css/contact.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="../../css/order-form.css" rel="stylesheet" />
 
 <!-- 팝업 화면 -->
 <section class="layer-popup-wrap" id="order-popup">
-    <div class="layer-popup">
-        <img class="close-btn close-popup" src="<?php echo $site_url ?>/img/close-btn.png" />
-        <div class="order-data">
-            <div>
-                <p><span>주문번호</span> 2023-00000-00</p>
-                <p><span>이름</span> 홍길동전</p>
-                <p><span>이메일</span>hong@</p>
-                <p><span>휴대폰 번호</span> 010-1234-1234</p>
-            </div>
-            <div>
-                <p><span>서비스</span> 컨셉개발</p>
-                <div class="data-service">
-                    <p>
-                        <span>부가서비스</span>
-                    </p>
-                    <ul>
-                        <li>슬로건</li>
-                        <li>네이밍</li>
-                    </ul>
-                </div>
-                <p><span>결제 일자</span> 2023.00.00</p>
-                <p><span>결제 금액</span> 118,000,000원</p>
-            </div>
-        </div>
-
-        <div class="input-info">
-            <p class="title">입력 정보 및 첨부파일</p>
-            <div class="input-box">
-                <div class="input-wrap">
-                    <p class="input-title">회사 소개서</p>
-                    <input class="input-text" type="text" name="company"
-                        placeholder="기업 철학, 비즈니스 유형, 유사 개발 실적 외 회사 기본 정보 (회사 소개서 첨부 권장)" />
-                    <div class="input-btn">
-                        <label for="company-file">
-                            <img src="<?php echo $site_url ?>/img/attach.png" />
-                            파일 선택
-                        </label>
-                        <input id="company-file" name="company-file" type="file" />
-                    </div>
-                </div>
-                <div class="input-wrap">
-                    <p class="input-title">개발 현황</p>
-                    <input class="input-text" type="text" name="company"
-                        placeholder="주소, 면적, 평면도, 조감도, 입지분석, 지역 현황 (자료 첨부 권장)" />
-                    <div class="input-btn">
-                        <label for="company-file">
-                            <img src="<?php echo $site_url ?>/img/attach.png" />
-                            파일 선택
-                        </label>
-                        <input id="company-file" name="company-file" type="file" />
-                    </div>
-                </div>
-                <div class="input-wrap">
-                    <p class="input-title">개발 목표, 비전</p>
-                    <input class="input-text" type="text" name="company"
-                        placeholder="개발의 목표, 목적, 예상 효과, 업계에 미치는 영향, 확장 방향, 공공성(지역사회 역할 및 연계 부분)" />
-                    <div class="input-btn">
-                        <label for="company-file">
-                            <img src="<?php echo $site_url ?>/img/attach.png" />
-                            파일 선택
-                        </label>
-                        <input id="company-file" name="company-file" type="file" />
-                    </div>
-                </div>
-                <div class="input-wrap">
-                    <p class="input-title">시설 개요</p>
-                    <input class="input-text" type="text" name="company"
-                        placeholder="도입시설 구성의 목표와 방향성, 확정된 도입시설, 콘텐츠, MD 등의 정보 (자료 첨부 권장)" />
-                    <div class="input-btn">
-                        <label for="company-file">
-                            <img src="<?php echo $site_url ?>/img/attach.png" />
-                            파일 선택
-                        </label>
-                        <input id="company-file" name="company-file" type="file" />
-                    </div>
-                </div>
-                <div class="input-wrap">
-                    <p class="input-title">예상 타겟</p>
-                    <input class="input-text" type="text" name="company" placeholder="주요 예상 고객층, 도입시설별 예상 고객" />
-                    <div class="input-btn">
-                        <label for="target">
-                            <img src="<?php echo $site_url ?>/img/attach.png" />
-                            파일 선택
-                        </label>
-                        <input id="target" name="target" type="file" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
 
 <script>
-    $(document).ready(function () {
-        $(".close-popup").click(function () {
-            console.log('close-popup')
-            $(this).parent().parent().hide();
-        });
-    });
 
-    // 창열기
-    function todayOpen(winName) {
-        var obj = eval("window." + winName);
+
+    function detailPopup(member, orderNo) {
+        $.ajax({
+            type:'post',
+            url:'./ajax/order_detail_modal.php',
+            data:{member_id:member, orderNo: orderNo},
+            success:function(html){
+
+                $('.layer-popup-wrap').empty();
+                $('.layer-popup-wrap').html(html);
+                $(".layer-popup-wrap").css('display', 'flex');
+
+            }
+        });
     }
-    // 창닫기
-    function todayClose(winName, expiredays) {
-        setCookie(winName, "expire", expiredays);
-        var obj = eval("window." + winName);
-        $('#' + winName).hide();
-    }
-    function detailPopup() {
-        $(".layer-popup-wrap").css('display', 'flex');
-    }
+
 </script>
 
 
@@ -133,32 +72,62 @@ include_once('../../head.php');
     </article>
 
     <article class="contact-form order-form" id="orders-page">
+        <div class="logout-wrap">
+            <a href="ajax/logout.php">로그아웃</a>
+        </div>
+        <?php
+            while($list_row=$admin_stt->fetch()){
+
+                //부가서비스
+                $addArr = explode("|", $list_row['addition']);
+                $addYn1 = false;
+                $addYn2 = false;
+                $addYn3 = false;
+                for ($i = 0; $i < count($addArr); $i++) {
+                    if($addArr[$i] == 1){
+                        $addYn1 = true;
+                    }else if($addArr[$i] == 2) {
+                        $addYn2 = true;
+                    }else if($addArr[$i] == 3) {
+                        $addYn3 = true;
+                    }
+                }
+        ?>
         <div class="max order-data-box">
             <aside class="order-regdate-box">
                 <div class="num-regdate">
-                    <p><span>주문번호</span> 2023-11111-11</p>
+                    <p><span>주문번호</span> <?= $list_row['orderNo'] ?></p>
                     <p class="line">|</p>
-                    <p><span>결제일자</span> 2023.05.00</p>
+                    <p><span>결제일자</span> <?= dateTime($list_row['orderDate']) ?></p>
                 </div>
-                <p class="detail" onclick="detailPopup()">상세보기</p>
+                <p class="detail" onclick="detailPopup(<?= $member['id'] ?>, '<?= $list_row['orderNo'] ?>')">상세보기</p>
             </aside>
             <aside class="order-data">
                 <div>
-                    <p><span>이름</span> 홍길동전</p>
-                    <p><span>이메일</span>hong@</p>
+                    <p><span>이름</span> <?= $member['name'] ?></p>
+                    <p><span>이메일</span><?= $member['email'] ?></p>
                 </div>
                 <div>
-                    <p><span>휴대폰 번호</span> 010-1234-1234</p>
-                    <p><span>선택한 서비스</span> 컨셉개발</p>
+                    <p><span>휴대폰 번호</span> <?= $member['phone'] ?></p>
+                    <p><span>선택한 서비스</span> <?= productName($list_row['productName']) ?></p>
                 </div>
                 <div>
-                    <p><span>부가서비스</span> 슬로건</p>
-                    <p><span>결제 금액</span> 118,000,000원</p>
+                    <p><span>부가서비스</span>
+                        <?php
+                        if($addYn1){ echo "네이밍 / "; }
+                        if($addYn2){ echo "로고 디자인 / "; }
+                        if($addYn3){ echo "사업 컨셉 영상"; }
+                        ?>
+                    </p>
+                    <p><span>결제 금액</span> <?php echo number_format(intval($list_row['price'])); ?>원</p>
                 </div>
             </aside>
         </div>
+        <?php } ?>
     </article>
 </section>
+
+
 
 <?php
 include_once('../../tale.php');

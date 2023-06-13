@@ -1,5 +1,17 @@
 <?php
 include_once('../../head.php');
+
+//접속 확인
+if(!isset($_SERVER['HTTP_REFERER']) && !isset($_SESSION['MxIssueNO'])){
+    echo "<script>alert('허용되지 않는 잘못된 접근입니다.');</script>";
+    GoToMain();
+}
+$prevPage = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH);
+//TODO 아래 경로 "oplace" 수정해야함
+if($prevPage != '/Oplace/page/order/step5-1.php') {
+    echo "<script>alert('허용되지 않는 잘못된 접근입니다.');</script>";
+    GoToMain();
+}
 ?>
 
 <link rel="stylesheet" type="text/css" href="../../css/order.css" rel="stylesheet" />
@@ -48,8 +60,8 @@ include_once('../../head.php');
         var obj = eval("window." + winName);
         $('#' + winName).hide();
     }
-    function detailPopup() {
-        $(".layer-popup-wrap").css('display', 'flex');
+    function submit() {
+        $("#order-common").submit();
     }
 </script>
 
@@ -72,115 +84,124 @@ include_once('../../head.php');
             </div>
         </article>
 
-        <article class="order-container contact-form order-form" id="contact-page">
-            <p class="title">자료 첨부</p>
-            <p class="sub-tit">컨셉 개발을 위해 아래 자료를 요청드립니다. 자료를 첨부하시거나 내용을 적어 주십시오.</p>
+        <article class="order-container contact-form order-form" id="contact-page" >
+            <form id="order-common" method="post" action="ajax/order_common_file_insert.php" enctype="multipart/form-data">
+                <p class="title">자료 첨부</p>
+                <p class="sub-tit">컨셉 개발을 위해 아래 자료를 요청드립니다. 자료를 첨부하시거나 내용을 적어 주십시오.</p>
 
-            <!-- 개발 단계 -->
-            <div class="contact-form">
-                <div class="contact-container">
-                    <div class="field select-wrap">
-                        <p class="input-title">개발 단계</p>
-                        <div class="select">
-                            <input type="radio" id="field1" value="0" name="field" checked required>
-                            <label for="field1">
-                                <img class="off" src="<?php echo $site_url ?>/img/contact/offcheck.png" />
-                                <img class="on" src="<?php echo $site_url ?>/img/contact/oncheck.png" />
-                                <span>구상 단계</span>
-                            </label>
-                            <input type="radio" id="field2" value="1" name="field">
-                            <label for="field2">
-                                <img class="off" src="<?php echo $site_url ?>/img/contact/offcheck.png" />
-                                <img class="on" src="<?php echo $site_url ?>/img/contact/oncheck.png" />
-                                <span>개발 중</span>
-                            </label>
-                            <input type="radio" id="field3" value="2" name="field">
-                            <label for="field3">
-                                <img class="off" src="<?php echo $site_url ?>/img/contact/offcheck.png" />
-                                <img class="on" src="<?php echo $site_url ?>/img/contact/oncheck.png" />
-                                <span class="open-date">
-                                    완료 단계 / 오픈 예정일
-                                    <input type="date" id="date" name="date" />
-                                </span>
-                            </label>
+                <!-- 개발 단계 -->
+                <div class="contact-form">
+                    <div class="contact-container">
+                        <div class="field select-wrap">
+                            <p class="input-title">개발 단계</p>
+                            <div class="select">
+                                <input type="radio" id="field1" value="구상 단계" name="step" checked required>
+                                <label for="field1">
+                                    <img class="off" src="<?php echo $site_url ?>/img/contact/offcheck.png" />
+                                    <img class="on" src="<?php echo $site_url ?>/img/contact/oncheck.png" />
+                                    <span>구상 단계</span>
+                                </label>
+                                <input type="radio" id="field2" value="개발 중" name="step">
+                                <label for="field2">
+                                    <img class="off" src="<?php echo $site_url ?>/img/contact/offcheck.png" />
+                                    <img class="on" src="<?php echo $site_url ?>/img/contact/oncheck.png" />
+                                    <span>개발 중</span>
+                                </label>
+                                <input type="radio" id="field3" value="완료 단계" name="step">
+                                <label for="field3">
+                                    <img class="off" src="<?php echo $site_url ?>/img/contact/offcheck.png" />
+                                    <img class="on" src="<?php echo $site_url ?>/img/contact/oncheck.png" />
+                                    <span class="open-date">
+                                        완료 단계 / 오픈 예정일
+                                        <input type="date" id="date" name="date" value=""/>
+                                    </span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="input-info">
-                <div class="input-box">
-                    <div class="input-wrap">
-                        <p class="input-title">회사 소개</p>
-                        <input class="input-text" type="text" name="company"
-                            placeholder="기업 철학, 비즈니스 유형, 유사 개발 실적 외 회사 기본 정보 (회사 소개서 첨부 권장)" />
-                        <div class="input-btn">
-                            <label for="company-file">
-                                <img src="<?php echo $site_url ?>/img/attach.png" />
-                                파일 선택
-                            </label>
-                            <input id="company-file" name="company-file" type="file" />
+                <div class="input-info">
+                    <div class="input-box">
+                        <div class="input-wrap">
+                            <p class="input-title">회사 소개</p>
+                            <input class="input-text" type="text" name="company" required value=""
+                                placeholder="기업 철학, 비즈니스 유형, 유사 개발 실적 외 회사 기본 정보 (회사 소개서 첨부 권장)" />
+                            <div class="input-btn">
+                                <label for="company-file">
+                                    <img src="<?php echo $site_url ?>/img/attach.png" />
+                                    파일 선택
+                                </label>
+                                <input id="company-file" name="file0" type="file" onchange="checkSize(this)" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-wrap">
-                        <p class="input-title">개발 현황</p>
-                        <input class="input-text" type="text" name="company"
-                            placeholder="주소, 면적, 평면도, 조감도, 입지분석, 지역 현황 (자료 첨부 권장)" />
-                        <div class="input-btn">
-                            <label for="company-file">
-                                <img src="<?php echo $site_url ?>/img/attach.png" />
-                                파일 선택
-                            </label>
-                            <input id="company-file" name="company-file" type="file" />
+                        <div class="input-wrap">
+                            <p class="input-title">개발 현황</p>
+                            <input class="input-text" type="text" name="dev_status" required value=""
+                                placeholder="주소, 면적, 평면도, 조감도, 입지분석, 지역 현황 (자료 첨부 권장)" />
+                            <div class="input-btn">
+                                <label for="dev_status_file">
+                                    <img src="<?php echo $site_url ?>/img/attach.png" />
+                                    파일 선택
+                                </label>
+                                <input id="dev_status_file" name="file1" type="file" onchange="checkSize(this)" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-wrap">
-                        <p class="input-title">개발 목표, 비전</p>
-                        <input class="input-text" type="text" name="company"
-                            placeholder="개발의 목표, 목적, 예상 효과, 업계에 미치는 영향, 확장 방향, 공공성(지역사회 역할 및 연계 부분)" />
-                        <div class="input-btn">
-                            <label for="company-file">
-                                <img src="<?php echo $site_url ?>/img/attach.png" />
-                                파일 선택
-                            </label>
-                            <input id="company-file" name="company-file" type="file" />
+                        <div class="input-wrap">
+                            <p class="input-title">개발 목표, 비전</p>
+                            <input class="input-text" type="text" name="dev_goal" required value=""
+                                placeholder="개발의 목표, 목적, 예상 효과, 업계에 미치는 영향, 확장 방향, 공공성(지역사회 역할 및 연계 부분)" />
+                            <div class="input-btn">
+                                <label for="dev_goal_file">
+                                    <img src="<?php echo $site_url ?>/img/attach.png" />
+                                    파일 선택
+                                </label>
+                                <input id="dev_goal_file" name="file2" type="file" onchange="checkSize(this)" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-wrap">
-                        <p class="input-title">시설 개요</p>
-                        <input class="input-text" type="text" name="company"
-                            placeholder="도입시설 구성의 목표와 방향성, 확정된 도입시설, 콘텐츠, MD 등의 정보 (자료 첨부 권장)" />
-                        <div class="input-btn">
-                            <label for="company-file">
-                                <img src="<?php echo $site_url ?>/img/attach.png" />
-                                파일 선택
-                            </label>
-                            <input id="company-file" name="company-file" type="file" />
+                        <div class="input-wrap">
+                            <p class="input-title">시설 개요</p>
+                            <input class="input-text" type="text" name="facility" required value=""
+                                placeholder="도입시설 구성의 목표와 방향성, 확정된 도입시설, 콘텐츠, MD 등의 정보 (자료 첨부 권장)" />
+                            <div class="input-btn">
+                                <label for="facility_file">
+                                    <img src="<?php echo $site_url ?>/img/attach.png" />
+                                    파일 선택
+                                </label>
+                                <input id="facility_file" name="file3" type="file" onchange="checkSize(this)" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-wrap">
-                        <p class="input-title">예상 타겟</p>
-                        <input class="input-text" type="text" name="company" placeholder="주요 예상 고객층, 도입시설별 예상 고객" />
-                        <div class="input-btn">
-                            <label for="target">
-                                <img src="<?php echo $site_url ?>/img/attach.png" />
-                                파일 선택
-                            </label>
-                            <input id="target" name="target" type="file" />
+                        <div class="input-wrap">
+                            <p class="input-title">예상 타겟</p>
+                            <input class="input-text" type="text" name="target" required value=""
+                                   placeholder="주요 예상 고객층, 도입시설별 예상 고객" />
+                            <div class="input-btn">
+                                <label for="target_file">
+                                    <img src="<?php echo $site_url ?>/img/attach.png" />
+                                    파일 선택
+                                </label>
+                                <input id="target_file" name="file4" type="file" onchange="checkSize(this)" />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="next-btn">
-                <!--부가 서비스가 있을 경우 : 다음으로 -->
-                <p onclick="detailPopup()">제출하기<img src="<?php echo $site_url ?>/img/order/arr-r.png" /></p>
-            </div>
+                <div class="next-btn">
+                    <!--부가 서비스가 있을 경우 : 다음으로 -->
+                    <p onclick="submit()">제출하기<img src="<?php echo $site_url ?>/img/order/arr-r.png" /></p>
+                </div>
+            </form>
         </article>
     </div>
-
-
 </section>
+
+<script>
+    function checkSize(input) {
+        if (input.files && input.files[0].size > (15 * 1024 * 1024)) {
+            alert("파일 첨부는 15mb 이하만 가능합니다.");
+            input.value = null;
+        }
+    }
+</script>
 
 <?php
 include_once('../../tale.php');

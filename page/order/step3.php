@@ -42,9 +42,7 @@ if($prevPage != '/oplace/page/order/step2.php') {
                 <div class="term-box">
                     <p class="term-title">(필수) 이용 약관</p>
                     <div class="term-text">
-                        약관 내용이 들어가는 영역입니다.<br />
-                        약관 내용이 들어가는 영역입니다.<br />
-                        약관 내용이 들어가는 영역입니다.<br />
+                        <?php include_once('temp/temp.php'); ?>
                     </div>
                     <label class="term-checkbox">
                         <input id="target1" required name="target" type="checkbox" required/>
@@ -54,9 +52,7 @@ if($prevPage != '/oplace/page/order/step2.php') {
                 <div class="term-box">
                     <p class="term-title">(필수) 개인정보처리방침</p>
                     <div class="term-text">
-                        개인정보처리방침이 들어가는 영역입니다. 개인정보처리방침이 들어가는 영역입니다.
-                        개인정보처리방침이 들어가는 영역입니다. 개인정보처리방침이 들어가는 영역입니다.
-                        개인정보처리방침이 들어가는 영역입니다. 개인정보처리방침이 들어가는 영역입니다.
+                        <?php include_once('temp/policy.php'); ?>
                     </div>
                     <label class="term-checkbox">
                         <input id="target2" required name="target" type="checkbox" required/>
@@ -66,9 +62,16 @@ if($prevPage != '/oplace/page/order/step2.php') {
                 <div class="term-box">
                     <p class="term-title">(선택) 마케팅 정보제공</p>
                     <div class="term-text">
-                        약관 내용이 들어가는 영역입니다.<br />
-                        약관 내용이 들어가는 영역입니다.<br />
-                        약관 내용이 들어가는 영역입니다.<br />
+                        회사는 회원가입, 민원 등 고객상담 처리, 본인확인(14세 미만 아동 확인) 등 의사소통을 위한 정보 활용 및 이벤트 등과 같은 마케팅용도<br>
+                        활용, 회원의 서비스 이용에 대한 통계, 이용자들의 개인정보를 통한 서비스 개발을 위해 아래와 같은 개인정보를 수집하고 있습니다.<br>
+                        <br>
+                        1. - 목적 : 이용자 식별 및 본인여부 확인<br>
+                        - 항목 : 이름, 아이디, 비밀번호,닉네임, 이메일, 휴대폰번호, 주소, 전화번호 등<br>
+                        - 보유 및 이용기간 : 회원탈퇴 후 5일까지<br>
+                        <br>
+                        2. – 목적 : 민원 등 고객 고충처리<br>
+                        - 항목 : 이름, 아이디, 이메일, 휴대폰번호, 전화번호, 주소, 구매자정보,결제정보,상품 구매/취소/교환/반품/환불 정보, 수령인정보<br>
+                        - 보유 및 이용기간 : 회원탈퇴 후 5일까지
                     </div>
                     <label class="term-checkbox">
                         <input id="target3" name="target" type="checkbox" required/>
